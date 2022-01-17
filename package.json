@@ -6,7 +6,7 @@
 		"build": "next build",
 		"export": "next export",
 		"build-static-page": "next build",
-		"start": "next start -p 3555",
+		"start": "NODE_ENV=production node server.js",
 		"heroku-postbuild": "npm run build"
 	},
 	"dependencies": {
