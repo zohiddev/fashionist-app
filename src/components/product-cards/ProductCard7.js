@@ -41,6 +41,7 @@ const ProductCard7 = ({ lang, product, ...props }) => {
 				size={140}
 				display="block"
 				alt={product?.name_uz}
+				quality="85"
 			/>
 			<FlexBox
 				className="product-details"

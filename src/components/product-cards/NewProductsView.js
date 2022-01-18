@@ -21,6 +21,7 @@ const NewProductsView = (product) => {
 						height={100}
 						layout="responsive"
 						alt={product?.name_uz}
+						quality="85"
 					/>
 				</HoverBox>
 				{/* <H4 fontWeight="600" fontSize="14px" mb="0.25rem">

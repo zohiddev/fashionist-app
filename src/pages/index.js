@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import NewProducts from "components/home/NewProducts"
+// import NewProducts from "components/home/NewProducts"
 import Services from "components/home/Services"
 import Smartphones from "components/home/Smartphones"
 import SomeProducts from "components/home/SomeProducts"
@@ -24,7 +24,7 @@ const IndexPage = ({
 	slides,
 	featuredCategories,
 	mostViewedProducts,
-	newProducts,
+	// newProducts,
 	smartphones,
 	recommendedProducts
 }) => {
@@ -38,7 +38,7 @@ const IndexPage = ({
 		dispatch(setSlides(slides))
 		dispatch(setCategories2(featuredCategories))
 		dispatch(setMostVieweddProducts(mostViewedProducts))
-		dispatch(setNewProducts(newProducts))
+		// dispatch(setNewProducts(newProducts))
 		dispatch(setSmartphones(smartphones))
 		dispatch(setRecommendedProducts(recommendedProducts))
 		getCartItems()(dispatch)
@@ -50,7 +50,7 @@ const IndexPage = ({
 			<SliderHero /> {/* slider banner */}
 			<TopCategories /> {/* top categories */}
 			<MostViewed /> {/* most viewed */}
-			<NewProducts />
+			{/* <NewProducts /> */}
 			<Smartphones /> {/* smartphones */}
 			<SliderLower /> {/* slider banner */}
 			<SomeProducts />
@@ -69,7 +69,7 @@ export async function getServerSideProps() {
 			slidesRes,
 			featuredCategoriesRes,
 			mostViewedProductsRes,
-			newProductsRes,
+			// newProductsRes,
 			smartphonesRes,
 			recommendedProductsRes
 		] = await Promise.all([
@@ -78,9 +78,9 @@ export async function getServerSideProps() {
 		fetch("https://api.sdb.uz/dev/v1/events/list"),
 		fetch("https://api.sdb.uz/dev/v1/category/featured"),
 		fetch("https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9"),
-		fetch("https://api.sdb.uz/dev/v1/product/list?sort=id,desc&per_page=9"),
-		fetch("https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12"),
-		fetch("https://api.sdb.uz/dev/v1/product/list?type=recommended&per_page=12"),
+		// fetch("https://api.sdb.uz/dev/v1/product/list?sort=id,desc&per_page=9"),
+		fetch("https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=8"),
+		fetch("https://api.sdb.uz/dev/v1/product/list?type=recommended&per_page=8"),
 	])
 	const [
 			categories,
@@ -88,7 +88,7 @@ export async function getServerSideProps() {
 			slides,
 			featuredCategories,
 			mostViewedProducts,
-			newProducts,
+			// newProducts,
 			smartphones,
 			recommendedProducts
 		] = await Promise.all([
@@ -97,7 +97,7 @@ export async function getServerSideProps() {
 		slidesRes.json(),
 		featuredCategoriesRes.json(),
 		mostViewedProductsRes.json(),
-		newProductsRes.json(),
+		// newProductsRes.json(),
 		smartphonesRes.json(),
 		recommendedProductsRes.json(),
 
@@ -109,7 +109,7 @@ export async function getServerSideProps() {
 			slides: slides?.events,
 			featuredCategories: featuredCategories?.categories,
 			mostViewedProducts: mostViewedProducts?.products,
-			newProducts: newProducts?.products,
+			// newProducts: newProducts?.products,
 			smartphones: smartphones?.products,
 			recommendedProducts: recommendedProducts?.products
 		},

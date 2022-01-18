@@ -47,6 +47,7 @@ const MostViewed = () => {
 												alt={item?.name_uz}
 												width={100}
 												height={100}
+												quality="85"
 											/>
 										</HoverBox>
 

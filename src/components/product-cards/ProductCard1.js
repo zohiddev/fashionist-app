@@ -97,6 +97,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 							alt={product?.name_uz}
 							width={100}
 							height={100}
+							quality="85"
 						/>
 					</a>
 				</Link>

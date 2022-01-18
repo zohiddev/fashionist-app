@@ -55,6 +55,7 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 						<Box>
 							<FlexBox justifyContent="center" mb="50px">
 								<Image
+									quality="85"
 									width={300}
 									height={300}
 									src={product?.images[selectedImage]}

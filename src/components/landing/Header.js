@@ -113,6 +113,7 @@ const Header = () => {
 								height="44px"
 								src="/assets/images/logo.svg"
 								alt="logo"
+								quality="85"
 							/>
 						</Box>
 					</Scroll>

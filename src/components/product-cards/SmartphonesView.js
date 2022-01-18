@@ -119,6 +119,7 @@ const SmartphonesView = ({
 							alt={product?.name_uz}
 							width={100}
 							height={100}
+							quality="85"
 						/>
 					</a>
 				</Link>

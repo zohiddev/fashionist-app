@@ -53,6 +53,7 @@ const Brands = () => {
 											width={"100%"}
 											objectFit="contain"
 											height={90}
+											quality="85"
 										/>
 
 										<H3

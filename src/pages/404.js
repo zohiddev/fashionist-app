@@ -27,6 +27,7 @@ const Error404 = () => {
 				maxWidth="320px"
 				width="100%"
 				mb="2rem"
+				quality="85"
 			/>
 			<FlexBox flexWrap="wrap">
 				<Button

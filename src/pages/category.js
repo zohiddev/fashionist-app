@@ -32,6 +32,7 @@ export default function Category({data}) {
 				<AccordionHeader px="0px" py="10px">
 					<FlexBox alignItems='center'>
 						<Image
+							quality="85"
 							loader={myLoader}
 							src={item?.image}
 							layout="fixed"

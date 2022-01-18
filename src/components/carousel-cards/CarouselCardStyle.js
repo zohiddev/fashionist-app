@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const StyledCarouselCard1 = styled.div`
   text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
   padding: 2rem 0 1rem 0;
 
   .title {
