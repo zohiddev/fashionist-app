@@ -3,8 +3,7 @@ const { createServer } = require("http")
 const { parse } = require("url")
 const next = require("next")
 
-const dev = process.env.NODE_ENV !== "production"
-const app = next({ dev })
+const app = next({})
 const handle = app.getRequestHandler()
 const PORT = 3555
 app.prepare().then(() => {
