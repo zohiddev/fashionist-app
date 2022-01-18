@@ -34,8 +34,16 @@ export default class extends Document {
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;900&display=swap"
-            rel="stylesheet"
+            rel="preload"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
           />
+			<noscript>
+				<link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;900&display=swap"
+				/>
+			</noscript>
           <link
             rel="apple-touch-icon"
             sizes="180x180"
