@@ -57,7 +57,6 @@ export const addToCart = (item) => {
 			dispatch(setLoading(false))
 		})
 		.catch(function(error){
-			console.log(error)
 			dispatch(setLoading(false))
 		})
 	}
@@ -72,7 +71,6 @@ export const removeToCart = (id) => {
 			dispatch(setLoading(false))
 		})
 		.catch(function(error){
-			console.log(error)
 			dispatch(setLoading(false))
 		})
 	}
@@ -87,7 +85,6 @@ export const deleteToCart = (id) => {
 			dispatch(setLoading(false))
 		})
 		.catch(function(error){
-			console.log(error)
 			dispatch(setLoading(false))
 		})
 	}
@@ -102,7 +99,6 @@ export const clearCart = () => {
 			dispatch(setLoading(false))
 		})
 		.catch(function(error){
-			console.log(error)
 			dispatch(setLoading(false))
 		})
 	}

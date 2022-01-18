@@ -1,7 +1,6 @@
 import Box from "components/Box"
 import Card from "components/Card"
 import MenuItem from "components/MenuItem"
-import navbarNavigations from "data/navbarNavigations"
 import React from "react"
 import Container from "../Container"
 import FlexBox from "../FlexBox"

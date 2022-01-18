@@ -8,10 +8,7 @@ import useWindowSize from "hooks/useWindowSize"
 import Image from "next/image"
 import Link from "next/link"
 import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import {
-	getNewProducts,
-} from "reducers/productsReducer"
+import {  useSelector } from "react-redux"
 import CategorySectionCreator from "../CategorySectionCreator"
 
 const MostViewed = () => {
@@ -19,8 +16,6 @@ const MostViewed = () => {
 	const lang = useSelector(state => state.lang.lang)
 	const [visibleSlides, setVisibleSlides] = useState(6)
 	const width = useWindowSize()
-	const dispatch = useDispatch()
-
 	const myLoader = ({ src, width, quality }) => {
 		return `${src}?w=${width}&q=${quality || 75}`
 	}
@@ -30,8 +25,6 @@ const MostViewed = () => {
 		else if (width < 650) setVisibleSlides(2)
 		else if (width < 950) setVisibleSlides(4)
 		else setVisibleSlides(5)
-
-		// getNewProducts()(dispatch)
 	}, [width])
 
 	return (
@@ -87,19 +80,6 @@ const MostViewed = () => {
 												).toLocaleString()}
 												<span> UZS</span>
 											</H4>
-
-											{/* <H4
-												fontWeight="600"
-												fontSize="14px"
-												color="text.muted"
-											>
-												<del>
-													$
-													{Math.ceil(
-														item.price
-													).toLocaleString()}
-												</del>
-											</H4> */}
 										</FlexBox>
 									</a>
 								</Link>

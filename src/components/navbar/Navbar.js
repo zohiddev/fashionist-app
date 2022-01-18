@@ -1,8 +1,6 @@
-import Badge from "components/badge/Badge"
 import Box from "components/Box"
 import { StyledCategoryMenuItem } from "components/categories/category-menu-item/CategoryMenuItemStyle"
 import MenuItem from "components/MenuItem"
-import navbarNavigations from "data/navbarNavigations"
 import React from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-scroll"
@@ -108,7 +106,7 @@ const Card = ({ onClick, mouseIn, mouseOut, category, lang }) => {
 
 					}}
 				>
-					{category.image && <img src={category.image?.replace(/https:\/\/api.sdb.uz/gi, "http://api.sdb.uz")} alt=""/>}
+					{category.image && <img src={category.image?.replace(/https:\/\/api.sdb.uz/gi, "https://api.sdb.uz")} alt=""/>}
 					<div className="title" style={{ padding: '20px', lineHeight: 1.2 }}>{lang === 'uz' ? category[`name_${'uz'}`] : category[`name_${'ru'}`]}</div>
 					<Icon variant="small" style={{ display: 'flex', alignItems: 'center'}}>chevron-down</Icon>
 				</div>
@@ -129,7 +127,6 @@ const Arrow = ({ side='left' }) => {
 				else
 					!isLastItemVisible && scrollNext()
 
-				console.log('qwafdc')
 			}}
 		>
 			<Icon variant="small">{`chevron-${side}`}</Icon>

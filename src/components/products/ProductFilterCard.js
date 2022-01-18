@@ -6,7 +6,6 @@ import Card from "../Card"
 import CheckBox from "../CheckBox"
 import Divider from "../Divider"
 import FlexBox from "../FlexBox"
-import Rating from "../rating/Rating"
 import TextField from "../text-field/TextField"
 import { H5, H6, Paragraph, SemiSpan } from "../Typography"
 import { useSelector } from 'react-redux';
@@ -27,8 +26,6 @@ const ProductFilterCard = ({subCats, categoryBrands , categoryAttributes, brandC
 			setBrand_ids(brand_ids.filter(item => item !== e.target.value))
 		}
 	}
-
-	console.log(subCats)
 
 	const handleAttr = (e) => {
 		if(e.target.checked){

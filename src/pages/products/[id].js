@@ -7,7 +7,6 @@ import Hidden from "components/hidden/Hidden"
 import Icon from "components/icon/Icon"
 import NavbarLayout from "components/layout/NavbarLayout"
 import ProductCard1List from "components/products/ProductCard1List"
-import ProductCard9List from "components/products/ProductCard9List"
 import ProductFilterCard from "components/products/ProductFilterCard"
 import Select from "components/Select"
 import Sidenav from "components/sidenav/Sidenav"
@@ -35,8 +34,6 @@ const ProductSearchResult = ({ data, rest }) => {
 	const handleSelectChange = (e) => {
 		setSortValue(e.value)
 	}
-
-	console.log(data)
 
 	useEffect(() => {
 			if(sortValue === '' || sortValue === 'all'){
@@ -175,7 +172,6 @@ export async function getServerSideProps({ params, query }) {
 			`https://api.sdb.uz/dev/v1/category/${params.id}?per_page=15${query.page ? `&page=${query.page}` : ''}${query.brand_ids ? `&brand_ids=${query.brand_ids}` : ''}${query.attr ? `&attr=${query.attr}` : ''}${query.sort_by ? `&sort=${query.sort_by},${query.order_type}` : ''}`
 		)
 		const data = await res.json()
-		console.log(res)
 		return {
 			props: {
 				data: data,
@@ -187,7 +183,6 @@ export async function getServerSideProps({ params, query }) {
 			`https://api.sdb.uz/dev/v1/product/list?per_page=15&page=${query.page}${query.brand ? `&brand_ids=${query.brand}` : ''}${query.sort_by ? `&sort=${query.sort_by},${query.order_type}` : ''}${query.views ? `&sort=${query.views}` : ''}${query.news ? `&sort=${query.news}` : ''}${query.type ? `&type=${query.type}` : ''}${query.search ? `&type=default&search=${query.search}` : ''}`
 		)
 		const data = await res.json()
-		console.log(res)
 		return {
 			props: {
 				data: data,
@@ -198,5 +193,3 @@ export async function getServerSideProps({ params, query }) {
 }
 
 export default ProductSearchResult
-
-// http://localhost:3000/products/smartfon-va-telefonlar?sort-by=price&order-type=asc

@@ -63,7 +63,6 @@ export const getUser = () =>{
 			}
 			dispatch({ type: HIDE_LOADER })
 		}).catch(error => {
-			console.log(error)
 			dispatch({ type: HIDE_LOADER })
 		})
 	}
@@ -80,7 +79,6 @@ export const updateUser = (user, callback) =>{
 				callback && callback("Error message")
 			}
 		}).catch(error => {
-			console.log(error)
 			dispatch({ type: HIDE_LOADER })
 		})
 	}

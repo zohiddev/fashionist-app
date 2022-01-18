@@ -5,7 +5,6 @@ import { StyledCarouselCard1 } from "./CarouselCardStyle"
 import Link from 'next/link'
 
 const CarouselCard1 = ({ slide }) => {
-	console.log(slide)
 	return (
 		<StyledCarouselCard1>
 			{/* <div> */}

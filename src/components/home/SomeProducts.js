@@ -1,21 +1,15 @@
-import React, { useEffect } from "react"
-import productDatabase from "data/product-database"
+import React from "react"
 import CategorySectionHeader from "../CategorySectionHeader"
 import Container from "../Container"
 import Grid from "../grid/Grid"
 import ProductCard1 from "../product-cards/ProductCard1"
-import { useDispatch, useSelector } from "react-redux"
-import { getRecommendedProducts } from './../../reducers/productsReducer';
+import { useSelector } from "react-redux"
 import useWindowSize from './../../hooks/useWindowSize';
 
 const SomeProducts = () => {
 	const state = useSelector((state) => state.products)
 	const lang = useSelector((state) => state.lang.lang)
-	const dispatch = useDispatch()
 	const window = useWindowSize()
-	useEffect(() => {
-		// getRecommendedProducts()(dispatch)
-	}, [dispatch])
 
 	return (
 		<Container mb={window < 568 ? "1.75rem" : "3.75rem"}>

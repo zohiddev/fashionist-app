@@ -3,7 +3,6 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useState } from "react"
 import * as yup from "yup"
-import countryList from "../../data/countryList"
 import Button from "../buttons/Button"
 import { Card1 } from "../Card1"
 import CheckBox from "../CheckBox"
@@ -17,7 +16,6 @@ const CheckoutForm = () => {
 	const router = useRouter()
 
 	const handleFormSubmit = async (values) => {
-		// console.log(values)
 		router.push("/payment")
 	}
 

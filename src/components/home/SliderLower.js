@@ -2,21 +2,13 @@ import Box from "components/Box"
 import CarouselCard1 from "components/carousel-cards/CarouselCard1"
 import Carousel from "components/carousel/Carousel"
 import Container from "components/Container"
-import Navbar from "components/navbar/Navbar"
-import React, { Fragment, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getSlides } from "reducers/slidesReducer"
+import React, { Fragment } from "react"
+import {  useSelector } from "react-redux"
 import useWindowSize from './../../hooks/useWindowSize';
 
 const SliderLower = () => {
 	const state = useSelector((state) => state.slides)
 	const window = useWindowSize()
-
-	const dispatch = useDispatch()
-
-	useEffect(() => {
-		getSlides()(dispatch)
-	}, [dispatch])
 
 	return (
 		<Fragment>

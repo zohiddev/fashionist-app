@@ -5,8 +5,6 @@ import { useSelector } from 'react-redux';
 
 const ProductDescription = ({desc, attributes}) => {
 	const lang = useSelector(state => state.lang.lang)
-	console.log(desc, "desc")
-	console.log(attributes, 'attributes')
 	return (
 		<>
 			{

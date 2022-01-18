@@ -9,7 +9,6 @@ import { Chip } from "../Chip"
 import FlexBox from "../FlexBox"
 import Icon from "../icon/Icon"
 import Modal from "../modal/Modal"
-import Rating from "../rating/Rating"
 import { H3, SemiSpan } from "../Typography"
 import { StyledProductCard1 } from "./ProductCardStyle"
 import { useDispatch, useSelector } from "react-redux"
@@ -142,13 +141,6 @@ const SmartphonesView = ({
 								</H3>
 							</a>
 						</Link>
-
-						{/* <Rating
-							value={rating || 0}
-							outof={5}
-							color="warn"
-							readonly
-						/> */}
 
 						<FlexBox alignItems="center" mt="10px">
 							<SemiSpan

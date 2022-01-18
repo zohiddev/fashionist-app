@@ -1,6 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react"
-import Banner from "components/home/Banner"
-import DiscountedProducts from "components/home/DiscountedProducts"
+import React, { useEffect } from "react"
 import NewProducts from "components/home/NewProducts"
 import Services from "components/home/Services"
 import Smartphones from "components/home/Smartphones"
@@ -19,15 +17,6 @@ import { setMostVieweddProducts, setRecommendedProducts } from "reducers/product
 import { setNewProducts, setSmartphones } from './../reducers/productsReducer';
 import { getCartItems } from './../reducers/cartReducer';
 import {setLang} from 'reducers/LangReducer'
-import { MobileCategoryNavStyle } from 'components/mobile-category-nav/MobileCategoryNavStyle';
-import Box from 'components/Box';
-import Typography  from 'components/Typography';
-import Divider from 'components/Divider';
-import Accordion from 'components/accordion/Accordion';
-import AccordionHeader  from 'components/accordion/AccordionHeader';
-import Grid from 'components/grid/Grid';
-import Link from "next/link"
-import Image from "next/image"
 
 const IndexPage = ({
 	items,
@@ -60,14 +49,10 @@ const IndexPage = ({
 		<main>
 			<SliderHero /> {/* slider banner */}
 			<TopCategories /> {/* top categories */}
-			{/* <TopRatings /> top ratings */}
 			<MostViewed /> {/* most viewed */}
 			<NewProducts />
-			{/* <DiscountedProducts /> Discounted products */}
 			<Smartphones /> {/* smartphones */}
-			{/* <Banner /> banner */}
 			<SliderLower /> {/* slider banner */}
-			{/* <SomeCategories /> some categories */}
 			<SomeProducts />
 			<Brands /> {/* products */}
 			<Services /> {/* services worldwide delivsery */}

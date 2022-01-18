@@ -27,7 +27,7 @@ export const setLoading = (loading) => ({ type: SET_LOADING, loading })
 export const getSlides = () => {
 	return async (dispatch) => {
 		dispatch(setLoading(true))
-		axios.get("http://89.223.122.61:3333/dev/v1/events/list")
+		axios.get("https://api.sdb.uz/dev/v1/events/list")
 			.then(function (response) {
 				if (!response?.data?.error) {
 					dispatch(setSlides(response.data.events))

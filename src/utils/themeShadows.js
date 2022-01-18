@@ -31,6 +31,5 @@ shadows.small = "0px 1px 3px rgba(3, 0, 71, 0.09)";
 shadows.regular = "0px 4px 16px rgba(43, 52, 69, 0.1)";
 shadows.large = "0px 8px 45px rgba(3, 0, 71, 0.09)";
 shadows.border = "0px 0px 28px rgba(3, 0, 71, 0.04)";
-shadows.badge = "0px 8px 20px -5px rgba(255, 103, 128, 0.9)";
 
 export default shadows;

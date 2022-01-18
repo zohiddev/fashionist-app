@@ -1,18 +1,13 @@
 import Avatar from "components/avatar/Avatar"
-import Box from "components/Box"
 import Card from "components/Card"
 import FlexBox from "components/FlexBox"
 import TextField from "components/text-field/TextField"
-import { format } from "date-fns"
 import { Formik } from "formik"
-import NextImage from "next/image"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
-import * as yup from "yup"
 import Button from "../buttons/Button"
 import { Card1 } from "../Card1"
 import Grid from "../grid/Grid"
-import Select from "../Select"
 import Typography, { H6, Paragraph } from "../Typography"
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from 'reducers/userReducer';
@@ -72,7 +67,6 @@ const CheckoutForm2 = () => {
 		}
 	}
 
-	console.log(orderData)
 
 	useEffect(() => {
 		getUser()(dispatch)
@@ -105,63 +99,6 @@ const CheckoutForm2 = () => {
 							onChange={handleAdressChange}
 							style={{borderColor: isValidate.address ? 'red' : '#AEB4BE'}}
 						/>
-
-						{/* <Box mb="1.75rem">
-							<Grid container spacing={6}>
-								<Grid item sm={6} xs={12}>
-									<Select
-										label="Delivery Date"
-										options={dateList}
-										value={values.date || ""}
-										onChange={(date) => {
-											setFieldValue("date", date)
-										}}
-										errorText={touched.date && errors.date}
-									/>
-								</Grid>
-								<Grid item sm={6} xs={12}>
-									<Select
-										label="Delivery Time"
-										options={timeList}
-										value={values.time || ""}
-										onChange={(time) => {
-											setFieldValue("time", time)
-										}}
-										errorText={touched.time && errors.time}
-									/>
-								</Grid>
-							</Grid>
-						</Box> */}
-
-						{/* <Typography mb="0.75rem">Delivery Address</Typography>
-						<Grid container spacing={6}>
-							{addressList.map((item, ind) => (
-								<Grid item md={4} sm={6} xs={12} key={ind}>
-									<Card
-										bg="gray.100"
-										p="1rem"
-										boxShadow="none"
-										border="1px solid"
-										cursor="pointer"
-										borderColor={
-											item.address === values.address
-												? "primary.main"
-												: "transparent"
-										}
-										onClick={handleFieldValueChange(
-											item.address,
-											"address",
-											setFieldValue
-										)}
-									>
-										<H6 mb="0.25rem">{item.addressType}</H6>
-										<Paragraph color="gray.700">
-											{item.address}
-										</Paragraph>
-									</Card>
-								</Grid>
-							))}
-						</Grid> */}
 					</Card1>
 
 					<Card1 mb="1.5rem">
@@ -188,13 +125,6 @@ const CheckoutForm2 = () => {
 							value={orderData.delivery_phone}
 							style={{borderColor: isValidate.phone ? 'red' : '#AEB4BE'}}
 							onChange={handlePhoneChange}
-							// onBlur={handleBlur}
-							// onChange={handleChange}
-							// value={values.shipping_address1 || ""}
-							// errorText={
-							// 	touched.shipping_address1 &&
-							// 	errors.shipping_address1
-							// }
 						/>
 
 						<Grid container spacing={6}>

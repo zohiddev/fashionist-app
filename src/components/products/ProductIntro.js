@@ -9,7 +9,6 @@ import Button from "../buttons/Button"
 import FlexBox from "../FlexBox"
 import Grid from "../grid/Grid"
 import Icon from "../icon/Icon"
-import Rating from "../rating/Rating"
 import { H1, H2, H3, H6, SemiSpan } from "../Typography"
 import { useDispatch, useSelector } from 'react-redux'
 import { setIsActive } from 'reducers/userReducer';
@@ -105,14 +104,6 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 						<FlexBox alignItems="center" mb="1rem">
 							<SemiSpan>Brand:</SemiSpan>
 							<H6 ml="8px">{lang === 'uz' ? product?.brand?.name_uz : product?.brand?.name_ru}</H6>
-						</FlexBox>
-
-						<FlexBox alignItems="center" mb="1rem">
-							<SemiSpan>Rated:</SemiSpan>
-							<Box ml="8px" mr="8px">
-								<Rating color="warn" value={4} outof={5} />
-							</Box>
-							<H6>(50)</H6>
 						</FlexBox>
 
 						<Box mb="24px">

@@ -43,9 +43,8 @@ export const setCategoryNav = (bool) => ({ type: SET_CATEGORY_NAV, bool })
 export const getCategories = () => {
 	return async (dispatch) => {
 		axios
-			.get("http://89.223.122.61:3333/dev/v1/category/list")
+			.get("https://api.sdb.uz/dev/v1/category/list")
 			.then(function (response) {
-				// console.log(response)
 				dispatch(setCategories(response.data.categories))
 			})
 			.catch(function (error) {
@@ -58,7 +57,7 @@ export const getFeaturedCategories = () => {
 	return async (dispatch) => {
 		dispatch(setLoading(true))
 		axios
-			.get("http://89.223.122.61:3333/dev/v1/category/featured")
+			.get("https://api.sdb.uz/dev/v1/category/featured")
 			.then(function (response) {
 				if (!response?.data?.error) {
 					dispatch(setCategories2(response.data.categories))

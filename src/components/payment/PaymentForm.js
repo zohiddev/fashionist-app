@@ -24,7 +24,6 @@ const PaymentForm = () => {
   const isMobile = width < 769;
 
   const handleFormSubmit = async (values) => {
-    console.log(values);
     router.push("/payment");
   };
 

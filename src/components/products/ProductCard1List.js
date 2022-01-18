@@ -1,4 +1,3 @@
-import productDatabase from "data/product-database"
 import React from "react"
 import FlexBox from "../FlexBox"
 import Grid from "../grid/Grid"

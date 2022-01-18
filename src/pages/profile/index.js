@@ -31,8 +31,6 @@ const Profile = () => {
 		getUser()(dispatch)
 	}, [router])
 
-	console.log(state)
-
 	const infoList = [
 		{
 			title: state?.user?.orders?.length,

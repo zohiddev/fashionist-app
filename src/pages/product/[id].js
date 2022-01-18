@@ -3,7 +3,6 @@ import FlexBox from "components/FlexBox"
 import NavbarLayout from "components/layout/NavbarLayout"
 import ProductDescription from "components/products/ProductDescription"
 import ProductIntro from "components/products/ProductIntro"
-import ProductReview from "components/products/ProductReview"
 import RelatedProducts from "components/products/RelatedProducts"
 import { H5 } from "components/Typography"
 import React, { useState } from "react"
@@ -16,8 +15,6 @@ const ProductDetails = ({ data }) => {
 	const handleOptionClick = (opt) => () => {
 		setSelectedOption(opt)
 	}
-
-	console.log(data)
 
 	return (
 		<div>
@@ -85,7 +82,6 @@ const ProductDetails = ({ data }) => {
 				<Box mb="50px">
 					{selectedOption === "description" && <ProductDescription desc={lang === 'uz' ? data?.product?.description_uz : data?.product?.description_ru}/>}
 					{selectedOption === "attributes" && <ProductDescription  attributes={data?.product?.attributes}/>}
-					{/* {selectedOption === "review" && <ProductReview />} */}
 				</Box>
 
 				{

@@ -13,7 +13,6 @@ import Select from "components/Select"
 import TextField from "components/text-field/TextField"
 import TextArea from "components/textarea/TextArea"
 import Typography from "components/Typography"
-import countryList from "data/countryList"
 import { useSelector, useDispatch } from 'react-redux';
 import Container from './../components/Container';
 import { getCartItems } from './../reducers/cartReducer';
@@ -24,7 +23,6 @@ const Cart = (props) => {
 	const cartList = state?.cart?.cartList
 	const dispatch = useDispatch()
 	const lang = state?.lang?.lang
-	console.log(cartList)
 
 	useEffect(() => {
 		getCartItems()(dispatch)

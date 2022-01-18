@@ -10,7 +10,6 @@ import DashboardLayout from "components/layout/CustomerDashboardLayout"
 import DashboardPageHeader from "components/layout/DashboardPageHeader"
 import TableRow from "components/TableRow"
 import Typography, { H5, H6, Paragraph } from "components/Typography"
-import productDatabase from "data/product-database"
 import useWindowSize from "hooks/useWindowSize"
 import React, { Fragment, useEffect } from "react"
 import Container from "components/Container"
@@ -35,7 +34,6 @@ const OrderDetails = () => {
 		getOrder(router?.query?.slug)(dispatch)
 	}, [router])
 
-	console.log(router?.query?.slug)
 	const createdDate = (date = new Date(), increase = 0) => {
 		const ndate = new Date(date)
 		let day = ndate.getDate() + increase

@@ -45,7 +45,6 @@ const Services = () => {
 					</Grid>
 				))}
 			</Grid>
-			{/* </Card> */}
 		</Container>
 	)
 }
@@ -72,10 +71,6 @@ const serviceList = [
 		desc_uz: "Televizorlar, smartfonlar, oshxona anjomlaridan tortib gamerlar uchun devays va jihozlarigacha. Bundan tashqari, biz faqat original brendli mahsulotlarni sotamiz va siz kafolat va servis xizmatlarini qo’lga kiritasiz",
 		desc_ru: "От телевизоров, смартфонов, кухонной техники до автомобилей и игр, до устройств и техники для геймеров. Кроме того, мы продаем только оригинальные фирменные товары, а вы получаете гарантию и сервис.",
 	},
-	// {
-	// 	iconName: "customer-service",
-	// 	title: "24/7 qo'llab-quvvatlash",
-	// },
 ]
 
 export default Services

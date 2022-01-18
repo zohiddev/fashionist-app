@@ -16,7 +16,6 @@ import { StyledSessionCard } from "./SessionStyle"
 import { IMaskInput } from 'react-imask';
 import { getUser, setIsActive } from "reducers/userReducer"
 import { useDispatch, useSelector } from 'react-redux';
-import InputMask from "react-input-mask"
 
 const Login = () => {
 	const [passwordVisibility, setPasswordVisibility] = useState(false)
