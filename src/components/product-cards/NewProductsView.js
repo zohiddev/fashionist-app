@@ -22,6 +22,8 @@ const NewProductsView = (product) => {
 						layout="responsive"
 						alt={product?.name_uz}
 						quality="85"
+						placeholder="blur"
+						blurDataURL="placeholder.png"
 					/>
 				</HoverBox>
 				{/* <H4 fontWeight="600" fontSize="14px" mb="0.25rem">

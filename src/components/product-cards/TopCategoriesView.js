@@ -38,12 +38,20 @@ const TopCategoriesView = ({ title, image, lang }) => {
 
 			<HoverBox position="relative" height="120px" borderRadius={8}>
 				{image ? (
-					<NextImage src={image} layout="fill" objectFit="cover" />
+					<NextImage
+						src={image}
+						layout="fill"
+						objectFit="cover"
+						placeholder="blur"
+						blurDataURL="/assets/images/placeholder.png"
+						/>
 				) : (
 					<NextImage
 						src="/assets/images/banners/category-1.png"
 						layout="fill"
 						objectFit="cover"
+						placeholder="blur"
+						blurDataURL="/assets/images/placeholder.png"
 					/>
 				)}
 			</HoverBox>

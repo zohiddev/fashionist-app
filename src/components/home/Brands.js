@@ -54,6 +54,8 @@ const Brands = ({featuredBrands}) => {
 											objectFit="contain"
 											height={90}
 											quality="85"
+											placeholder="blur"
+											blurDataURL="placeholder.png"
 										/>
 
 										<H3

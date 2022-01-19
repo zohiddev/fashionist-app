@@ -48,6 +48,8 @@ const MostViewed = ({mostViewedProducts}) => {
 												width={100}
 												height={100}
 												quality="85"
+												placeholder="blur"
+												blurDataURL="placeholder.png"
 											/>
 										</HoverBox>
 

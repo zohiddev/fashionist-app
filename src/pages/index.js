@@ -79,8 +79,8 @@ export async function getServerSideProps() {
 		fetch("https://api.sdb.uz/dev/v1/category/featured"),
 		fetch("https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9"),
 		// fetch("https://api.sdb.uz/dev/v1/product/list?sort=id,desc&per_page=9"),
-		fetch("https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=8"),
-		fetch("https://api.sdb.uz/dev/v1/product/list?type=recommended&per_page=8"),
+		fetch("https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12"),
+		fetch("https://api.sdb.uz/dev/v1/product/list?type=recommended&per_page=12"),
 	])
 	const [
 			categories,
