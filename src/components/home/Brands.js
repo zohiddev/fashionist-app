@@ -10,7 +10,7 @@ import { useSelector } from "react-redux"
 import CategorySectionCreator from "../CategorySectionCreator"
 import { useRouter } from "next/router"
 
-const Brands = () => {
+const Brands = ({featuredBrands}) => {
 	const state = useSelector((state) => state.products)
 	const lang = useSelector((state) => state.lang.lang)
 	const [visibleSlides, setVisibleSlides] = useState(6)
@@ -41,7 +41,7 @@ const Brands = () => {
 					showDots={width < 650 ? true : false}
 					showArrow={width < 650 ? false : true}
 				>
-					{state?.brands?.map((item, ind) => (
+					{featuredBrands.map((item, ind) => (
 						<Box py="0.25rem" key={item.id}>
 							<Card p="1rem" textAlign='center'>
 								<Link href={`/products/products?brand=${item?.id}`}>

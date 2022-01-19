@@ -7,7 +7,7 @@ import React, { Fragment } from "react"
 import { useSelector } from "react-redux"
 import useWindowSize from './../../hooks/useWindowSize';
 
-const SliderHero = () => {
+const SliderHero = ({slides}) => {
 	const state = useSelector((state) => state.slides)
 	const window = useWindowSize()
 
@@ -18,7 +18,7 @@ const SliderHero = () => {
 				<Container pb="1rem">
 					<Carousel
 						totalSlides={
-							state?.slides.filter((el) => el.position == "hero")
+							slides.filter((el) => el.position == "hero")
 								.length
 						}
 						visibleSlides={1}
@@ -28,7 +28,7 @@ const SliderHero = () => {
 						showArrow={false}
 						spacing="0px"
 					>
-						{state?.slides
+						{slides
 							.filter((el) => el.position == "hero")
 							.map((slide, ind) => (
 								<CarouselCard1 slide={slide} key={ind} />

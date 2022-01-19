@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import CategorySectionCreator from "../CategorySectionCreator"
 
-const MostViewed = () => {
+const MostViewed = ({mostViewedProducts}) => {
 	const state = useSelector((state) => state.products)
 	const lang = useSelector((state) => state.lang.lang)
 	const [visibleSlides, setVisibleSlides] = useState(6)
@@ -34,7 +34,7 @@ const MostViewed = () => {
 		>
 			<Box my="-0.25rem">
 				<Carousel totalSlides={9} visibleSlides={visibleSlides} showDots={width < 650 ? true : false} showArrow={width < 650 ? false : true}>
-					{state.mostViewedProducts.map((item, ind) => (
+					{mostViewedProducts.map((item, ind) => (
 						<Box py="0.25rem" key={item.id}>
 							<Card p="1rem">
 								<Link href={`/product/${item.slug}`}>

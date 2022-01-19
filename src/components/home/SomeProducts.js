@@ -6,7 +6,7 @@ import ProductCard1 from "../product-cards/ProductCard1"
 import { useSelector } from "react-redux"
 import useWindowSize from './../../hooks/useWindowSize';
 
-const SomeProducts = () => {
+const SomeProducts = ({recommendedProducts}) => {
 	const state = useSelector((state) => state.products)
 	const lang = useSelector((state) => state.lang.lang)
 	const window = useWindowSize()
@@ -18,7 +18,7 @@ const SomeProducts = () => {
 				seeMoreLink="/products/products?type=recommended"
 			/>
 			<Grid container spacing={6}>
-				{state.recommendedProducts.map((item, ind) => (
+				{recommendedProducts.map((item, ind) => (
 					<Grid item lg={3} md={4} sm={6} xs={6} key={ind}>
 						<ProductCard1
 							price={23}

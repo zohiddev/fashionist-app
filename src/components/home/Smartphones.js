@@ -8,7 +8,7 @@ import FlexBox from "../FlexBox"
 import Grid from "../grid/Grid"
 import useWindowSize from './../../hooks/useWindowSize';
 
-const Smartphones = () => {
+const Smartphones = ({smartphones}) => {
 	const state = useSelector((state) => state.products)
 	const lang = useSelector(state => state.lang.lang)
 	const window = useWindowSize()
@@ -23,7 +23,7 @@ const Smartphones = () => {
 					/>
 
 					<Grid container spacing={6}>
-						{state?.products?.map((product, ind) => (
+						{smartphones.map((product, ind) => (
 							<Grid item lg={3} sm={4} xs={6} key={ind}>
 								<SmartphonesView hoverEffect product={product} />
 							</Grid>

@@ -47,14 +47,14 @@ const IndexPage = ({
 
 	return (
 		<main>
-			<SliderHero /> {/* slider banner */}
-			<TopCategories /> {/* top categories */}
-			<MostViewed /> {/* most viewed */}
+			<SliderHero slides={slides}/> {/* slider banner */}
+			<TopCategories featuredCategories={featuredCategories}/> {/* top categories */}
+			<MostViewed mostViewedProducts={mostViewedProducts}/> {/* most viewed */}
 			{/* <NewProducts /> */}
-			<Smartphones /> {/* smartphones */}
-			<SliderLower /> {/* slider banner */}
-			<SomeProducts />
-			<Brands /> {/* products */}
+			<Smartphones smartphones={smartphones}/> {/* smartphones */}
+			<SliderLower  slides={slides}/> {/* slider banner */}
+			<SomeProducts recommendedProducts={recommendedProducts}/>
+			<Brands featuredBrands={featuredBrands}/> {/* products */}
 			<Services /> {/* services worldwide delivsery */}
 		</main>
 	)

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 import CategorySectionCreator from "../CategorySectionCreator"
 import TopCategoriesView from "../product-cards/TopCategoriesView"
 
-const TopCategories = () => {
+const TopCategories = ({featuredCategories}) => {
 	const [visibleSlides, setVisibleSlides] = useState(3)
 	const width = useWindowSize()
 	const state = useSelector((state) => state.categories)
@@ -26,12 +26,12 @@ const TopCategories = () => {
 			seeMoreLink="#"
 		>
 			<Carousel
-				totalSlides={state?.categories?.length}
+				totalSlides={featuredCategories?.length}
 				visibleSlides={visibleSlides}
 				showDots={width < 650 ? true : false}
 				showArrow={width < 650 ? false : true}
 			>
-				{state?.categories && state?.categories.map((item, ind) => (
+				{featuredCategories && featuredCategories.map((item, ind) => (
 					<Link href={"/products/"+item.slug} key={ind}>
 						<a>
 							<Card p="1rem">
