@@ -99,7 +99,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 							height={100}
 							quality="85"
 							placeholder="blur"
-							blurDataURL="/assets/images/placeholder.png"
+							blurDataURL="placeholder.png"
 						/>
 					</a>
 				</Link>

@@ -75,7 +75,7 @@ const MiniCart = ({ toggleSidenav }) => {
 						height="calc(100% - 80px)"
 					>
 						<NextImage
-							src="/assets/images/logos/shopping-bag.svg"
+							src="/bag_blue.png"
 							width="90px"
 							height="100%"
 						/>

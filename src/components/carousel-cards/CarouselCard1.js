@@ -32,7 +32,7 @@ const CarouselCard1 = ({ slide }) => {
 			{
 				slide?.url !== null ? <Link href={`/${slide?.url}`}>
 				<a>
-					<div className="image-holder" style={{width:'100%', height: window < 568 ? '150px' : '300px', display: 'block', position: 'relative'}}>
+					<div className="image-holder" style={{width:'100%', height: slide?.position === 'lower' ?  window < 568 ? '150px' : '350px' : window < 568 ? '150px' : '300px', display: 'block', position: 'relative'}}>
 						{/* <img src={slide?.image}  /> */}
 						<Image
 							loader={myLoader}
