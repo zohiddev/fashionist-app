@@ -73,7 +73,7 @@ const languageList = [
 		sub: 'uz'
 	},
 	{
-		title: "Ruscha",
+		title: "Русский",
 		sub: 'ru'
 	},
 ]
