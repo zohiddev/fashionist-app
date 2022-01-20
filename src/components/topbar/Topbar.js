@@ -69,11 +69,11 @@ const Topbar = () => {
 
 const languageList = [
 	{
-		title: "Uzbek",
+		title: "O`zbek",
 		sub: 'uz'
 	},
 	{
-		title: "Russian",
+		title: "Ruscha",
 		sub: 'ru'
 	},
 ]
