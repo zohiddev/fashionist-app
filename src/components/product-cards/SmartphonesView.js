@@ -161,7 +161,7 @@ const SmartphonesView = ({
 						</FlexBox>
 					</Box>
 
-					<FlexBox
+					{/* <FlexBox
 						flexDirection="column-reverse"
 						alignItems="center"
 						justifyContent={
@@ -169,7 +169,6 @@ const SmartphonesView = ({
 						}
 						width="30px"
 					>
-						{/* <div className="add-cart"> */}
 						<Button
 							variant="outlined"
 							color="primary"
@@ -199,7 +198,7 @@ const SmartphonesView = ({
 								</Button>
 							</Fragment>
 						)}
-					</FlexBox>
+					</FlexBox> */}
 				</FlexBox>
 			</div>
 

@@ -67,15 +67,21 @@ const Header = ({ isFixed, className }) => {
 				>
 					<Link href="/">
 						<a>
-							{/* <Image src="/assets/images/menu-logo.png" width="100%" height="100%" layout="intrinsic" objectFit="contain" alt="logo" /> */}
+							<Image src="/SDB_logo_1.png"
+								width="100%"
+								height="100%"
+								layout="intrinsic"
+								objectFit="contain"
+								alt="logo"
+							/>
 							{/* <img
-								src="/assets/images/menu-logo.svg"
+								src="/SDB_logo_1.png"
 								style={{
 									width: "70px",
 									objectFit: "contain",
 								}}
 							/> */}
-							<LogoSVG />
+							{/* <LogoSVG /> */}
 						</a>
 					</Link>
 

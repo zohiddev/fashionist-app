@@ -64,27 +64,24 @@ const Footer = () => {
 				<Container p="1rem" color="white">
 					<Box overflow="hidden">
 						<Grid container spacing={6}>
-							<Grid item lg={4} md={6} sm={6} xs={12}>
-								<Link href="/">
-									<a>
-										{/* <Image
-											mb="1.25rem"
-											src="/assets/images/logo.svg"
-											alt="logo"
-										/> */}
-										<LogoSVGWhite/>
-									</a>
-								</Link>
-
-								{/* <Paragraph mb="1.25rem" color="gray.500">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit. Auctor libero id et, in
-									gravida. Sit diam duis mauris nulla cursus.
-									Erat et lectus vel ut sollicitudin elit at
-									amet.
-								</Paragraph> */}
-
-								<AppStore />
+							<Grid item lg={4} md={6} sm={6} xs={12} alignSelf="center">
+								<FlexBox justifyContent="space-around" alignItems="center">
+									<Link href="/">
+										<a>
+											<Image
+												mb="1.25rem"
+												src="/sdb_svg_logo.svg"
+												width="100px"
+												height="100px"
+												layout="responsive"
+												objectFit="contain"
+												alt="logo"
+											/>
+											{/* <LogoSVGWhite/> */}
+										</a>
+									</Link>
+									<AppStore />
+								</FlexBox>
 							</Grid>
 
 							<Grid item lg={4} md={6} sm={6} xs={12}>

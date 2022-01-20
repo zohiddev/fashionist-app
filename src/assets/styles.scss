@@ -107,3 +107,10 @@ header{
 		right: 0;
 	}
 }
+
+
+.__jivoMobileButton{
+	@media screen and (max-width: 768px) {
+		bottom: 70px !important;
+	}
+}

@@ -6,7 +6,7 @@ import Typography from "./Typography"
 
 const AppStore = () => {
 	return (
-		<FlexBox flexWrap="wrap" m="-0.5rem" mt='15px'>
+		<FlexBox flexWrap="wrap" m="-0.5rem" flexDirection="column">
 			{appList.map((item) => (
 				<a
 					href="/"

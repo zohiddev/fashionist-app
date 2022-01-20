@@ -139,7 +139,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 						</FlexBox>
 					</Box>
 
-					<FlexBox
+					{/* <FlexBox
 						flexDirection="column-reverse"
 						alignItems="center"
 						justifyContent={
@@ -147,7 +147,6 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 						}
 						width="30px"
 					>
-						{/* <div className="add-cart"> */}
 						<Button
 							variant="outlined"
 							color="primary"
@@ -182,7 +181,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 								</Button>
 							</Fragment>
 						)}
-					</FlexBox>
+					</FlexBox> */}
 				</FlexBox>
 			</div>
 

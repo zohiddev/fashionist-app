@@ -34,7 +34,7 @@ const Topbar = () => {
 				<FlexBox className="topbar-left">
 					<FlexBox alignItems="center">
 						<Icon size="14px">phone-call</Icon>
-						<span>+998 94 110 06 06</span>
+						<span style={{color: '#fff!important'}}>+998 94 110 06 06</span>
 					</FlexBox>
 				</FlexBox>
 				<FlexBox className="topbar-right" alignItems="center">
