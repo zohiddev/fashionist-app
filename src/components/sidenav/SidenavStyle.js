@@ -7,7 +7,7 @@ export const StyledSidenav = styled.div`
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 990;
+	z-index: 9999999999;
 	background: rgba(0, 0, 0, 0.53);
 
 	@keyframes slide {

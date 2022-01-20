@@ -22,7 +22,7 @@ const IndexPage = ({
 	items,
 	featuredBrands,
 	slides,
-	featuredCategories,
+	// featuredCategories,
 	mostViewedProducts,
 	// newProducts,
 	smartphones,
@@ -36,7 +36,7 @@ const IndexPage = ({
 		dispatch(setCategories(items))
 		dispatch(setBrands(featuredBrands))
 		dispatch(setSlides(slides))
-		dispatch(setCategories2(featuredCategories))
+		// dispatch(setCategories2(featuredCategories))
 		dispatch(setMostVieweddProducts(mostViewedProducts))
 		// dispatch(setNewProducts(newProducts))
 		dispatch(setSmartphones(smartphones))
@@ -48,7 +48,7 @@ const IndexPage = ({
 	return (
 		<main>
 			<SliderHero slides={slides}/> {/* slider banner */}
-			<TopCategories featuredCategories={featuredCategories}/> {/* top categories */}
+			{/* <TopCategories featuredCategories={featuredCategories}/>  */}
 			<MostViewed mostViewedProducts={mostViewedProducts}/> {/* most viewed */}
 			{/* <NewProducts /> */}
 			<Smartphones smartphones={smartphones}/> {/* smartphones */}
@@ -67,7 +67,7 @@ export async function getServerSideProps() {
 			categoriesRes,
 			featuredBrandsRes,
 			slidesRes,
-			featuredCategoriesRes,
+			// featuredCategoriesRes,
 			mostViewedProductsRes,
 			// newProductsRes,
 			smartphonesRes,
@@ -76,7 +76,7 @@ export async function getServerSideProps() {
 		fetch("https://api.sdb.uz/dev/v1/category/list"),
 		fetch("https://api.sdb.uz/dev/v1/brand/list?featured=1"),
 		fetch("https://api.sdb.uz/dev/v1/events/list"),
-		fetch("https://api.sdb.uz/dev/v1/category/featured"),
+		// fetch("https://api.sdb.uz/dev/v1/category/featured"),
 		fetch("https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9"),
 		// fetch("https://api.sdb.uz/dev/v1/product/list?sort=id,desc&per_page=9"),
 		fetch("https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12"),
@@ -86,7 +86,7 @@ export async function getServerSideProps() {
 			categories,
 			featuredBrands,
 			slides,
-			featuredCategories,
+			// featuredCategories,
 			mostViewedProducts,
 			// newProducts,
 			smartphones,
@@ -95,7 +95,7 @@ export async function getServerSideProps() {
 		categoriesRes.json(),
 		featuredBrandsRes.json(),
 		slidesRes.json(),
-		featuredCategoriesRes.json(),
+		// featuredCategoriesRes.json(),
 		mostViewedProductsRes.json(),
 		// newProductsRes.json(),
 		smartphonesRes.json(),
@@ -107,7 +107,7 @@ export async function getServerSideProps() {
 			items: categories.categories,
 			featuredBrands: featuredBrands?.brands,
 			slides: slides?.events,
-			featuredCategories: featuredCategories?.categories,
+			// featuredCategories: featuredCategories?.categories,
 			mostViewedProducts: mostViewedProducts?.products,
 			// newProducts: newProducts?.products,
 			smartphones: smartphones?.products,
