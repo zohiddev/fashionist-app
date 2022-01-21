@@ -2,7 +2,7 @@ import AppStore from "components/AppStore"
 import LogoSVGWhite from "components/header/LogoSVGWhite"
 import Image from "components/Image"
 import Link from "next/link"
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import { getTheme } from "../../utils/utils"
 import Box from "../Box"
@@ -13,6 +13,7 @@ import Icon from "../icon/Icon"
 import Typography, { Paragraph } from "../Typography"
 import { useSelector } from 'react-redux';
 import Divider from './../Divider';
+import useWindowSize from './../../hooks/useWindowSize';
 
 const StyledLink = styled.a`
 	position: relative;
@@ -29,6 +30,13 @@ const StyledLink = styled.a`
 const Footer = () => {
 
 	const lang = useSelector(state => state.lang.lang)
+	const windowSize = useWindowSize()
+
+
+	useEffect(() => {
+	console.log(window.navigator)
+
+	}, [])
 
 	const aboutLinks = [
 		{
@@ -64,8 +72,8 @@ const Footer = () => {
 				<Container p="1rem" color="white">
 					<Box overflow="hidden">
 						<Grid container spacing={6}>
-							<Grid item lg={4} md={6} sm={6} xs={12} alignSelf="center">
-								<FlexBox justifyContent="space-around" alignItems="center">
+							<Grid item lg={4} md={4} sm={6} xs={12} alignSelf="center">
+								<FlexBox justifyContent="space-around" alignItems="center" flexDirection={windowSize <= 768 ? 'column': 'row'}>
 									<Link href="/">
 										<a>
 											<Image
@@ -80,11 +88,40 @@ const Footer = () => {
 											{/* <LogoSVGWhite/> */}
 										</a>
 									</Link>
-									<AppStore />
+
+									{
+										windowSize <= 768 ? <FlexBox className="flex" mx="-5px">
+										{iconList.map((item) => (
+											<a
+												href={item.url}
+												target="_blank"
+												rel="noreferrer noopenner"
+												key={item.iconName}
+											>
+												<Box
+													m="5px"
+													size="small"
+													p="10px"
+													bg="rgba(0,0,0,0.2)"
+													borderRadius="50%"
+												>
+													<Icon
+														size="12px"
+														defaultcolor="auto"
+													>
+														{item.iconName}
+													</Icon>
+												</Box>
+											</a>
+										))}
+									</FlexBox> : <AppStore />
+
+									}
+
 								</FlexBox>
 							</Grid>
 
-							<Grid item lg={4} md={6} sm={6} xs={12}>
+							<Grid item lg={4} md={4} sm={6} xs={12} >
 								<Typography
 									fontSize="25px"
 									fontWeight="600"
@@ -122,7 +159,7 @@ const Footer = () => {
 								</div>
 							</Grid> */}
 
-							<Grid item lg={4} md={6} sm={6} xs={12}>
+							<Grid item lg={4} md={4} sm={6} xs={12}>
 								<Typography
 									fontSize="25px"
 									fontWeight="600"
@@ -145,7 +182,8 @@ const Footer = () => {
 									{lang === 'uz' ? 'Telefon raqam' : 'Телефонный номер'}: +998 94 110 06 06
 								</Typography>
 
-								<FlexBox className="flex" mx="-5px">
+								{
+									windowSize <= 768 ? null : <FlexBox className="flex" mx="-5px">
 									{iconList.map((item) => (
 										<a
 											href={item.url}
@@ -170,6 +208,9 @@ const Footer = () => {
 										</a>
 									))}
 								</FlexBox>
+								}
+
+
 							</Grid>
 						</Grid>
 					</Box>

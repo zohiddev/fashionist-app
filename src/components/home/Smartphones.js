@@ -24,7 +24,7 @@ const Smartphones = ({smartphones}) => {
 
 					<Grid container spacing={6}>
 						{smartphones.map((product, ind) => (
-							<Grid item lg={3} sm={4} xs={6} key={ind}>
+							<Grid item lg={3} md={4} sm={6} xs={6} key={ind}>
 								<SmartphonesView hoverEffect product={product} />
 							</Grid>
 						))}
