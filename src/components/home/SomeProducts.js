@@ -14,7 +14,7 @@ const SomeProducts = ({recommendedProducts}) => {
 	return (
 		<Container mb={window < 568 ? "1.75rem" : "3.75rem"}>
 			<CategorySectionHeader
-				title={lang === 'uz' ? "Tavsiya e'tilganlar" : 'Рекомендуемые'}
+				title={lang === 'uz' ? "Yangi qo`shilganlar" : 'Новое добавлено'}
 				seeMoreLink="/products/products?type=recommended"
 			/>
 			<Grid container spacing={6}>

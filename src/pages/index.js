@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect,useState } from "react"
 // import NewProducts from "components/home/NewProducts"
 import Services from "components/home/Services"
 import Smartphones from "components/home/Smartphones"
@@ -17,6 +17,8 @@ import { setMostVieweddProducts, setRecommendedProducts } from "reducers/product
 import { setNewProducts, setSmartphones } from './../reducers/productsReducer';
 import { getCartItems } from './../reducers/cartReducer';
 import {setLang} from 'reducers/LangReducer'
+import Router from "next/router"
+
 
 const IndexPage = ({
 	items,
@@ -31,6 +33,9 @@ const IndexPage = ({
 	const dispatch = useDispatch()
 	const state = useSelector((state) => state)
 	const isActive = state?.categories?.categoryNavIsActive
+	const [loading, setLoading] = useState(true)
+
+	console.log(loading)
 
 	useEffect(() => {
 		dispatch(setCategories(items))
@@ -62,7 +67,7 @@ const IndexPage = ({
 
 IndexPage.layout = AppLayout
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const [
 			categoriesRes,
 			featuredBrandsRes,

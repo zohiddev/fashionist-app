@@ -29,7 +29,7 @@ const MostViewed = ({mostViewedProducts}) => {
 	return (
 		<CategorySectionCreator
 			iconName="ranking-1"
-			title={lang === 'uz' ? "Mijozlar tanlovi" : 'Выбор клиента'}
+			title={lang === 'uz' ? "Top mahsulotlar" : 'Лучшие товары'}
 			seeMoreLink="/products/products?views=views,desc"
 		>
 			<Box my="-0.25rem">

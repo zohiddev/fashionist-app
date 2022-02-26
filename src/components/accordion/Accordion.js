@@ -6,11 +6,13 @@ import React, {
 	useState,
 } from "react"
 import { AccordionWrapper } from "./AccordionStyle"
+import useWindowSize from './../../hooks/useWindowSize';
 
 const Accordion = ({ expanded = false, children }) => {
 	const [open, setOpen] = useState(expanded)
 	const [headerHeight, setHeaderHeight] = useState(0)
 	const [parentHeight, setParentHeight] = useState(0)
+	const window = useWindowSize()
 
 	const ref = useRef(null)
 
@@ -33,7 +35,13 @@ const Accordion = ({ expanded = false, children }) => {
 	})
 
 	return (
-		<AccordionWrapper ref={ref} height={open ? parentHeight : headerHeight}>
+		<AccordionWrapper
+			ref={ref}
+			height={open ? parentHeight : headerHeight}
+			style={{marginBottom: "10px"}}
+			window={window}
+
+		>
 			{modifiedChildren}
 		</AccordionWrapper>
 	)

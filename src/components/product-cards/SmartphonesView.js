@@ -140,7 +140,7 @@ const SmartphonesView = ({
 									mb="10px"
 									title={lang === 'uz' ? product?.name_uz : product?.name_ru}
 								>
-									{lang === 'uz' ? product?.name_uz : product?.name_ru}
+									{ lang === 'uz' ? product?.name_uz : product?.name_ru}
 								</H3>
 							</a>
 						</Link>

@@ -4,7 +4,7 @@ import FlexBox from "../FlexBox"
 
 export const AccordionWrapper = styled(Box)`
 	overflow: hidden;
-	cursor: pointer;
+	cursor: ${({window}) => window < 768 ? 'unset' : 'pointer'} ;
 	transition: height 250ms ease-in-out;
 `
 

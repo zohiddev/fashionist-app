@@ -114,3 +114,29 @@ header{
 		bottom: 70px !important;
 	}
 }
+
+.white-link{
+	color: #fff !important;
+}
+
+.category_modal{
+	position: fixed;
+	overflow: auto;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	top: 0;
+	left: -100%;
+	background-color: #fff;
+	z-index: 100;
+	transition: all 0.2s ease;
+
+	&.active{
+		left: 0;
+	}
+
+	&-btn{
+		background-color: transparent;
+		border: none;
+	}
+}

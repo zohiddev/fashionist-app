@@ -19,6 +19,7 @@ const AccordionHeader = ({ children, showIcon, open, ...props }) => {
 				<Icon
 					className="caret-icon"
 					variant="small"
+					color="black"
 					defaultcolor="currentColor"
 				>
 					chevron-right

@@ -48,10 +48,12 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 		return `${src}?w=${width}&q=${quality || 75}`
 	}
 
+	console.log(product)
+
 	return (
 		<StyledProductCard1 {...props}>
 			<div className="image-holder">
-				{!!off && (
+				{product?.is_new > 0 ? (
 					<Chip
 						position="absolute"
 						bg="primary.main"
@@ -62,9 +64,9 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 						top="10px"
 						left="10px"
 					>
-						{off}% off
+						new
 					</Chip>
-				)}
+				) : null}
 
 				<FlexBox className="extra-icons">
 					<Icon
