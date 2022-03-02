@@ -32,12 +32,6 @@ const Footer = () => {
 	const lang = useSelector(state => state.lang.lang)
 	const windowSize = useWindowSize()
 
-
-	useEffect(() => {
-	console.log(window.navigator)
-
-	}, [])
-
 	const aboutLinks = [
 		{
 			id: 1,

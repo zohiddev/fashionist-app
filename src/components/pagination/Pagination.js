@@ -58,6 +58,7 @@ const Pagination = ({
 					</Icon>
 				}
 				pageCount={pageCount}
+				forcePage={router?.query?.page ? Number(router?.query?.page) - 1 : 0}
 				marginPagesDisplayed={marginPagesDisplayed}
 				pageRangeDisplayed={pageRangeDisplayed}
 				onPageChange={handlePageChange}

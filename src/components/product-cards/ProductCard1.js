@@ -48,8 +48,6 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 		return `${src}?w=${width}&q=${quality || 75}`
 	}
 
-	console.log(product)
-
 	return (
 		<StyledProductCard1 {...props}>
 			<div className="image-holder">
