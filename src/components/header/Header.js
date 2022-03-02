@@ -62,7 +62,7 @@ const Header = ({ isFixed, className }) => {
 				<FlexBox
 					className="logo"
 					width="200px"
-					height="200px"
+					// height="200px"
 					alignItems="center"
 				>
 					<Link href="/">
