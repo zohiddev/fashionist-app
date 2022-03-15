@@ -5,6 +5,7 @@ import { StyledCarouselCard1 } from "./CarouselCardStyle"
 import Link from 'next/link'
 import Image from "next/image"
 import useWindowSize from './../../hooks/useWindowSize';
+import Container from "components/Container"
 
 const CarouselCard1 = ({ slide }) => {
 	const window = useWindowSize()
@@ -13,6 +14,8 @@ const CarouselCard1 = ({ slide }) => {
 	}
 	return (
 		<StyledCarouselCard1>
+			<Container>
+
 			{/* <div> */}
 				{/* <h1 className="title">{slide?.title_uz}</h1> */}
 				{/* <Typography color="secondary.main" mb="1.35rem">
@@ -63,6 +66,7 @@ const CarouselCard1 = ({ slide }) => {
 					</div>
 			}
 
+</Container>
 
 
 		</StyledCarouselCard1>

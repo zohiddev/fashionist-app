@@ -22,6 +22,7 @@ const Topbar = () => {
 	const window = useWindowSize()
 	const categories = useSelector(state => state.categories.navbarLinks)
 	const [modalActive, setModalActive] = useState(false)
+	const lang = useSelector(state => state.lang.lang)
 
 	const handleLanguageClick = (lang) => () => {
 		const new_lang = (lang.sub !== 'uz') ? 'ru' : 'uz'
@@ -69,7 +70,7 @@ const Topbar = () => {
 
 				<div className={modalActive ? "category_modal active" : "category_modal"} style={{padding: '16px'}}>
 					<FlexBox alignItems="center" justifyContent="space-between" my="20px">
-						<H3 color="black" fontSize="28px">Kategoriyalar</H3>
+						<H3 color="black" fontSize="28px">{lang === 'uz' ? 'Kategoriyalar' : 'Категории'}</H3>
 						<button className="category_modal-btn" onClick={() => setModalActive(false)}><Icon>close</Icon></button>
 					</FlexBox>
 					{categories?.map((item,ind) => {
@@ -92,7 +93,7 @@ const Topbar = () => {
 											ml='10px'
 											color="black"
 										>
-											{item?.name_uz}
+											{lang === 'uz' ? item?.name_uz : item?.name_ru}
 										</Typography>
 									</FlexBox>
 								</AccordionHeader>
@@ -111,7 +112,7 @@ const Topbar = () => {
 													<Link href={"/products/"+el?.slug} >
 														<a onClick={() => setModalActive(false) } style={{marginBottom: '10px'}}>
 															<H3 mb='5px' fontSize='15px'>
-																{el?.name_uz}
+																{lang === 'uz' ? el?.name_uz : el?.name_ru}
 															</H3>
 														</a>
 													</Link>
@@ -121,7 +122,7 @@ const Topbar = () => {
 																<Link href={"/products/"+link?.slug} key={i}  >
 																	<a onClick={() => setModalActive(false)}>
 																		<H3 mb='5px' fontSize='15px' fontWeight="300">
-																			{link?.name_uz}
+																			{lang === 'uz' ? link?.name_uz : link?.name_ru}
 																		</H3>
 																	</a>
 																</Link>
