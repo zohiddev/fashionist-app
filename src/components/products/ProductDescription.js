@@ -26,7 +26,10 @@ const ProductDescription = ({desc, attributes}) => {
 				<Box>
 					{/* <H3 mb="1rem">{lang === 'uz' ? 'Xususiyatlar' : 'Функции'}:</H3> */}
 					<Typography>
-						{desc}
+						{/* {desc} */}
+						<span  dangerouslySetInnerHTML={{ __html: desc}}>
+
+						</span>
 					</Typography>
 				</Box>
 			}
