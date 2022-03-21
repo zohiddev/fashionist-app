@@ -16,14 +16,18 @@ const Page = ({data}) => {
 				<H1>{lang === 'uz' ? data?.page?.title_uz : data?.page?.title_ru}</H1>
 			</Typography>
 
-			{lang === 'uz' ? data?.page?.content_uz : data?.page?.content_ru}
+			<div dangerouslySetInnerHTML={{ __html: lang === 'uz' ? data?.page?.content_uz : data?.page?.content_ru }}>
+
+			</div>
+
+
 		</Container>
 	)
 }
 
 Page.layout = DashboardLayout
 
-export async function getServerSideProps({ params}) {
+export async function getServerSideProps({params}) {
 		const res = await fetch(
 			`https://api.sdb.uz/dev/v1/page/${params.id}`
 		)
