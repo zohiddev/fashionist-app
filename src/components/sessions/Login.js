@@ -122,7 +122,7 @@ const Login = () => {
 				isVerify ?
 					<form className="content">
 						<H3 textAlign="center" mb="0.5rem">
-							{lang === 'uz' ? 'Kirish' : 'Входъ'}
+							{lang === 'uz' ? 'Kirish' : 'Вход'}
 						</H3>
 
 						<TextField
@@ -147,13 +147,13 @@ const Login = () => {
 							fullwidth
 							onClick={(e) => verifyBtn(e)}
 						>
-							{lang === 'uz' ? 'Kirish' : 'Входъ'}
+							{lang === 'uz' ? 'Kirish' : 'Вход'}
 						</Button>
 					</form>
 				:
 					<form className="content">
 						<H3 textAlign="center" mb="0.5rem">
-							{lang === 'uz' ? 'Kirish' : 'Входъ'}
+							{lang === 'uz' ? 'Kirish' : 'Вход'}
 						</H3>
 						{/* <label className="inputLabel">
 								{lang === 'uz' ? 'Telefon raqamingizni kiriting' : 'Введите свой номер телефона'}
@@ -191,7 +191,7 @@ const Login = () => {
 							fullwidth
 							onClick={(e) => loginBtn(e)}
 						>
-							{lang === 'uz' ? 'Kirish' : 'Входъ'}
+							{lang === 'uz' ? 'Kirish' : 'Вход'}
 						</Button>
 					</form>
 			}
