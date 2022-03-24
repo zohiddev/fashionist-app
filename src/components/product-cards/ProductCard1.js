@@ -92,7 +92,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 						{/* <img src={item.image} alt={item.name_uz} width={100} height={100}/> */}
 						<Image
 							loader={myLoader}
-							src={product?.image}
+							src={product?.images[0]}
 							layout="responsive"
 							alt={product?.name_uz}
 							width={100}

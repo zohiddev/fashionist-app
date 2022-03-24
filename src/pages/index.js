@@ -35,7 +35,8 @@ const IndexPage = ({
 	const isActive = state?.categories?.categoryNavIsActive
 	const [loading, setLoading] = useState(true)
 
-	console.log(loading)
+	console.log(recommendedProducts)
+
 
 	useEffect(() => {
 		dispatch(setCategories(items))
@@ -52,12 +53,12 @@ const IndexPage = ({
 
 	return (
 		<main>
-			<SliderHero slides={slides}/> {/* slider banner */}
-			{/* <TopCategories featuredCategories={featuredCategories}/>  */}
-			<MostViewed mostViewedProducts={mostViewedProducts}/> {/* most viewed */}
+			<SliderHero slides={slides}/>
+			{/* <TopCategories featuredCategories={featuredCategories}/> */}
+			<MostViewed mostViewedProducts={mostViewedProducts}/>
 			{/* <NewProducts /> */}
-			<Smartphones smartphones={smartphones}/> {/* smartphones */}
-			<SliderLower  slides={slides}/> {/* slider banner */}
+			<Smartphones smartphones={smartphones}/>
+			<SliderLower  slides={slides}/>
 			<SomeProducts recommendedProducts={recommendedProducts}/>
 			<Brands featuredBrands={featuredBrands}/> {/* products */}
 			<Services /> {/* services worldwide delivsery */}

@@ -41,8 +41,8 @@ const Brands = ({featuredBrands}) => {
 					showDots={width < 650 ? true : false}
 					showArrow={width < 650 ? false : true}
 				>
-					{featuredBrands.map((item, ind) => (
-						<Box py="0.25rem" key={item.id}>
+					{featuredBrands?.map((item, ind) => (
+						<Box py="0.25rem" key={item?.id}>
 							<Card p="1rem" textAlign='center'>
 								<Link href={`/products/products?brand=${item?.id}`}>
 									<a>

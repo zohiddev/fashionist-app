@@ -34,10 +34,10 @@ const MostViewed = ({mostViewedProducts}) => {
 		>
 			<Box my="-0.25rem">
 				<Carousel totalSlides={9} visibleSlides={visibleSlides} showDots={width < 650 ? true : false} showArrow={width < 650 ? false : true}>
-					{mostViewedProducts.map((item, ind) => (
+					{mostViewedProducts?.map((item, ind) => (
 						<Box py="0.25rem" key={item.id}>
 							<Card p="1rem">
-								<Link href={`/product/${item.slug}`}>
+								<Link href={`/product/${item?.slug}`}>
 									<a>
 										<HoverBox borderRadius={8} mb="0.5rem">
 											<Image
@@ -72,7 +72,7 @@ const MostViewed = ({mostViewedProducts}) => {
 												mr="0.5rem"
 											>
 												{Math.ceil(
-													item.price
+													item?.price
 												).toLocaleString()}
 												<span> UZS</span>
 											</H4>

@@ -27,9 +27,7 @@ const SliderHero = ({slides}) => {
 						showArrow={false}
 						spacing="0px"
 					>
-						{slides
-							.filter((el) => el.position == "hero")
-							.map((slide, ind) => (
+						{slides?.filter((el) => el.position == "hero")?.map((slide, ind) => (
 								<CarouselCard1 slide={slide} key={ind} />
 							))}
 					</Carousel>

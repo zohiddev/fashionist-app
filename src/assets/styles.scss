@@ -140,3 +140,38 @@ header{
 		border: none;
 	}
 }
+
+.product_desc{
+	p{
+		font-size: 16px;
+
+		strong{
+			font-size: 22px;
+		}
+	}
+}
+
+.product_attr{
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
+
+	.attribute,
+	.value{
+		font-size: 16px;
+		color: #050448;
+		width: 48%;
+	}
+
+	.attribute{
+		font-weight: 400;
+	}
+
+	.value{
+		color: #000;
+		font-weight: 500;
+	}
+
+
+}
+

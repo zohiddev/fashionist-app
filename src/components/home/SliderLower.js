@@ -26,9 +26,7 @@ const SliderLower = ({slides}) => {
 						showArrow={false}
 						spacing="0px"
 					>
-						{slides
-							.filter((el) => el.position == "lower")
-							.map((slide, ind) => (
+						{slides?.filter((el) => el?.position == "lower")?.map((slide, ind) => (
 								<CarouselCard1 slide={slide} key={ind} />
 							))}
 					</Carousel>

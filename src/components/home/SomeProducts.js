@@ -11,6 +11,7 @@ const SomeProducts = ({recommendedProducts}) => {
 	const lang = useSelector((state) => state.lang.lang)
 	const window = useWindowSize()
 
+
 	return (
 		<Container mb={window < 568 ? "1.75rem" : "3.75rem"}>
 			<CategorySectionHeader
@@ -18,14 +19,14 @@ const SomeProducts = ({recommendedProducts}) => {
 				seeMoreLink="/products/products?type=recommended"
 			/>
 			<Grid container spacing={6}>
-				{recommendedProducts.map((item, ind) => (
+				{recommendedProducts !== null && recommendedProducts?.map((item, ind) => (
 					<Grid item lg={3} md={4} sm={6} xs={6} key={ind}>
 						<ProductCard1
 							price={23}
 							off={25}
 							hoverEffect
 							product={item}
-							{...item}
+							// {...item}
 						/>
 					</Grid>
 				))}
