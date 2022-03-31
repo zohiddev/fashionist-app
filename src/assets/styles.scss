@@ -152,15 +152,15 @@ header{
 }
 
 .product_attr{
-	width: 50%;
+	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	// justify-content: space-between;
 
 	.attribute,
 	.value{
 		font-size: 16px;
 		color: #050448;
-		width: 48%;
+		// width: 48%;
 	}
 
 	.attribute{
@@ -172,6 +172,13 @@ header{
 		font-weight: 500;
 	}
 
-
+	.product_line{
+		display: block;
+		flex: 1 1 auto;
+		height: 1px;
+		padding: 0 5px;
+		align-self: flex-end;
+		border-bottom: 1px dotted rgb(138, 138, 138);
+	}
 }
 

@@ -16,6 +16,8 @@ const ProductDetails = ({ data }) => {
 		setSelectedOption(opt)
 	}
 
+	console.log(data)
+
 	return (
 		<div>
 			<Container mb="70px" mt="50px">

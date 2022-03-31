@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react"
 import Button from "../buttons/Button"
 import { Card1 } from "../Card1"
 import Grid from "../grid/Grid"
+import Select from "../Select"
 import Typography, { H6, Paragraph } from "../Typography"
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from 'reducers/userReducer';
@@ -16,6 +17,8 @@ import { addOrder } from './../../reducers/userReducer';
 import Modal from './../modal/Modal';
 import  Link  from 'next/link';
 import { clearCart } from './../../reducers/cartReducer';
+import regions from "utils/regionsData"
+import Box from './../Box';
 
 const CheckoutForm2 = () => {
 	const dispatch = useDispatch()
@@ -41,6 +44,7 @@ const CheckoutForm2 = () => {
 	const [checkPhone, setCheckPhone] = useState(null)
 	const [isValidate, setIsValidate] = useState({address: false, phone: false})
 	const [isOk, setIsOk] = useState(false)
+	const [regionId, setRegionId] = useState(1)
 
 	const handleAdressChange = ({target}) => {
 		setOrderData({...orderData, delivery_address: target.value})
@@ -91,6 +95,44 @@ const CheckoutForm2 = () => {
 							</Typography>
 						</FlexBox>
 
+						<FlexBox alignItems="center" justifyContent="space-between">
+							<Box
+								width='48%'
+							>
+								<Select
+									mb="1rem"
+									label={lang === 'uz' ? 'Viloyat' : 'Регион / Область'}
+									options={regions.regions}
+									// value={values.shipping_country || "US"}
+									onChange={(country) => {
+										setRegionId(country.value)
+										console.log(regions?.districts?.filter(item => item.region_id == regionId))
+									}}
+								/>
+							</Box>
+
+							<Box
+								width='48%'
+							>
+								<Select
+									mb="1rem"
+									label={lang === 'uz' ? 'Shahar / tuman' : 'Город / Район '}
+									options={regions?.districts?.filter(item => item.region_id == regionId)}
+									// value={values.shipping_country || "US"}
+									// onChange={(country) => {
+									// 	setFieldValue(
+									// 		"shipping_country",
+									// 		country
+									// 	)
+									// }}
+									// errorText={
+									// 	touched.shipping_country &&
+									// 	errors.shipping_country
+									// }
+								/>
+							</Box>
+						</FlexBox>
+
 						<TextField
 							name="shipping_address1"
 							label={lang === 'uz' ? 'Manzil:' : 'Адрес:'}
@@ -99,6 +141,8 @@ const CheckoutForm2 = () => {
 							onChange={handleAdressChange}
 							style={{borderColor: isValidate.address ? 'red' : '#AEB4BE'}}
 						/>
+
+
 					</Card1>
 
 					<Card1 mb="1.5rem">

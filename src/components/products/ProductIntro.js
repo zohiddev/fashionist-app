@@ -9,7 +9,7 @@ import Button from "../buttons/Button"
 import FlexBox from "../FlexBox"
 import Grid from "../grid/Grid"
 import Icon from "../icon/Icon"
-import { H1, H2, H3, H6, SemiSpan } from "../Typography"
+import Typography,{ H1, H2, H3,H4, H6, SemiSpan } from "../Typography"
 import { useDispatch, useSelector } from 'react-redux'
 import { setIsActive } from 'reducers/userReducer';
 
@@ -47,6 +47,8 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 	useEffect(() => {
 		getCartItems()(dispatch)
 	}, [])
+
+
 
 	return (
 		<Box overflow="hidden">
@@ -132,7 +134,6 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 									size="small"
 									color="primary"
 									onClick={() => handleRemoveBtn(product?.id)}
-
 								>
 									<Icon variant="small">minus</Icon>
 								</Button>
@@ -152,16 +153,13 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 							</FlexBox>
 						)}
 
-						{/* <FlexBox alignItems="center" mb="1rem">
-							<SemiSpan>Sold By:</SemiSpan>
-							<Link href="/shop/fdfdsa">
-								<a>
-									<H6 lineHeight="1" ml="8px">
-										Mobile Store
-									</H6>
-								</a>
-							</Link>
-						</FlexBox> */}
+						<FlexBox alignItems="start" >
+							<H4>{lang === 'uz' ? 'Mahsulot haqida qisqacha:' : 'Коротко о товаре:'}</H4>
+						</FlexBox>
+						<Typography>
+							<span className='product_desc'  dangerouslySetInnerHTML={{ __html: lang === 'uz' ? product?.description_uz : product?.description_ru}}>
+							</span>
+						</Typography>
 					</Grid>
 			</Grid>
 		</Box>

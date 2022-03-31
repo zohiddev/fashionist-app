@@ -19,7 +19,8 @@ const ProductDescription = ({desc, attributes}) => {
 										<div className="product_attr">
 											<span className="attribute">
 												{lang === 'uz' ? item?.attribute_uz : item?.attribute_ru} :
-											</span>  <Divider/>
+											</span>
+											<span className="product_line"></span>
 											<span className="value">
 												{lang === 'uz' ? item?.value_uz : item?.value_ru}
 											</span>
