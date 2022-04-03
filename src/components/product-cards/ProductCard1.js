@@ -50,7 +50,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 
 	return (
 		<StyledProductCard1 {...props}>
-			<div className="image-holder">
+			<div className="image-holder"  style={{padding: '15px'}}>
 				{product?.is_new > 0 ? (
 					<Chip
 						position="absolute"
@@ -61,6 +61,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 						p="5px 10px"
 						top="10px"
 						left="10px"
+						zIndex='10'
 					>
 						new
 					</Chip>
@@ -89,7 +90,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 
 				<Link href={`/product/${product?.slug}`}>
 					<a>
-						{/* <img src={item.image} alt={item.name_uz} width={100} height={100}/> */}
+						{/* <img src={product?.images[0]} alt={product?.name_uz} width={250} height={250}/> */}
 						<Image
 							loader={myLoader}
 							src={product?.images[0]}

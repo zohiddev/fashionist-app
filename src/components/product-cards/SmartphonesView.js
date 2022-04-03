@@ -72,8 +72,8 @@ const SmartphonesView = ({
 
 	return (
 		<StyledProductCard1 {...props}>
-			<div className="image-holder">
-				{!!off && (
+			<div className="image-holder"  style={{padding: '15px'}}>
+				{product?.is_new > 0 && (
 					<Chip
 						position="absolute"
 						bg="primary.main"
@@ -83,8 +83,10 @@ const SmartphonesView = ({
 						p="5px 10px"
 						top="10px"
 						left="10px"
+						zIndex='10'
+
 					>
-						{off}% off
+						new
 					</Chip>
 				)}
 

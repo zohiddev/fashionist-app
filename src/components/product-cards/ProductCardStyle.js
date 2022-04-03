@@ -40,6 +40,10 @@ export const StyledProductCard1 = styled(Card)`
 			z-index: 2;
 		}
 
+		img{
+			object-fit: contain !important;
+		}
+
 		@media only screen and (max-width: ${deviceSize.sm}px) {
 			display: block;
 		}

@@ -16,7 +16,6 @@ const ProductDetails = ({ data }) => {
 		setSelectedOption(opt)
 	}
 
-	console.log(data)
 
 	return (
 		<div>

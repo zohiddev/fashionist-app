@@ -29,57 +29,63 @@ const Brands = ({featuredBrands}) => {
 	}, [width])
 
 	return (
-		<CategorySectionCreator
-			iconName="Group"
-			title={lang === 'uz' ? "Mashxur brendlar" : 'Известные бренды'}
-			seeMoreLink={`/products/products`}
-		>
-			<Box my="-0.25rem">
-				<Carousel
-					totalSlides={9}
-					visibleSlides={visibleSlides}
-					showDots={width < 650 ? true : false}
-					showArrow={width < 650 ? false : true}
-				>
-					{featuredBrands?.map((item, ind) => (
-						<Box py="0.25rem" key={item?.id}>
-							<Card p="1rem" textAlign='center'>
-								<Link href={`/products/products?brand=${item?.id}`}>
-									<a>
-										<Image
-											loader={myLoader}
-											src={item?.image}
-											alt={item?.name_uz}
-											width={"100%"}
-											objectFit="contain"
-											height={90}
-											quality="85"
-											placeholder="blur"
-											blurDataURL="placeholder.png"
-										/>
+		<>
+			{
+				featuredBrands?.length > 0 ? <CategorySectionCreator
+				iconName="Group"
+				title={lang === 'uz' ? "Mashxur brendlar" : 'Известные бренды'}
+				seeMoreLink={`/products/products`}
+			>
+				<Box my="-0.25rem">
+					<Carousel
+						totalSlides={9}
+						visibleSlides={visibleSlides}
+						showDots={width < 650 ? true : false}
+						showArrow={width < 650 ? false : true}
+					>
+						{featuredBrands?.map((item, ind) => (
+							<Box py="0.25rem" key={item?.id}>
+								<Card p="1rem" textAlign='center'>
+									<Link href={`/products/products?brand=${item?.id}`}>
+										<a>
+											<Image
+												loader={myLoader}
+												src={item?.image}
+												alt={item?.name_uz}
+												width={"100%"}
+												objectFit="contain"
+												height={90}
+												quality="85"
+												placeholder="blur"
+												blurDataURL="placeholder.png"
+											/>
 
-										<H3
-											className="title"
-											fontSize="14px"
-											textAlign="center"
-											fontWeight="600"
-											color="text.secondary"
-											mb="10px"
-											title={lang === 'uz' ? item?.name_uz : item?.name_ru}
-											onClick={() =>
-												handleBrandId(item.id)
-											}
-										>
-											{lang === 'uz' ? item?.name_uz : item?.name_ru}
-										</H3>
-									</a>
-								</Link>
-							</Card>
-						</Box>
-					))}
-				</Carousel>
-			</Box>
-		</CategorySectionCreator>
+											<H3
+												className="title"
+												fontSize="14px"
+												textAlign="center"
+												fontWeight="600"
+												color="text.secondary"
+												mb="10px"
+												title={lang === 'uz' ? item?.name_uz : item?.name_ru}
+												onClick={() =>
+													handleBrandId(item.id)
+												}
+											>
+												{lang === 'uz' ? item?.name_uz : item?.name_ru}
+											</H3>
+										</a>
+									</Link>
+								</Card>
+							</Box>
+						))}
+					</Carousel>
+				</Box>
+			</CategorySectionCreator>  : null
+			}
+
+		</>
+
 	)
 }
 

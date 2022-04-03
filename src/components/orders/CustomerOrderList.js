@@ -43,7 +43,7 @@ const CustomerOrderList = () => {
 				<Pagination
 					pageCount={5}
 					onChange={(data) => {
-						console.log(data.selected)
+
 					}}
 				/>
 			</FlexBox>

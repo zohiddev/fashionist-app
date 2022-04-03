@@ -106,7 +106,6 @@ const CheckoutForm2 = () => {
 									// value={values.shipping_country || "US"}
 									onChange={(country) => {
 										setRegionId(country.value)
-										console.log(regions?.districts?.filter(item => item.region_id == regionId))
 									}}
 								/>
 							</Box>

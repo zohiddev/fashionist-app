@@ -35,9 +35,6 @@ const IndexPage = ({
 	const isActive = state?.categories?.categoryNavIsActive
 	const [loading, setLoading] = useState(true)
 
-	console.log(recommendedProducts)
-
-
 	useEffect(() => {
 		dispatch(setCategories(items))
 		dispatch(setBrands(featuredBrands))
