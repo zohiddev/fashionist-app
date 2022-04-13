@@ -14,6 +14,7 @@ import { H3, SemiSpan } from "../Typography"
 import { StyledProductCard1 } from "./ProductCardStyle"
 import { useDispatch, useSelector } from "react-redux"
 import { setIsActive } from 'reducers/userReducer';
+import useWindowSize from './../../hooks/useWindowSize';
 
 const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props }) => {
 	const [open, setOpen] = useState(false)
@@ -21,6 +22,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 	const lang = state?.lang?.lang
 	const cartItem = state.cart?.cartList?.find((item) => item.product_id === product?.id)
 	const dispatch = useDispatch()
+	const windowSize = useWindowSize()
 	const toggleDialog = useCallback(() => {
 		setOpen((open) => !open)
 	}, [])
@@ -186,7 +188,7 @@ const ProductCard1 = ({ id, imgUrl, title, price, off,product , rating, ...props
 				</FlexBox>
 			</div>
 
-			<Modal open={open} onClose={toggleDialog}>
+			<Modal open={open} style={{paddingTop: windowSize < 769 ? '100px' : '0'}} onClose={toggleDialog}>
 				<Card p="1rem" position="relative">
 					<ProductIntro
 						imgUrl={product?.images}

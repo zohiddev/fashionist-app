@@ -84,7 +84,6 @@ const SmartphonesView = ({
 						top="10px"
 						left="10px"
 						zIndex='10'
-
 					>
 						new
 					</Chip>

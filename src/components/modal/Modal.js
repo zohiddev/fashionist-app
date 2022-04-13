@@ -3,7 +3,7 @@ import { createPortal } from "react-dom"
 import FlexBox from "../FlexBox"
 import StyledModal from "./ModalStyle"
 
-const Modal = ({ children, open, onClose }) => {
+const Modal = ({ children, open, onClose, ...rest }) => {
 	const handleModalContentClick = (e) => {
 		e.stopPropagation()
 	}
@@ -27,7 +27,7 @@ const Modal = ({ children, open, onClose }) => {
 				alignItems="center"
 				onClick={handleBackdropClick}
 			>
-				<div className="container">
+				<div className="container" style={rest.style}>
 					<FlexBox justifyContent="center" m="0.5rem">
 						{cloneElement(children, {
 							onClick: handleModalContentClick,

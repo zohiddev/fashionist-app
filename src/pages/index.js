@@ -57,7 +57,7 @@ const IndexPage = ({
 			<Smartphones smartphones={smartphones}/>
 			<SliderLower  slides={slides}/>
 			<SomeProducts recommendedProducts={recommendedProducts}/>
-			<Brands featuredBrands={featuredBrands}/> {/* products */}
+			{/* <Brands featuredBrands={featuredBrands}/> products */}
 			<Services /> {/* services worldwide delivsery */}
 		</main>
 	)

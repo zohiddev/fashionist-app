@@ -103,6 +103,7 @@ const CheckoutForm2 = () => {
 									mb="1rem"
 									label={lang === 'uz' ? 'Viloyat' : 'Регион / Область'}
 									options={regions.regions}
+									isSearchable={false}
 									// value={values.shipping_country || "US"}
 									onChange={(country) => {
 										setRegionId(country.value)
@@ -116,6 +117,7 @@ const CheckoutForm2 = () => {
 								<Select
 									mb="1rem"
 									label={lang === 'uz' ? 'Shahar / tuman' : 'Город / Район '}
+									isSearchable={false}
 									options={regions?.districts?.filter(item => item.region_id == regionId)}
 									// value={values.shipping_country || "US"}
 									// onChange={(country) => {

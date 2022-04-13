@@ -45,7 +45,7 @@ export default function Category({data}) {
 							fontSize="18px"
 							ml='10px'
 						>
-							{item?.name_uz}
+							{lang === 'uz' ? item?.name_uz : item?.name_ru}
 						</Typography>
 					</FlexBox>
 				</AccordionHeader>
@@ -64,7 +64,7 @@ export default function Category({data}) {
 									<Link href={"/products/"+el?.slug}>
 										<a>
 											<H3 mb='5px' fontSize='15px'>
-												{el?.name_uz}
+												{lang === 'uz' ? el?.name_uz : el?.name_ru}
 											</H3>
 										</a>
 									</Link>
