@@ -40,7 +40,7 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 			addedItem.qty = 1;
 			addedItem.product_id = Number(id);
 			addToCart(addedItem)(dispatch)
-			toast.success('Mahsulot qo`shildi')
+			toast.success(`${lang === 'uz' ? 'Mahsulot qo`shildi' : 'Товар добавлен'}`)
 
 		}else{
 			dispatch(setIsActive(true))
