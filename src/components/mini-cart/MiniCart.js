@@ -55,6 +55,8 @@ const MiniCart = ({ toggleSidenav }) => {
 		)
 	}
 
+	console.log(cartList)
+
 	return (
 		<StyledMiniCart>
 			<div className="cart-list">
@@ -125,8 +127,8 @@ const MiniCart = ({ toggleSidenav }) => {
 								</Button>
 							</FlexBox>
 
-							<Link href={`/product/${item.id}`}>
-								<a >
+							<Link href={`/product/${item.slug}`}>
+								<a>
 									<Avatar
 										src={
 											item.image ||
@@ -141,7 +143,7 @@ const MiniCart = ({ toggleSidenav }) => {
 							</Link>
 
 							<div className="product-details">
-								<Link href={`/product/${item.id}`}>
+								<Link href={`/product/${item.slug}`}>
 									<a>
 										<H5 className="title" fontSize="14px">
 											{lang === 'uz' ? item.name_uz : item.name_ru}
