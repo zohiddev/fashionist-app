@@ -135,6 +135,7 @@ const MiniCart = ({ toggleSidenav }) => {
 										mx="1rem"
 										alt={item.name_uz}
 										size={76}
+										borderRadius='0'
 									/>
 								</a>
 							</Link>

@@ -6,9 +6,7 @@ const Typography = styled.div`
 	${(props) =>
 		props.ellipsis
 			? `
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
   `
 			: ""}
 

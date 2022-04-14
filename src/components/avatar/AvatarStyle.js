@@ -25,6 +25,7 @@ const StyledAvatar = styled.div`
     display: block;
     height: 100%;
     width: 100%;
+	object-fit: contain;
   }
   & > * {
     position: absolute;

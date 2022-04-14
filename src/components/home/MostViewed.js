@@ -62,7 +62,8 @@ const MostViewed = ({mostViewedProducts}) => {
 											mb="10px"
 											title={lang === 'uz' ? item?.name_uz : item?.name_ru}
 										>
-											{lang === 'uz' ? item?.name_uz.length > 20 ? item?.name_uz.slice(0, 20) + "..." : item?.name_ru : item?.name_ru.length > 20 ? item?.name_ru.slice(0, 20) + "..." : item?.name_ru}
+											{/* {lang === 'uz' ? item?.name_uz.length > 20 ? item?.name_uz.slice(0, 20) + "..." : item?.name_ru : item?.name_ru.length > 20 ? item?.name_ru.slice(0, 20) + "..." : item?.name_ru} */}
+											{lang === 'uz' ? item?.name_uz : item?.name_ru}
 										</H3>
 										<FlexBox>
 											<H4

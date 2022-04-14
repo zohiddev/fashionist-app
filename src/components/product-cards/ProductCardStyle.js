@@ -54,9 +54,9 @@ export const StyledProductCard1 = styled(Card)`
 
 		.title,
 		.categories {
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+			// white-space: nowrap;
+			// overflow: hidden;
+			// text-overflow: ellipsis;
 		}
 
 		.icon-holder {
@@ -227,9 +227,9 @@ export const StyledProductCard7 = styled.div`
 		padding: 20px;
 	}
 	.title {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		// white-space: nowrap;
+		// overflow: hidden;
+		// text-overflow: ellipsis;
 	}
 
 	@media only screen and (max-width: 425px) {
@@ -254,9 +254,9 @@ export const StyledProductCard9 = styled(Card)`
 		cursor: pointer;
 	}
 	.categories {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		// white-space: nowrap;
+		// overflow: hidden;
+		// text-overflow: ellipsis;
 	}
 	.categories {
 		display: flex;

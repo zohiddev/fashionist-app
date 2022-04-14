@@ -12,6 +12,7 @@ import Icon from "../icon/Icon"
 import Typography,{ H1, H2, H3,H4, H6, SemiSpan } from "../Typography"
 import { useDispatch, useSelector } from 'react-redux'
 import { setIsActive } from 'reducers/userReducer';
+import {toast, ToastContainer} from 'react-toast'
 
 const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 	const [selectedImage, setSelectedImage] = useState(0)
@@ -39,6 +40,8 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 			addedItem.qty = 1;
 			addedItem.product_id = Number(id);
 			addToCart(addedItem)(dispatch)
+			toast.success('Mahsulot qo`shildi')
+
 		}else{
 			dispatch(setIsActive(true))
 		}
@@ -52,6 +55,7 @@ const ProductIntro = ({ imgUrl, title, price = 200, id, product }) => {
 
 	return (
 		<Box overflow="hidden">
+			<ToastContainer position="top-right" delay="3000"/>
 			<Grid container justifyContent="center" spacing={16}>
 					<Grid item md={6} xs={12} alignItems="center">
 						<Box>
