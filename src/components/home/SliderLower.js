@@ -35,5 +35,6 @@ const SliderLower = ({slides}) => {
 		</Fragment>
 	)
 }
+// asdasdsd
 
 export default SliderLower
