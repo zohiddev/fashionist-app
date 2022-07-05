@@ -1,10 +1,10 @@
-import React from "react"
-import StyledAvatar from "./AvatarStyle"
+import React from 'react'
+import StyledAvatar from './AvatarStyle'
 
 const Avatar = ({ src, size, children, ...props }) => {
 	return (
 		<StyledAvatar size={size} {...props}>
-			{src && <img src={src} alt="avatar" />}
+			{src && <img src={src} alt='avatar' />}
 			{!src && children && <span>{children}</span>}
 		</StyledAvatar>
 	)
