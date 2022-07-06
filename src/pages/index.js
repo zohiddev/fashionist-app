@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import NewProducts from "components/home/NewProducts"
 import Services from 'components/home/Services'
 import Smartphones from 'components/home/Smartphones'
 import SomeProducts from 'components/home/SomeProducts'
@@ -41,9 +40,7 @@ const IndexPage = ({
 		dispatch(setCategories(items))
 		dispatch(setBrands(featuredBrands))
 		dispatch(setSlides(slides))
-		// dispatch(setCategories2(featuredCategories))
 		dispatch(setMostVieweddProducts(mostViewedProducts))
-		// dispatch(setNewProducts(newProducts))
 		dispatch(setSmartphones(smartphones))
 		dispatch(setRecommendedProducts(recommendedProducts))
 		getCartItems()(dispatch)
@@ -53,14 +50,11 @@ const IndexPage = ({
 	return (
 		<main>
 			<SliderHero slides={slides} />
-			{/* <TopCategories featuredCategories={featuredCategories}/> */}
 			<MostViewed mostViewedProducts={mostViewedProducts} />
-			{/* <NewProducts /> */}
 			<Smartphones smartphones={smartphones} />
 			<SliderLower slides={slides} />
 			<SomeProducts recommendedProducts={recommendedProducts} />
-			{/* <Brands featuredBrands={featuredBrands}/> products */}
-			<Services /> {/* services worldwide delivsery */}
+			<Services />
 		</main>
 	)
 }
@@ -72,20 +66,16 @@ export async function getStaticProps() {
 		categoriesRes,
 		featuredBrandsRes,
 		slidesRes,
-		// featuredCategoriesRes,
 		mostViewedProductsRes,
-		// newProductsRes,
 		smartphonesRes,
 		recommendedProductsRes,
 	] = await Promise.all([
 		fetch('https://api.sdb.uz/dev/v1/category/list'),
 		fetch('https://api.sdb.uz/dev/v1/brand/list?featured=1'),
 		fetch('https://api.sdb.uz/dev/v1/events/list'),
-		// fetch("https://api.sdb.uz/dev/v1/category/featured"),
 		fetch(
 			'https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9'
 		),
-		// fetch("https://api.sdb.uz/dev/v1/product/list?sort=id,desc&per_page=9"),
 		fetch('https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12'),
 		fetch(
 			'https://api.sdb.uz/dev/v1/product/list?type=recommended&per_page=12'
@@ -95,18 +85,14 @@ export async function getStaticProps() {
 		categories,
 		featuredBrands,
 		slides,
-		// featuredCategories,
 		mostViewedProducts,
-		// newProducts,
 		smartphones,
 		recommendedProducts,
 	] = await Promise.all([
 		categoriesRes.json(),
 		featuredBrandsRes.json(),
 		slidesRes.json(),
-		// featuredCategoriesRes.json(),
 		mostViewedProductsRes.json(),
-		// newProductsRes.json(),
 		smartphonesRes.json(),
 		recommendedProductsRes.json(),
 	])
@@ -115,9 +101,7 @@ export async function getStaticProps() {
 			items: categories.categories,
 			featuredBrands: featuredBrands?.brands,
 			slides: slides?.events,
-			// featuredCategories: featuredCategories?.categories,
 			mostViewedProducts: mostViewedProducts?.products,
-			// newProducts: newProducts?.products,
 			smartphones: smartphones?.products,
 			recommendedProducts: recommendedProducts?.products,
 		},
