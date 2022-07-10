@@ -5,8 +5,9 @@
 		"dev": "next",
 		"build": "next build && next export",
 		"export": "next export",
+		"start": "next start",
 		"build-static-page": "next build",
-		"start": "set NODE_ENV=production && node sdb-web.js",
+		"serve": "set NODE_ENV=production && node sdb-web.js",
 		"heroku-postbuild": "npm run build"
 	},
 	"dependencies": {
