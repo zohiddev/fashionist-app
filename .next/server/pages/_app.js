@@ -228,7 +228,7 @@ const App = ({
         async: true,
         src: "https://www.googletagmanager.com/gtag/js?id=G-SGG7GE7HZC"
       }), /*#__PURE__*/jsx_runtime_.jsx("script", {
-        src: "//code-ya.jivosite.com/widget/bmq4sBkc5x",
+        src: "//code.jivo.ru/widget/zc7HkArwKt",
         async: true
       }), /*#__PURE__*/jsx_runtime_.jsx("script", {
         dangerouslySetInnerHTML: {

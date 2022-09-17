@@ -50,7 +50,7 @@ const App = ({ Component, pageProps }) => {
 					async
 					src="https://www.googletagmanager.com/gtag/js?id=G-SGG7GE7HZC"
 				></script>
-				 <script src="//code-ya.jivosite.com/widget/bmq4sBkc5x" async></script>
+				<script src="//code.jivo.ru/widget/zc7HkArwKt" async></script>
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `

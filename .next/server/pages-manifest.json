@@ -1,6 +1,5 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html",
   "/cart": "pages/cart.html",
@@ -9,9 +8,10 @@
   "/orders/[id]": "pages/orders/[id].html",
   "/profile/edit": "pages/profile/edit.html",
   "/profile": "pages/profile.html",
+  "/_error": "pages/_error.js",
   "/category": "pages/category.js",
-  "/products/[id]": "pages/products/[id].js",
   "/": "pages/index.js",
+  "/products/[id]": "pages/products/[id].js",
   "/page/[id]": "pages/page/[id].js",
   "/product/[id]": "pages/product/[id].js"
 }
