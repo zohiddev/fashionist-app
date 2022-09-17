@@ -11,7 +11,7 @@
   "/_error": "pages/_error.js",
   "/category": "pages/category.js",
   "/": "pages/index.js",
-  "/products/[id]": "pages/products/[id].js",
   "/page/[id]": "pages/page/[id].js",
-  "/product/[id]": "pages/product/[id].js"
+  "/product/[id]": "pages/product/[id].js",
+  "/products/[id]": "pages/products/[id].js"
 }

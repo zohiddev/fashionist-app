@@ -131,7 +131,10 @@ var userReducer = __webpack_require__(8221);
 var LangReducer = __webpack_require__(6007);
 // EXTERNAL MODULE: ./src/reducers/searchReducer.js
 var searchReducer = __webpack_require__(6480);
+// EXTERNAL MODULE: ./src/reducers/headerReducer.js
+var headerReducer = __webpack_require__(9745);
 ;// CONCATENATED MODULE: ./src/reducers/rootReducer.js
+
 
 
 
@@ -151,7 +154,8 @@ const rootReducer = reducers_combineReducers({
   brands: brandsReducer/* default */.ZP,
   user: userReducer/* default */.ZP,
   search: searchReducer/* default */.ZP,
-  lang: LangReducer/* default */.Z
+  lang: LangReducer/* default */.Z,
+  header: headerReducer/* default */.Z
 });
 /* harmony default export */ const reducers_rootReducer = (rootReducer);
 ;// CONCATENATED MODULE: ./src/store/store.js
@@ -258,6 +262,38 @@ const App = ({
 
 
 /* harmony default export */ const _app = (wrapper.withRedux(App));
+
+/***/ }),
+
+/***/ 9745:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "R": () => (/* binding */ setHeaderContent),
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const SET_HEADER_CONTENT = "SET_HEADER_CONTENT";
+const defaultState = {
+  content: ""
+};
+
+function HeaderReducer(state = defaultState, action) {
+  switch (action.type) {
+    case SET_HEADER_CONTENT:
+      return {
+        content: action.content
+      };
+
+    default:
+      return state;
+  }
+}
+
+const setHeaderContent = content => ({
+  type: SET_HEADER_CONTENT,
+  content
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderReducer);
 
 /***/ }),
 

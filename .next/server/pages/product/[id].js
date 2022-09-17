@@ -167,7 +167,10 @@ const RelatedProducts = ({
 /* harmony default export */ const products_RelatedProducts = (RelatedProducts);
 // EXTERNAL MODULE: ./src/components/Container.js
 var Container = __webpack_require__(3158);
+// EXTERNAL MODULE: ./src/reducers/headerReducer.js
+var headerReducer = __webpack_require__(9745);
 ;// CONCATENATED MODULE: ./src/pages/product/[id].js
+
 
 
 
@@ -189,11 +192,30 @@ const ProductDetails = ({
     1: setSelectedOption
   } = (0,external_react_.useState)("attributes");
   const lang = (0,external_react_redux_.useSelector)(state => state.lang.lang);
+  const dispatch = (0,external_react_redux_.useDispatch)();
 
   const handleOptionClick = opt => () => {
     setSelectedOption(opt);
-  };
+  }; // make keywrods from data.product.name_uz and name_ru
 
+
+  function makeKeywords(n1, n2) {
+    n1 = n1.split(' ');
+    n2 = n2.split(' ');
+    const temp = [];
+
+    for (let i = 0; i < n1.length; i++) {
+      temp.push(n1.slice(0, i + 1));
+      temp.push(n2.slice(0, i + 1));
+    }
+
+    return temp.map(el => el.join(' ')).join(',');
+  }
+
+  (0,external_react_.useEffect)(() => {
+    console.log(data.product);
+    dispatch((0,headerReducer/* setHeaderContent */.R)(makeKeywords(data.product.name_uz, data.product.name_ru)));
+  }, []);
   return /*#__PURE__*/jsx_runtime_.jsx("div", {
     children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Container/* default */.Z, {
       mb: "70px",
@@ -213,7 +235,7 @@ const ProductDetails = ({
           borderBottom: selectedOption === "attributes" && "2px solid",
           borderColor: "primary.main",
           onClick: handleOptionClick("attributes"),
-          children: lang === 'uz' ? "Xususiyatlar" : 'Функции'
+          children: lang === "uz" ? "Xususiyatlar" : "Функции"
         }), /*#__PURE__*/jsx_runtime_.jsx(Typography.H5, {
           className: "cursor-pointer",
           mr: "25px",
@@ -222,12 +244,12 @@ const ProductDetails = ({
           borderBottom: selectedOption === "description" && "2px solid",
           borderColor: "primary.main",
           onClick: handleOptionClick("description"),
-          children: lang === 'uz' ? "Ma'lumotlar" : 'Информация'
+          children: lang === "uz" ? "Ma'lumotlar" : "Информация"
         })]
       }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Box/* default */.Z, {
         mb: "50px",
         children: [selectedOption === "description" && /*#__PURE__*/jsx_runtime_.jsx(products_ProductDescription, {
-          desc: lang === 'uz' ? data?.product?.description_uz : data?.product?.description_ru
+          desc: lang === "uz" ? data?.product?.description_uz : data?.product?.description_ru
         }), selectedOption === "attributes" && /*#__PURE__*/jsx_runtime_.jsx(products_ProductDescription, {
           attributes: data?.product?.attributes
         })]
@@ -252,6 +274,38 @@ async function getServerSideProps({
   };
 }
 /* harmony default export */ const _id_ = (ProductDetails);
+
+/***/ }),
+
+/***/ 9745:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "R": () => (/* binding */ setHeaderContent),
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const SET_HEADER_CONTENT = "SET_HEADER_CONTENT";
+const defaultState = {
+  content: ""
+};
+
+function HeaderReducer(state = defaultState, action) {
+  switch (action.type) {
+    case SET_HEADER_CONTENT:
+      return {
+        content: action.content
+      };
+
+    default:
+      return state;
+  }
+}
+
+const setHeaderContent = content => ({
+  type: SET_HEADER_CONTENT,
+  content
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderReducer);
 
 /***/ }),
 

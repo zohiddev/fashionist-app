@@ -2103,41 +2103,53 @@ const StyledAppLayout = external_styled_components_default().div.withConfig({
 
 
 
+
 const AppLayout = ({
   categories,
   children,
   navbar,
   title = "Samsung dehqon bozor"
-}) => /*#__PURE__*/(0,jsx_runtime_.jsxs)(AppLayoutStyle, {
-  children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("header", {
-    className: "mainHeader",
-    children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)((head_default()), {
-      children: [/*#__PURE__*/jsx_runtime_.jsx("title", {
-        children: title
-      }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
-        charSet: "utf-8"
-      }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
-        name: "viewport",
-        content: "initial-scale=1.0, width=device-width"
+}) => {
+  const {
+    header
+  } = (0,external_react_redux_.useSelector)(state => state);
+  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(AppLayoutStyle, {
+    children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("header", {
+      className: "mainHeader",
+      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)((head_default()), {
+        children: [/*#__PURE__*/jsx_runtime_.jsx("title", {
+          children: title
+        }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+          charSet: "utf-8"
+        }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+          name: "viewport",
+          content: "initial-scale=1.0, width=device-width"
+        }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+          name: "description",
+          content: "Samsung dehqon bozor - Onlayn do'kon"
+        }), header.content && /*#__PURE__*/jsx_runtime_.jsx("meta", {
+          name: "keywords",
+          content: header?.content
+        })]
+      }), /*#__PURE__*/jsx_runtime_.jsx(topbar_Topbar, {}), /*#__PURE__*/jsx_runtime_.jsx(sticky_Sticky, {
+        fixedOn: 0,
+        children: /*#__PURE__*/jsx_runtime_.jsx(header_Header, {})
       })]
-    }), /*#__PURE__*/jsx_runtime_.jsx(topbar_Topbar, {}), /*#__PURE__*/jsx_runtime_.jsx(sticky_Sticky, {
-      fixedOn: 0,
-      children: /*#__PURE__*/jsx_runtime_.jsx(header_Header, {})
+    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("main", {
+      className: "mainMain",
+      children: [navbar && /*#__PURE__*/jsx_runtime_.jsx("div", {
+        className: "section-after-sticky",
+        children: navbar
+      }), !navbar ? /*#__PURE__*/jsx_runtime_.jsx("div", {
+        className: "section-after-sticky",
+        children: children
+      }) : children]
+    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("footer", {
+      className: "mainFooter",
+      children: [/*#__PURE__*/jsx_runtime_.jsx(mobile_navigation_MobileNavigationBar, {}), /*#__PURE__*/jsx_runtime_.jsx(footer_Footer, {})]
     })]
-  }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("main", {
-    className: "mainMain",
-    children: [navbar && /*#__PURE__*/jsx_runtime_.jsx("div", {
-      className: "section-after-sticky",
-      children: navbar
-    }), !navbar ? /*#__PURE__*/jsx_runtime_.jsx("div", {
-      className: "section-after-sticky",
-      children: children
-    }) : children]
-  }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("footer", {
-    className: "mainFooter",
-    children: [/*#__PURE__*/jsx_runtime_.jsx(mobile_navigation_MobileNavigationBar, {}), /*#__PURE__*/jsx_runtime_.jsx(footer_Footer, {})]
-  })]
-});
+  });
+};
 
 /* harmony default export */ const layout_AppLayout = (AppLayout);
 
