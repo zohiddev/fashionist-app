@@ -248,7 +248,7 @@ const Icon = _ref => {
   return /*#__PURE__*/jsx_runtime_.jsx(IconStyle, _objectSpread({
     src: `/assets/images/icons/${children}.svg`,
     fallback: () => /*#__PURE__*/jsx_runtime_.jsx("span", {
-      children: children === null || children === void 0 ? void 0 : children.trim()
+      children: children?.trim()
     })
   }, props));
 };

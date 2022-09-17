@@ -116,8 +116,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 const Pagination = _ref => {
-  var _router$query, _router$query2;
-
   let {
     pageCount,
     marginPagesDisplayed,
@@ -171,7 +169,7 @@ const Pagination = _ref => {
         children: "triple-dot"
       }),
       pageCount: pageCount,
-      forcePage: router !== null && router !== void 0 && (_router$query = router.query) !== null && _router$query !== void 0 && _router$query.page ? Number(router === null || router === void 0 ? void 0 : (_router$query2 = router.query) === null || _router$query2 === void 0 ? void 0 : _router$query2.page) - 1 : 0,
+      forcePage: router?.query?.page ? Number(router?.query?.page) - 1 : 0,
       marginPagesDisplayed: marginPagesDisplayed,
       pageRangeDisplayed: pageRangeDisplayed,
       onPageChange: handlePageChange,
@@ -206,7 +204,7 @@ const ProductCard1List = ({
     children: [/*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
       container: true,
       spacing: 6,
-      children: products === null || products === void 0 ? void 0 : products.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+      children: products?.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
         item: true,
         lg: 4,
         sm: 6,
@@ -221,7 +219,7 @@ const ProductCard1List = ({
       alignItems: "center",
       mt: "32px",
       children: [/*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {}), /*#__PURE__*/jsx_runtime_.jsx(pagination_Pagination, {
-        pageCount: pagination === null || pagination === void 0 ? void 0 : pagination.total_pages
+        pageCount: pagination?.total_pages
       })]
     })]
   });
@@ -307,11 +305,11 @@ const ProductFilterCard = ({
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Card/* default */.Z, {
     p: "18px 27px 64px 27px",
     elevation: 5,
-    children: [(subCats === null || subCats === void 0 ? void 0 : subCats.length) === 0 || subCats === undefined ? null : /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+    children: [subCats?.length === 0 || subCats === undefined ? null : /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
       children: [/*#__PURE__*/jsx_runtime_.jsx(Typography.H6, {
         mb: "10px",
         children: lang === 'uz' ? 'Kategoriyalar' : 'Категории'
-      }), subCats === null || subCats === void 0 ? void 0 : subCats.map((item, index) => item.subCategories ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(Accordion/* default */.Z, {
+      }), subCats?.map((item, index) => item.subCategories ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(Accordion/* default */.Z, {
         expanded: true,
         children: [/*#__PURE__*/jsx_runtime_.jsx(AccordionHeader/* default */.Z, {
           px: "0px",
@@ -321,9 +319,9 @@ const ProductFilterCard = ({
           children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
             className: "cursor-pointer",
             mr: "9px",
-            children: item === null || item === void 0 ? void 0 : item.title
+            children: item?.title
           })
-        }), item === null || item === void 0 ? void 0 : item.subCategories.map((name, index) => /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
+        }), item?.subCategories.map((name, index) => /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
           className: "cursor-pointer",
           fontSize: "14px",
           color: "text.muted",
@@ -332,24 +330,24 @@ const ProductFilterCard = ({
           children: name
         }, index))]
       }, index) : /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-        href: `/products/${item === null || item === void 0 ? void 0 : item.slug}`,
+        href: `/products/${item?.slug}`,
         children: /*#__PURE__*/jsx_runtime_.jsx("a", {
           children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
             className: "cursor-pointer",
             fontSize: "14px",
             color: "text.muted",
             py: "6px",
-            children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
-          }, item === null || item === void 0 ? void 0 : item.id)
+            children: lang === 'uz' ? item?.name_uz : item?.name_ru
+          }, item?.id)
         })
       })), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {
         my: "24px"
       })]
-    }), (brandCategories === null || brandCategories === void 0 ? void 0 : brandCategories.length) === 0 || brandCategories === undefined ? null : /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+    }), brandCategories?.length === 0 || brandCategories === undefined ? null : /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
       children: [/*#__PURE__*/jsx_runtime_.jsx(Typography.H6, {
         mb: "10px",
         children: lang === 'uz' ? 'Kategoriyalar' : 'Категории'
-      }), brandCategories === null || brandCategories === void 0 ? void 0 : brandCategories.map((item, index) => item.subCategories ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(Accordion/* default */.Z, {
+      }), brandCategories?.map((item, index) => item.subCategories ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(Accordion/* default */.Z, {
         expanded: true,
         children: [/*#__PURE__*/jsx_runtime_.jsx(AccordionHeader/* default */.Z, {
           px: "0px",
@@ -359,9 +357,9 @@ const ProductFilterCard = ({
           children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
             className: "cursor-pointer",
             mr: "9px",
-            children: item === null || item === void 0 ? void 0 : item.title
+            children: item?.title
           })
-        }), item === null || item === void 0 ? void 0 : item.subCategories.map((name, index) => /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
+        }), item?.subCategories.map((name, index) => /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
           className: "cursor-pointer",
           fontSize: "14px",
           color: "text.muted",
@@ -370,15 +368,15 @@ const ProductFilterCard = ({
           children: name
         }, index))]
       }, index) : /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-        href: `/products/${item === null || item === void 0 ? void 0 : item.slug}`,
+        href: `/products/${item?.slug}`,
         children: /*#__PURE__*/jsx_runtime_.jsx("a", {
           children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
             className: "cursor-pointer",
             fontSize: "14px",
             color: "text.muted",
             py: "6px",
-            children: lang === 'uz' ? (item === null || item === void 0 ? void 0 : item.c_uz) || (item === null || item === void 0 ? void 0 : item.name_uz) : (item === null || item === void 0 ? void 0 : item.c_ru) || (item === null || item === void 0 ? void 0 : item.name_ru)
-          }, item === null || item === void 0 ? void 0 : item.id)
+            children: lang === 'uz' ? item?.c_uz || item?.name_uz : item?.c_ru || item?.name_ru
+          }, item?.id)
         })
       })), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {
         my: "24px"
@@ -387,13 +385,13 @@ const ProductFilterCard = ({
       children: [/*#__PURE__*/jsx_runtime_.jsx(Typography.H6, {
         mb: "16px",
         children: lang === 'uz' ? 'Brandlar' : 'Бренды'
-      }), categoryBrands === null || categoryBrands === void 0 ? void 0 : categoryBrands.map((item, index) => /*#__PURE__*/jsx_runtime_.jsx(CheckBox/* default */.Z, {
-        name: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru,
-        value: item === null || item === void 0 ? void 0 : item.id,
+      }), categoryBrands?.map((item, index) => /*#__PURE__*/jsx_runtime_.jsx(CheckBox/* default */.Z, {
+        name: lang === 'uz' ? item?.name_uz : item?.name_ru,
+        value: item?.id,
         color: "secondary",
         label: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* SemiSpan */.kf, {
           color: "inherit",
-          children: [lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru, " \xA0 ", item === null || item === void 0 ? void 0 : item.count]
+          children: [lang === 'uz' ? item?.name_uz : item?.name_ru, " \xA0 ", item?.count]
         }),
         my: "10px",
         onChange: e => {
@@ -401,21 +399,19 @@ const ProductFilterCard = ({
         }
       }, index))]
     }) : null, categoryAttributes ? categoryAttributes.map(attribute => {
-      var _attribute$values;
-
       return /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [/*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {
           my: "24px"
         }), /*#__PURE__*/jsx_runtime_.jsx(Typography.H6, {
           mb: "16px",
           children: lang === 'uz' ? attribute.name_uz : attribute.name_ru
-        }), attribute === null || attribute === void 0 ? void 0 : (_attribute$values = attribute.values) === null || _attribute$values === void 0 ? void 0 : _attribute$values.map((item, index) => /*#__PURE__*/jsx_runtime_.jsx(CheckBox/* default */.Z, {
-          name: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.value_uz : item === null || item === void 0 ? void 0 : item.value_ru,
-          value: item === null || item === void 0 ? void 0 : item.value_id,
+        }), attribute?.values?.map((item, index) => /*#__PURE__*/jsx_runtime_.jsx(CheckBox/* default */.Z, {
+          name: lang === 'uz' ? item?.value_uz : item?.value_ru,
+          value: item?.value_id,
           color: "secondary",
           label: /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
             color: "inherit",
-            children: item === null || item === void 0 ? void 0 : item.value_uz
+            children: item?.value_uz
           }),
           my: "10px",
           onChange: e => {
@@ -464,8 +460,6 @@ const ProductSearchResult = ({
   data,
   rest
 }) => {
-  var _data$pagination, _data$pagination2, _data$products;
-
   const {
     0: view,
     1: setView
@@ -513,7 +507,7 @@ const ProductSearchResult = ({
         children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
           children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
             color: "text.muted",
-            children: lang === 'uz' ? `Jami ${data === null || data === void 0 ? void 0 : (_data$pagination = data.pagination) === null || _data$pagination === void 0 ? void 0 : _data$pagination.total} ta topildi` : `Всего найдено ${data === null || data === void 0 ? void 0 : (_data$pagination2 = data.pagination) === null || _data$pagination2 === void 0 ? void 0 : _data$pagination2.total}`
+            children: lang === 'uz' ? `Jami ${data?.pagination?.total} ta topildi` : `Всего найдено ${data?.pagination?.total}`
           })
         }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
           alignItems: "center",
@@ -543,10 +537,10 @@ const ProductSearchResult = ({
               })
             }),
             children: /*#__PURE__*/jsx_runtime_.jsx(products_ProductFilterCard, {
-              subCats: data === null || data === void 0 ? void 0 : data.subCats,
-              categoryBrands: data === null || data === void 0 ? void 0 : data.categoryBrands,
-              categoryAttributes: data === null || data === void 0 ? void 0 : data.categoryAttributes,
-              brandCategories: data === null || data === void 0 ? void 0 : data.relatedCategories
+              subCats: data?.subCats,
+              categoryBrands: data?.categoryBrands,
+              categoryAttributes: data?.categoryAttributes,
+              brandCategories: data?.relatedCategories
             })
           })]
         })]
@@ -560,18 +554,18 @@ const ProductSearchResult = ({
           xs: 12,
           down: 1024,
           children: /*#__PURE__*/jsx_runtime_.jsx(products_ProductFilterCard, {
-            subCats: data === null || data === void 0 ? void 0 : data.subCats,
-            categoryBrands: data === null || data === void 0 ? void 0 : data.categoryBrands,
-            categoryAttributes: data === null || data === void 0 ? void 0 : data.categoryAttributes,
-            brandCategories: data === null || data === void 0 ? void 0 : data.relatedCategories
+            subCats: data?.subCats,
+            categoryBrands: data?.categoryBrands,
+            categoryAttributes: data?.categoryAttributes,
+            brandCategories: data?.relatedCategories
           })
         }), /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
           item: true,
           lg: 9,
           xs: 12,
-          children: (data === null || data === void 0 ? void 0 : (_data$products = data.products) === null || _data$products === void 0 ? void 0 : _data$products.length) !== 0 ? /*#__PURE__*/jsx_runtime_.jsx(products_ProductCard1List, {
-            products: data === null || data === void 0 ? void 0 : data.products,
-            pagination: data === null || data === void 0 ? void 0 : data.pagination
+          children: data?.products?.length !== 0 ? /*#__PURE__*/jsx_runtime_.jsx(products_ProductCard1List, {
+            products: data?.products,
+            pagination: data?.pagination
           }) : /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
             flexDirection: "column",
             minHeight: "100vh",
@@ -770,6 +764,13 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
 
 /***/ }),
 
@@ -983,7 +984,7 @@ module.exports = require("yup");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,928,27,372,483,685,916,545,308,741,737,282,553], () => (__webpack_exec__(1774)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,675,938,928,27,372,483,685,916,545,308,741,737,282,553], () => (__webpack_exec__(1774)));
 module.exports = __webpack_exports__;
 
 })();

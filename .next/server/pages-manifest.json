@@ -9,9 +9,9 @@
   "/orders/[id]": "pages/orders/[id].html",
   "/profile/edit": "pages/profile/edit.html",
   "/profile": "pages/profile.html",
-  "/product/[id]": "pages/product/[id].js",
+  "/category": "pages/category.js",
   "/products/[id]": "pages/products/[id].js",
-  "/page/[id]": "pages/page/[id].js",
   "/": "pages/index.js",
-  "/category": "pages/category.js"
+  "/page/[id]": "pages/page/[id].js",
+  "/product/[id]": "pages/product/[id].js"
 }

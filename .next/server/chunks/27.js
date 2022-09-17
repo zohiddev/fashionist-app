@@ -58,66 +58,62 @@ const Button = styled_components__WEBPACK_IMPORTED_MODULE_1___default().button.w
 }), ({
   theme,
   color
-}) => {
-  var _theme$colors$color, _theme$colors$color2, _theme$colors$color3, _theme$colors$color4, _theme$colors$color5, _theme$colors$color6;
-
-  return (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
-    prop: "variant",
-    variants: {
-      text: {
-        border: "none",
-        color: `${color}.main`,
-        "&:hover": {
-          bg: color ? `${color}.light` : "gray.100"
-        }
+}) => (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
+  prop: "variant",
+  variants: {
+    text: {
+      border: "none",
+      color: `${color}.main`,
+      "&:hover": {
+        bg: color ? `${color}.light` : "gray.100"
+      }
+    },
+    outlined: {
+      padding: "10px 16px",
+      color: `${color}.main`,
+      border: "1px solid",
+      borderColor: color ? `${color}.main` : "text.disabled",
+      // "&:enabled svg path": {
+      // 	fill: color
+      // 		? `${theme.colors[color]?.main} !important`
+      // 		: "text.primary",
+      // },
+      // "&:enabled svg polyline, svg polygon": {
+      // 	color: color
+      // 		? `${theme.colors[color]?.main} !important`
+      // 		: "text.primary",
+      // },
+      "&:focus": {
+        boxShadow: `0px 1px 4px 0px ${theme.colors[color]?.light}`
       },
-      outlined: {
-        padding: "10px 16px",
-        color: `${color}.main`,
-        border: "1px solid",
-        borderColor: color ? `${color}.main` : "text.disabled",
-        // "&:enabled svg path": {
-        // 	fill: color
-        // 		? `${theme.colors[color]?.main} !important`
-        // 		: "text.primary",
-        // },
-        // "&:enabled svg polyline, svg polygon": {
-        // 	color: color
-        // 		? `${theme.colors[color]?.main} !important`
-        // 		: "text.primary",
-        // },
-        "&:focus": {
-          boxShadow: `0px 1px 4px 0px ${(_theme$colors$color = theme.colors[color]) === null || _theme$colors$color === void 0 ? void 0 : _theme$colors$color.light}`
+      "&:hover:enabled": {
+        bg: color && `${color}.main`,
+        borderColor: color && `${color}.main`,
+        color: color && `${color}.text`,
+        "svg path": {
+          fill: color ? `${theme.colors[color]?.text} !important` : "text.primary"
         },
-        "&:hover:enabled": {
-          bg: color && `${color}.main`,
-          borderColor: color && `${color}.main`,
-          color: color && `${color}.text`,
-          "svg path": {
-            fill: color ? `${(_theme$colors$color2 = theme.colors[color]) === null || _theme$colors$color2 === void 0 ? void 0 : _theme$colors$color2.text} !important` : "text.primary"
-          },
-          "svg polyline, svg polygon": {
-            color: color ? `${(_theme$colors$color3 = theme.colors[color]) === null || _theme$colors$color3 === void 0 ? void 0 : _theme$colors$color3.text} !important` : "text.primary"
-          }
-        }
-      },
-      contained: {
-        border: "none",
-        color: `${color}.text`,
-        bg: `${color}.main`,
-        "&:focus": {
-          boxShadow: `0px 1px 4px 0px ${(_theme$colors$color4 = theme.colors[color]) === null || _theme$colors$color4 === void 0 ? void 0 : _theme$colors$color4.light}`
-        },
-        "&:enabled svg path": {
-          fill: color ? `${(_theme$colors$color5 = theme.colors[color]) === null || _theme$colors$color5 === void 0 ? void 0 : _theme$colors$color5.text} !important` : "text.primary"
-        },
-        "&:enabled svg polyline, svg polygon": {
-          color: color ? `${(_theme$colors$color6 = theme.colors[color]) === null || _theme$colors$color6 === void 0 ? void 0 : _theme$colors$color6.text} !important` : "text.primary"
+        "svg polyline, svg polygon": {
+          color: color ? `${theme.colors[color]?.text} !important` : "text.primary"
         }
       }
+    },
+    contained: {
+      border: "none",
+      color: `${color}.text`,
+      bg: `${color}.main`,
+      "&:focus": {
+        boxShadow: `0px 1px 4px 0px ${theme.colors[color]?.light}`
+      },
+      "&:enabled svg path": {
+        fill: color ? `${theme.colors[color]?.text} !important` : "text.primary"
+      },
+      "&:enabled svg polyline, svg polygon": {
+        color: color ? `${theme.colors[color]?.text} !important` : "text.primary"
+      }
     }
-  });
-}, (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
+  }
+}), (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
   prop: "size",
   variants: {
     large: {

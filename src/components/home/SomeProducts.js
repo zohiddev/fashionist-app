@@ -16,7 +16,7 @@ const SomeProducts = ({recommendedProducts}) => {
 		<Container mb={window < 568 ? "1.75rem" : "3.75rem"}>
 			<CategorySectionHeader
 				title={lang === 'uz' ? "Yangi qo`shilganlar" : 'Новое добавлено'}
-				seeMoreLink="/products/products?type=recommended"
+				seeMoreLink="/products/products?type=new"
 			/>
 			<Grid container spacing={6}>
 				{recommendedProducts !== null && recommendedProducts?.map((item, ind) => (

@@ -61,38 +61,34 @@ const IconButton = styled_components__WEBPACK_IMPORTED_MODULE_1___default().butt
     bg: "text.disabled",
     color: "text.muted"
   }
-}), props => {
-  var _props$theme$colors$p, _props$theme$colors$p2;
-
-  return (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
-    prop: "variant",
-    variants: {
-      text: {
-        border: "none",
-        color: `${props.color}.main`
+}), props => (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
+  prop: "variant",
+  variants: {
+    text: {
+      border: "none",
+      color: `${props.color}.main`
+    },
+    outlined: {
+      color: `${props.color}.main`,
+      border: "2px solid",
+      borderColor: `${props.color}.main`,
+      "&:focus": {
+        boxShadow: `0px 1px 4px 0px ${props.theme.colors[props.color]?.main}`
+      }
+    },
+    contained: {
+      border: "none",
+      color: `${props.color}.text`,
+      bg: `${props.color}.main`,
+      "&:hover": {
+        bg: `${props.color}.main`
       },
-      outlined: {
-        color: `${props.color}.main`,
-        border: "2px solid",
-        borderColor: `${props.color}.main`,
-        "&:focus": {
-          boxShadow: `0px 1px 4px 0px ${(_props$theme$colors$p = props.theme.colors[props.color]) === null || _props$theme$colors$p === void 0 ? void 0 : _props$theme$colors$p.main}`
-        }
-      },
-      contained: {
-        border: "none",
-        color: `${props.color}.text`,
-        bg: `${props.color}.main`,
-        "&:hover": {
-          bg: `${props.color}.main`
-        },
-        "&:focus": {
-          boxShadow: `0px 1px 4px 0px ${(_props$theme$colors$p2 = props.theme.colors[props.color]) === null || _props$theme$colors$p2 === void 0 ? void 0 : _props$theme$colors$p2.main}`
-        }
+      "&:focus": {
+        boxShadow: `0px 1px 4px 0px ${props.theme.colors[props.color]?.main}`
       }
     }
-  });
-}, (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
+  }
+}), (0,styled_system__WEBPACK_IMPORTED_MODULE_2__.variant)({
   prop: "size",
   variants: {
     large: {
@@ -200,8 +196,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 const Login = () => {
-  var _state$lang;
-
   const {
     0: passwordVisibility,
     1: setPasswordVisibility
@@ -227,7 +221,7 @@ const Login = () => {
     1: setPassword
   } = (0,external_react_.useState)('');
   const state = (0,external_react_redux_.useSelector)(state => state);
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
+  const lang = state?.lang?.lang;
   const dispatch = (0,external_react_redux_.useDispatch)();
 
   const loginBtn = async e => {
@@ -253,10 +247,8 @@ const Login = () => {
           alert(res.data.error);
         }
       } catch (error) {
-        var _error$response, _error$response$data;
-
         console.error(error);
-        alert(((_error$response = error.response) === null || _error$response === void 0 ? void 0 : (_error$response$data = _error$response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.error) || "Error");
+        alert(error.response?.data?.error || "Error");
       }
     }
   };
@@ -277,8 +269,6 @@ const Login = () => {
         });
 
         if (!res.data.error) {
-          var _state$user;
-
           setIsVerify(false);
           let {
             accessToken,
@@ -286,7 +276,7 @@ const Login = () => {
           } = res.data;
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
-          dispatch((0,userReducer/* setIsActive */.WA)(!(state !== null && state !== void 0 && (_state$user = state.user) !== null && _state$user !== void 0 && _state$user.isActive)));
+          dispatch((0,userReducer/* setIsActive */.WA)(!state?.user?.isActive));
           (0,userReducer/* getUser */.PR)()(dispatch);
           setIsValidate(_objectSpread(_objectSpread({}, isValidate), {}, {
             code: false
@@ -299,10 +289,8 @@ const Login = () => {
           setIsVerify(false);
         }
       } catch (error) {
-        var _error$response2, _error$response2$data;
-
         console.error(error);
-        alert(((_error$response2 = error.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.error) || "Error");
+        alert(error.response?.data?.error || "Error");
       }
     }
   }; // const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -642,13 +630,9 @@ const getUser = () => {
       type: SHOW_LOADER
     });
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.get */ .GJ.get(`/v1/user/profile`).then(function (response) {
-      var _response$data, _response$data2;
-
-      if (response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.orders && response !== null && response !== void 0 && (_response$data2 = response.data) !== null && _response$data2 !== void 0 && _response$data2.user) {
-        var _response$data3, _response$data4;
-
-        dispatch(setUser((response === null || response === void 0 ? void 0 : (_response$data3 = response.data) === null || _response$data3 === void 0 ? void 0 : _response$data3.user) || {}));
-        dispatch(setOrders((response === null || response === void 0 ? void 0 : (_response$data4 = response.data) === null || _response$data4 === void 0 ? void 0 : _response$data4.orders) || []));
+      if (response?.data?.orders && response?.data?.user) {
+        dispatch(setUser(response?.data?.user || {}));
+        dispatch(setOrders(response?.data?.orders || []));
       }
 
       dispatch({
@@ -688,12 +672,8 @@ const getOrder = id => {
       type: SHOW_LOADER
     });
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.get */ .GJ.get(`/v1/order/view/${id}`).then(function (response) {
-      var _response$data5;
-
-      if (response !== null && response !== void 0 && (_response$data5 = response.data) !== null && _response$data5 !== void 0 && _response$data5.order) {
-        var _response$data6;
-
-        dispatch(setOrder((response === null || response === void 0 ? void 0 : (_response$data6 = response.data) === null || _response$data6 === void 0 ? void 0 : _response$data6.order) || {}));
+      if (response?.data?.order) {
+        dispatch(setOrder(response?.data?.order || {}));
       }
 
       dispatch({

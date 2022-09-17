@@ -72,10 +72,8 @@ __webpack_require__.r(__webpack_exports__);
 function Category({
   data
 }) {
-  var _state$lang, _data$categories;
-
   const state = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(state => state);
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
+  const lang = state?.lang?.lang;
 
   const myLoader = ({
     src,
@@ -92,56 +90,52 @@ function Category({
       fontSize: "18px",
       mb: "20px",
       children: lang === 'uz' ? 'Tovarlarning katalogi' : 'Каталог товаров'
-    }), data === null || data === void 0 ? void 0 : (_data$categories = data.categories) === null || _data$categories === void 0 ? void 0 : _data$categories.map((item, ind) => {
-      var _item$children;
-
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(components_accordion_Accordion__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z, {
-        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_accordion_AccordionHeader__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {
-          px: "0px",
-          py: "10px",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_components_FlexBox__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
-            alignItems: "center",
-            children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx((next_image__WEBPACK_IMPORTED_MODULE_8___default()), {
-              quality: "85",
-              loader: myLoader,
-              src: item === null || item === void 0 ? void 0 : item.image,
-              layout: "fixed",
-              alt: item === null || item === void 0 ? void 0 : item.name_uz,
-              width: '30px',
-              height: '30px'
-            }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .ZP, {
-              fontWeight: "600",
-              fontSize: "18px",
-              ml: "10px",
-              children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
-            })]
-          })
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(_components_Box__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
-          pl: "40px",
-          mb: "2rem",
-          mt: "0.5rem",
-          children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
-            spacing: 5,
-            children: item === null || item === void 0 ? void 0 : (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.map((el, ind) => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
-              lg: 1,
-              md: 2,
-              sm: 3,
-              xs: 4,
-              children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx((next_link__WEBPACK_IMPORTED_MODULE_6___default()), {
-                href: "/products/" + (el === null || el === void 0 ? void 0 : el.slug),
-                children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx("a", {
-                  children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__.H3, {
-                    mb: "5px",
-                    fontSize: "15px",
-                    children: lang === 'uz' ? el === null || el === void 0 ? void 0 : el.name_uz : el === null || el === void 0 ? void 0 : el.name_ru
-                  })
+    }), data?.categories?.map((item, ind) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(components_accordion_Accordion__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z, {
+      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_accordion_AccordionHeader__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {
+        px: "0px",
+        py: "10px",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_components_FlexBox__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
+          alignItems: "center",
+          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx((next_image__WEBPACK_IMPORTED_MODULE_8___default()), {
+            quality: "85",
+            loader: myLoader,
+            src: item?.image,
+            layout: "fixed",
+            alt: item?.name_uz,
+            width: '30px',
+            height: '30px'
+          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .ZP, {
+            fontWeight: "600",
+            fontSize: "18px",
+            ml: "10px",
+            children: lang === 'uz' ? item?.name_uz : item?.name_ru
+          })]
+        })
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(_components_Box__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+        pl: "40px",
+        mb: "2rem",
+        mt: "0.5rem",
+        children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
+          spacing: 5,
+          children: item?.children?.map((el, ind) => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
+            lg: 1,
+            md: 2,
+            sm: 3,
+            xs: 4,
+            children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx((next_link__WEBPACK_IMPORTED_MODULE_6___default()), {
+              href: "/products/" + el?.slug,
+              children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx("a", {
+                children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__.H3, {
+                  mb: "5px",
+                  fontSize: "15px",
+                  children: lang === 'uz' ? el?.name_uz : el?.name_ru
                 })
               })
-            }, ind))
-          })
-        })]
-      }, ind);
-    })]
+            })
+          }, ind))
+        })
+      })]
+    }, ind))]
   });
 }
 async function getServerSideProps() {
@@ -258,6 +252,13 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
 
 /***/ }),
 
@@ -408,7 +409,7 @@ module.exports = require("styled-system");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,928,483], () => (__webpack_exec__(7490)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,675,938,928,483], () => (__webpack_exec__(7490)));
 module.exports = __webpack_exports__;
 
 })();

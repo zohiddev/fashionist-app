@@ -134,7 +134,7 @@ const CheckoutNavLayout = ({
   const handleStepChange = (_step, ind) => {
     const handlers = [() => router.push("/cart"), () => router.push("/checkout"), () => router.push("/payment"), () => router.push("/orders")];
     const handler = handlers[ind];
-    handler === null || handler === void 0 ? void 0 : handler();
+    handler?.();
   };
 
   (0,external_react_.useEffect)(() => {

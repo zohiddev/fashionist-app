@@ -278,26 +278,22 @@ const MegaMenu1 = ({
         children: /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
           container: true,
           spacing: 4,
-          children: data === null || data === void 0 ? void 0 : data.map((item, ind) => {
-            var _item$children;
-
-            return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
-              item: true,
-              md: 3,
-              children: [item !== null && item !== void 0 && item.slug ? /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
-                className: "title-link",
-                href: `/products/${item === null || item === void 0 ? void 0 : item.slug}`,
-                children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
-              }) : /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
-                className: "title-link",
-                children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
-              }), (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.map((sub, i2) => /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
-                className: "child-link",
-                href: `/products/${sub === null || sub === void 0 ? void 0 : sub.slug}`,
-                children: lang === 'uz' ? sub === null || sub === void 0 ? void 0 : sub.name_uz : sub === null || sub === void 0 ? void 0 : sub.name_ru
-              }, i2))]
-            }, ind);
-          })
+          children: data?.map((item, ind) => /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
+            item: true,
+            md: 3,
+            children: [item?.slug ? /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
+              className: "title-link",
+              href: `/products/${item?.slug}`,
+              children: lang === 'uz' ? item?.name_uz : item?.name_ru
+            }) : /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
+              className: "title-link",
+              children: lang === 'uz' ? item?.name_uz : item?.name_ru
+            }), item.children?.map((sub, i2) => /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
+              className: "child-link",
+              href: `/products/${sub?.slug}`,
+              children: lang === 'uz' ? sub?.name_uz : sub?.name_ru
+            }, i2))]
+          }, ind))
         })
       })
     })
@@ -343,26 +339,22 @@ const MegaMenu3 = ({
           children: /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
             container: true,
             spacing: 4,
-            children: categories === null || categories === void 0 ? void 0 : categories.map((item, ind) => {
-              var _item$subCategories;
-
-              return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
-                item: true,
-                md: 3,
-                children: [item.href ? /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
-                  className: "title-link",
-                  href: item.href,
-                  children: item.title
-                }) : /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
-                  className: "title-link",
-                  children: item.title
-                }), (_item$subCategories = item.subCategories) === null || _item$subCategories === void 0 ? void 0 : _item$subCategories.map(sub => /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
-                  className: "child-link",
-                  href: sub.href,
-                  children: sub.title
-                }))]
-              }, ind);
-            })
+            children: categories?.map((item, ind) => /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
+              item: true,
+              md: 3,
+              children: [item.href ? /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
+                className: "title-link",
+                href: item.href,
+                children: item.title
+              }) : /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
+                className: "title-link",
+                children: item.title
+              }), item.subCategories?.map(sub => /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
+                className: "child-link",
+                href: sub.href,
+                children: sub.title
+              }))]
+            }, ind))
           })
         }), rightImage && /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
           href: rightImage.href,
@@ -453,7 +445,7 @@ const MegaMenu2 = ({
       ml: "1rem",
       py: "0.5rem",
       boxShadow: "regular",
-      children: data === null || data === void 0 ? void 0 : data.map(item => /*#__PURE__*/jsx_runtime_.jsx(category_menu_item_CategoryMenuItem, {
+      children: data?.map(item => /*#__PURE__*/jsx_runtime_.jsx(category_menu_item_CategoryMenuItem, {
         title: item.title,
         href: item.href,
         icon: item.icon,
@@ -494,19 +486,17 @@ const CategoryDropdown = ({
     open: open,
     position: position,
     children: state.map(item => {
-      var _item$image;
-
       let MegaMenu = mega_menu_MegaMenu1;
       return /*#__PURE__*/jsx_runtime_.jsx(category_menu_item_CategoryMenuItem, {
-        title: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru,
-        href: item === null || item === void 0 ? void 0 : item.slug,
-        icon: item === null || item === void 0 ? void 0 : (_item$image = item.image) === null || _item$image === void 0 ? void 0 : _item$image.replace(/https:\/\/api.sdb.uz/gi, "https://api.sdb.uz"),
-        caret: !!(item !== null && item !== void 0 && item.children),
+        title: lang === 'uz' ? item?.name_uz : item?.name_ru,
+        href: item?.slug,
+        icon: item?.image?.replace(/https:\/\/api.sdb.uz/gi, "https://api.sdb.uz"),
+        caret: !!item?.children,
         children: /*#__PURE__*/jsx_runtime_.jsx(MegaMenu, {
-          data: item === null || item === void 0 ? void 0 : item.children,
+          data: item?.children,
           lang: lang
         })
-      }, item === null || item === void 0 ? void 0 : item.id);
+      }, item?.id);
     })
   });
 };
@@ -852,9 +842,9 @@ const Footer = () => {
                 children: lang === 'uz' ? 'Ma’lumotlar' : 'Информация'
               }), /*#__PURE__*/jsx_runtime_.jsx("div", {
                 children: aboutLinks.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-                  href: item === null || item === void 0 ? void 0 : item.slug,
+                  href: item?.slug,
                   children: /*#__PURE__*/jsx_runtime_.jsx(StyledLink, {
-                    children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
+                    children: lang === 'uz' ? item?.name_uz : item?.name_ru
                   })
                 }, ind))
               })]
@@ -983,12 +973,10 @@ const StyledMiniCart = external_styled_components_default().div.withConfig({
 const MiniCart = ({
   toggleSidenav
 }) => {
-  var _state$cart, _state$lang;
-
   const dispatch = (0,external_react_redux_.useDispatch)();
   const state = (0,external_react_redux_.useSelector)(state => state);
-  const cartList = state === null || state === void 0 ? void 0 : (_state$cart = state.cart) === null || _state$cart === void 0 ? void 0 : _state$cart.cartList;
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang; // const handleCartAmountChange = useCallback(
+  const cartList = state?.cart?.cartList;
+  const lang = state?.lang?.lang; // const handleCartAmountChange = useCallback(
   // 	(amount, product) => () => {
   // 		dispatch({
   // 			type: "CHANGE_CART_AMOUNT",
@@ -1017,7 +1005,7 @@ const MiniCart = ({
   };
 
   const getTotalPrice = () => {
-    return (cartList === null || cartList === void 0 ? void 0 : cartList.reduce((accumulator, item) => accumulator + item.price * item.qty, 0)) || 0;
+    return cartList?.reduce((accumulator, item) => accumulator + item.price * item.qty, 0) || 0;
   };
 
   console.log(cartList);
@@ -1035,9 +1023,9 @@ const MiniCart = ({
           fontWeight: 600,
           fontSize: "16px",
           ml: "0.5rem",
-          children: [cartList === null || cartList === void 0 ? void 0 : cartList.length, " ", lang === 'uz' ? 'mahsulot' : 'продукт']
+          children: [cartList?.length, " ", lang === 'uz' ? 'mahsulot' : 'продукт']
         })]
-      }), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {}), !!!(cartList !== null && cartList !== void 0 && cartList.length) && /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+      }), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {}), !!!cartList?.length && /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
@@ -1053,7 +1041,7 @@ const MiniCart = ({
           maxWidth: "200px",
           children: lang === 'uz' ? 'Hech narsa topilmadi.' : 'Ничего не найдено.'
         })]
-      }), cartList === null || cartList === void 0 ? void 0 : cartList.map(item => /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_.Fragment, {
+      }), cartList?.map(item => /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_.Fragment, {
         children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
           className: "cart-item",
           children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
@@ -1067,7 +1055,7 @@ const MiniCart = ({
               borderColor: "primary.light",
               borderRadius: "300px",
               onClick: () => {
-                handleAddBtn(item === null || item === void 0 ? void 0 : item.product_id);
+                handleAddBtn(item?.product_id);
               },
               children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
                 variant: "small",
@@ -1087,7 +1075,7 @@ const MiniCart = ({
               borderRadius: "300px",
               disabled: item.qty === 1,
               onClick: () => {
-                handleRemoveBtn(item === null || item === void 0 ? void 0 : item.product_id);
+                handleRemoveBtn(item?.product_id);
               },
               children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
                 variant: "small",
@@ -1118,24 +1106,24 @@ const MiniCart = ({
               })
             }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* Tiny */.YE, {
               color: "text.muted",
-              children: [Math.ceil(item === null || item === void 0 ? void 0 : item.price).toLocaleString(), " UZS x ", item.qty]
+              children: [Math.ceil(item?.price).toLocaleString(), " UZS x ", item.qty]
             }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* default */.ZP, {
               fontWeight: 600,
               fontSize: "14px",
               color: "primary.main",
               mt: "4px",
-              children: [Math.ceil((item === null || item === void 0 ? void 0 : item.qty) * (item === null || item === void 0 ? void 0 : item.price)).toLocaleString(), " UZS"]
+              children: [Math.ceil(item?.qty * item?.price).toLocaleString(), " UZS"]
             })]
           }), /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
             className: "clear-icon",
             size: "1rem",
             ml: "1.25rem",
-            onClick: () => handleDeleteBtn(item === null || item === void 0 ? void 0 : item.product_id),
+            onClick: () => handleDeleteBtn(item?.product_id),
             children: "close"
           })]
         }), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {})]
       }, item.id))]
-    }), !!(cartList !== null && cartList !== void 0 && cartList.length) && /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_.Fragment, {
+    }), !!cartList?.length && /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_.Fragment, {
       children: [/*#__PURE__*/jsx_runtime_.jsx((link_default()), {
         href: "/checkout",
         children: /*#__PURE__*/jsx_runtime_.jsx(Button/* default */.Z, {
@@ -1341,18 +1329,12 @@ const SearchBox = () => {
   };
 
   const search = (0,external_lodash_.debounce)(e => {
-    var _e$target;
-
-    const value = (_e$target = e.target) === null || _e$target === void 0 ? void 0 : _e$target.value;
+    const value = e.target?.value;
     if (!value) setResultList([]);else {
       http/* $host.get */.y_.get(`/v1/product/list?type=default&search=${value}`).then(function (response) {
-        var _response$data;
-
-        if (!(response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.error)) {
-          var _response$data2;
-
+        if (!response?.data?.error) {
           // dispatch(setSearchedProducts(response.data.products))
-          setResultList(response === null || response === void 0 ? void 0 : (_response$data2 = response.data) === null || _response$data2 === void 0 ? void 0 : _response$data2.products);
+          setResultList(response?.data?.products);
         }
       }).catch(function (error) {
         setResultList([]);
@@ -1409,15 +1391,15 @@ const SearchBox = () => {
       width: "100%",
       boxShadow: "large",
       zIndex: 99,
-      children: resultList === null || resultList === void 0 ? void 0 : resultList.map(item => /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-        href: `/product/${item === null || item === void 0 ? void 0 : item.slug}`,
+      children: resultList?.map(item => /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+        href: `/product/${item?.slug}`,
         children: /*#__PURE__*/jsx_runtime_.jsx(MenuItem/* default */.Z, {
           children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Span */.Dr, {
             fontSize: "14px",
-            children: item === null || item === void 0 ? void 0 : item.name_uz
+            children: item?.name_uz
           })
-        }, item === null || item === void 0 ? void 0 : item.id)
-      }, item === null || item === void 0 ? void 0 : item.id))
+        }, item?.id)
+      }, item?.id))
     })]
   });
 };
@@ -1547,8 +1529,6 @@ const Header = ({
   isFixed,
   className
 }) => {
-  var _state$lang;
-
   const {
     0: open,
     1: setOpen
@@ -1558,7 +1538,7 @@ const Header = ({
 
 
   const state = (0,external_react_redux_.useSelector)(state => state);
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
+  const lang = state?.lang?.lang;
   const {
     cartList
   } = state.cart;
@@ -1573,7 +1553,7 @@ const Header = ({
         size: "20px",
         children: "bag"
       })
-    }), !!(cartList !== null && cartList !== void 0 && cartList.length) && /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+    }), !!cartList?.length && /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
       borderRadius: "300px",
       bg: "error.main",
       px: "5px",
@@ -1585,7 +1565,7 @@ const Header = ({
       children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Tiny */.YE, {
         color: "white",
         fontWeight: "600",
-        children: cartList === null || cartList === void 0 ? void 0 : cartList.reduce((acc, item) => acc + item.qty, 0)
+        children: cartList?.reduce((acc, item) => acc + item.qty, 0)
       })
     })]
   });
@@ -1695,24 +1675,20 @@ const StyledMobileNavigationBar = external_styled_components_default().div.withC
 
 
 const MobileNavigationBar = () => {
-  var _state$lang;
-
   const width = (0,useWindowSize/* default */.Z)();
   const state = (0,external_react_redux_.useSelector)(state => state);
   const dispatch = (0,external_react_redux_.useDispatch)();
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
+  const lang = state?.lang?.lang;
   const {
     0: isAuth,
     1: setIsAuth
   } = (0,external_react_.useState)(false);
   const {
     cartList
-  } = state === null || state === void 0 ? void 0 : state.cart;
+  } = state?.cart;
 
   const handleNavbarClick = () => {
-    var _state$user;
-
-    dispatch((0,userReducer/* setIsActive */.WA)(!(state !== null && state !== void 0 && (_state$user = state.user) !== null && _state$user !== void 0 && _state$user.isActive)));
+    dispatch((0,userReducer/* setIsActive */.WA)(!state?.user?.isActive));
   };
 
   (0,external_react_.useEffect)(() => {
@@ -1745,9 +1721,9 @@ const MobileNavigationBar = () => {
   // },
   ];
   return width <= 900 && /*#__PURE__*/(0,jsx_runtime_.jsxs)(MobileNavigationBar_style, {
-    children: [list.map(item => item !== null && item !== void 0 && item.href ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(NavLink/* default */.Z, {
+    children: [list.map(item => item?.href ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(NavLink/* default */.Z, {
       className: "link",
-      href: item === null || item === void 0 ? void 0 : item.href,
+      href: item?.href,
       children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
         className: "icon",
         variant: "small",
@@ -1760,11 +1736,11 @@ const MobileNavigationBar = () => {
         px: "0.25rem",
         top: "4px",
         left: "calc(50% + 8px)",
-        children: cartList === null || cartList === void 0 ? void 0 : cartList.reduce((acc, item) => acc + item.qty, 0)
+        children: cartList?.reduce((acc, item) => acc + item.qty, 0)
       })]
     }, item.title) : /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
       className: "link",
-      onClick: item === null || item === void 0 ? void 0 : item.click,
+      onClick: item?.click,
       children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
         className: "icon",
         variant: "small",
@@ -1828,10 +1804,8 @@ const Sticky = ({
     if (!window) return;
     let distance = window.pageYOffset - positionRef.current;
 
-    if (containerRef !== null && containerRef !== void 0 && containerRef.current) {
-      var _containerRef$current;
-
-      let containerDistance = containerRef.current.offsetTop + ((_containerRef$current = containerRef.current) === null || _containerRef$current === void 0 ? void 0 : _containerRef$current.offsetHeight) - window.pageYOffset;
+    if (containerRef?.current) {
+      let containerDistance = containerRef.current.offsetTop + containerRef.current?.offsetHeight - window.pageYOffset;
 
       if (notifyPosition && notifyOnScroll) {
         notifyOnScroll(distance <= notifyPosition && containerDistance > notifyPosition);
@@ -1857,15 +1831,11 @@ const Sticky = ({
     };
   }, []);
   (0,external_react_.useEffect)(() => {
-    var _elementRef$current2;
-
     if (!positionRef.current) {
-      var _elementRef$current;
-
-      positionRef.current = (_elementRef$current = elementRef.current) === null || _elementRef$current === void 0 ? void 0 : _elementRef$current.offsetTop;
+      positionRef.current = elementRef.current?.offsetTop;
     }
 
-    setParentHeight(((_elementRef$current2 = elementRef.current) === null || _elementRef$current2 === void 0 ? void 0 : _elementRef$current2.offsetHeight) || 0);
+    setParentHeight(elementRef.current?.offsetHeight || 0);
   }, [elementRef.current, children]);
   (0,external_react_.useEffect)(() => {
     if (onSticky) onSticky(fixed);
@@ -2009,9 +1979,7 @@ const Topbar = () => {
               children: "close"
             })
           })]
-        }), categories === null || categories === void 0 ? void 0 : categories.map((item, ind) => {
-          var _item$children;
-
+        }), categories?.map((item, ind) => {
           return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Accordion/* default */.Z, {
             children: [/*#__PURE__*/jsx_runtime_.jsx(AccordionHeader/* default */.Z, {
               px: "0px",
@@ -2027,7 +1995,7 @@ const Topbar = () => {
                   fontSize: "18px",
                   ml: "10px",
                   color: "black",
-                  children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
+                  children: lang === 'uz' ? item?.name_uz : item?.name_ru
                 })
               })
             }), /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
@@ -2036,43 +2004,39 @@ const Topbar = () => {
               mt: "0.5rem",
               children: /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
                 spacing: 5,
-                children: item === null || item === void 0 ? void 0 : (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.map((el, ind) => {
-                  var _el$children;
-
-                  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
-                    lg: 1,
-                    md: 2,
-                    sm: 3,
-                    xs: 4,
-                    children: [/*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-                      href: "/products/" + (el === null || el === void 0 ? void 0 : el.slug),
+                children: item?.children?.map((el, ind) => /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
+                  lg: 1,
+                  md: 2,
+                  sm: 3,
+                  xs: 4,
+                  children: [/*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+                    href: "/products/" + el?.slug,
+                    children: /*#__PURE__*/jsx_runtime_.jsx("a", {
+                      onClick: () => setModalActive(false),
+                      style: {
+                        marginBottom: '10px'
+                      },
+                      children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
+                        mb: "5px",
+                        fontSize: "15px",
+                        children: lang === 'uz' ? el?.name_uz : el?.name_ru
+                      })
+                    })
+                  }), el?.children?.map((link, i) => {
+                    return /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+                      href: "/products/" + link?.slug,
                       children: /*#__PURE__*/jsx_runtime_.jsx("a", {
                         onClick: () => setModalActive(false),
-                        style: {
-                          marginBottom: '10px'
-                        },
                         children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
                           mb: "5px",
                           fontSize: "15px",
-                          children: lang === 'uz' ? el === null || el === void 0 ? void 0 : el.name_uz : el === null || el === void 0 ? void 0 : el.name_ru
+                          fontWeight: "300",
+                          children: lang === 'uz' ? link?.name_uz : link?.name_ru
                         })
                       })
-                    }), el === null || el === void 0 ? void 0 : (_el$children = el.children) === null || _el$children === void 0 ? void 0 : _el$children.map((link, i) => {
-                      return /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-                        href: "/products/" + (link === null || link === void 0 ? void 0 : link.slug),
-                        children: /*#__PURE__*/jsx_runtime_.jsx("a", {
-                          onClick: () => setModalActive(false),
-                          children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
-                            mb: "5px",
-                            fontSize: "15px",
-                            fontWeight: "300",
-                            children: lang === 'uz' ? link === null || link === void 0 ? void 0 : link.name_uz : link === null || link === void 0 ? void 0 : link.name_ru
-                          })
-                        })
-                      }, i);
-                    })]
-                  }, ind);
-                })
+                    }, i);
+                  })]
+                }, ind))
               })
             })]
           }, ind);
@@ -2428,8 +2392,6 @@ const Sidenav = ({
   children,
   toggleSidenav
 }) => {
-  var _handle$props2;
-
   const {
     0: sidenavOpen,
     1: setSidenavOpen
@@ -2448,8 +2410,6 @@ const Sidenav = ({
   }, [open]);
 
   if (globalThis.document && sidenavOpen) {
-    var _handle$props;
-
     let sidenav = document.querySelector("#sidenav-root");
 
     if (!sidenav) {
@@ -2471,12 +2431,12 @@ const Sidenav = ({
           children: children
         })
       }), sidenav), handle && /*#__PURE__*/(0,external_react_.cloneElement)(handle, {
-        className: ((_handle$props = handle.props) === null || _handle$props === void 0 ? void 0 : _handle$props.className) + " cursor-pointer",
+        className: handle.props?.className + " cursor-pointer",
         onClick: toggleSidenav || handleToggleSidenav
       })]
     });
   } else return handle && /*#__PURE__*/(0,external_react_.cloneElement)(handle, {
-    className: ((_handle$props2 = handle.props) === null || _handle$props2 === void 0 ? void 0 : _handle$props2.className) + " cursor-pointer",
+    className: handle.props?.className + " cursor-pointer",
     onClick: toggleSidenav || handleToggleSidenav
   });
 };
@@ -2580,9 +2540,7 @@ const getCartItems = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.get */ .GJ.get("/v1/cart/list").then(function (response) {
-      var _response$data;
-
-      if (!(response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.error)) {
+      if (!response?.data?.error) {
         dispatch(setCartItems(response.data.cart));
       }
 
@@ -2596,9 +2554,7 @@ const getCartItems = () => {
 const addToCart = item => {
   return async dispatch => {
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.post */ .GJ.post('/v1/cart/add', _objectSpread({}, item)).then(function (res) {
-      var _res$data;
-
-      if (!(res !== null && res !== void 0 && (_res$data = res.data) !== null && _res$data !== void 0 && _res$data.error)) {
+      if (!res?.data?.error) {
         dispatch(setCartItems(res.data.cart));
       }
 
@@ -2611,9 +2567,7 @@ const addToCart = item => {
 const removeToCart = id => {
   return async dispatch => {
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.post */ .GJ.post(`/v1/cart/remove/${id}`).then(function (res) {
-      var _res$data2;
-
-      if (!(res !== null && res !== void 0 && (_res$data2 = res.data) !== null && _res$data2 !== void 0 && _res$data2.error)) {
+      if (!res?.data?.error) {
         dispatch(setCartItems(res.data.cart));
       }
 
@@ -2626,9 +2580,7 @@ const removeToCart = id => {
 const deleteToCart = id => {
   return async dispatch => {
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.post */ .GJ.post(`/v1/cart/delete/${id}`).then(function (res) {
-      var _res$data3;
-
-      if (!(res !== null && res !== void 0 && (_res$data3 = res.data) !== null && _res$data3 !== void 0 && _res$data3.error)) {
+      if (!res?.data?.error) {
         dispatch(setCartItems(res.data.cart));
       }
 
@@ -2641,9 +2593,7 @@ const deleteToCart = id => {
 const clearCart = () => {
   return async dispatch => {
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.post */ .GJ.post(`/v1/cart/clear`).then(function (res) {
-      var _res$data4;
-
-      if (!(res !== null && res !== void 0 && (_res$data4 = res.data) !== null && _res$data4 !== void 0 && _res$data4.error)) {
+      if (!res?.data?.error) {
         dispatch(setCartItems(res.data.cart));
       }
 
@@ -2699,9 +2649,7 @@ const getSearchedProducts = query => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get(`/v1/product/list?type=default&search=${query}`).then(function (response) {
-      var _response$data;
-
-      if (!(response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.error)) {
+      if (!response?.data?.error) {
         dispatch(setSearchedProducts(response.data.products));
       }
 

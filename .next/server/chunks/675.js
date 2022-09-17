@@ -13,9 +13,17 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = Image;
 
-var _react = _interopRequireWildcard(__webpack_require__(6689));
+var _extends = (__webpack_require__(6495)/* ["default"] */ .Z);
 
-var _head = _interopRequireDefault(__webpack_require__(5429));
+var _interop_require_default = (__webpack_require__(2648)/* ["default"] */ .Z);
+
+var _interop_require_wildcard = (__webpack_require__(1598)/* ["default"] */ .Z);
+
+var _object_without_properties_loose = (__webpack_require__(7273)/* ["default"] */ .Z);
+
+var _react = _interop_require_wildcard(__webpack_require__(6689));
+
+var _head = _interop_require_default(__webpack_require__(5429));
 
 var _imageConfig = __webpack_require__(5843);
 
@@ -47,7 +55,7 @@ function Image(_param) {
     placeholder = 'empty',
     blurDataURL
   } = _param,
-      all = _objectWithoutPropertiesLoose(_param, ["src", "sizes", "unoptimized", "priority", "loading", "lazyRoot", "lazyBoundary", "className", "quality", "width", "height", "style", "objectFit", "objectPosition", "onLoadingComplete", "placeholder", "blurDataURL"]);
+      all = _object_without_properties_loose(_param, ["src", "sizes", "unoptimized", "priority", "loading", "lazyRoot", "lazyBoundary", "className", "quality", "width", "height", "style", "objectFit", "objectPosition", "onLoadingComplete", "placeholder", "blurDataURL"]);
 
   const configContext = (0, _react).useContext(_imageConfigContext.ImageConfigContext);
   const config = (0, _react).useMemo(() => {
@@ -81,7 +89,7 @@ function Image(_param) {
         const {
           config: _
         } = obj,
-              opts = _objectWithoutPropertiesLoose(obj, ["config"]); // The config object is internal only so we must
+              opts = _object_without_properties_loose(obj, ["config"]); // The config object is internal only so we must
         // not pass it to the user-defined loader()
 
 
@@ -116,9 +124,6 @@ function Image(_param) {
   }
 
   src = typeof src === 'string' ? src : staticSrc;
-  const widthInt = getInt(width);
-  const heightInt = getInt(height);
-  const qualityInt = getInt(quality);
   let isLazy = !priority && (loading === 'lazy' || typeof loading === 'undefined');
 
   if (src.startsWith('data:') || src.startsWith('blob:')) {
@@ -129,7 +134,7 @@ function Image(_param) {
 
   if (false) {}
 
-  if (experimentalUnoptimized) {
+  if (config.unoptimized) {
     unoptimized = true;
   }
 
@@ -185,6 +190,9 @@ function Image(_param) {
     objectFit,
     objectPosition
   };
+  let widthInt = getInt(width);
+  let heightInt = getInt(height);
+  const qualityInt = getInt(quality);
 
   if (false) {}
 
@@ -338,102 +346,11 @@ function Image(_param) {
   }, linkProps))) : null);
 }
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
+function normalizeSrc(src) {
+  return src[0] === '/' ? src.slice(1) : src;
 }
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    default: obj
-  };
-}
-
-function _getRequireWildcardCache() {
-  if (typeof WeakMap !== "function") return null;
-  var cache = new WeakMap();
-
-  _getRequireWildcardCache = function () {
-    return cache;
-  };
-
-  return cache;
-}
-
-function _interopRequireWildcard(obj) {
-  if (obj && obj.__esModule) {
-    return obj;
-  }
-
-  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
-    return {
-      default: obj
-    };
-  }
-
-  var cache = _getRequireWildcardCache();
-
-  if (cache && cache.has(obj)) {
-    return cache.get(obj);
-  }
-
-  var newObj = {};
-  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-
-      if (desc && (desc.get || desc.set)) {
-        Object.defineProperty(newObj, key, desc);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-  }
-
-  newObj.default = obj;
-
-  if (cache) {
-    cache.set(obj, newObj);
-  }
-
-  return newObj;
-}
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-const {
-  experimentalRemotePatterns = [],
-  experimentalUnoptimized
-} = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default"} || {};
-const configEnv = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default"};
+const configEnv = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":false};
 const loadedImageURLs = new Set();
 const allImgs = new Map();
 let perfObserver;
@@ -444,6 +361,71 @@ if (true) {
 }
 
 const VALID_LOADING_VALUES = (/* unused pure expression or super */ null && (['lazy', 'eager', undefined]));
+
+function imgixLoader({
+  config,
+  src,
+  width,
+  quality
+}) {
+  // Demo: https://static.imgix.net/daisy.png?auto=format&fit=max&w=300
+  const url = new URL(`${config.path}${normalizeSrc(src)}`);
+  const params = url.searchParams; // auto params can be combined with comma separation, or reiteration
+
+  params.set('auto', params.getAll('auto').join(',') || 'format');
+  params.set('fit', params.get('fit') || 'max');
+  params.set('w', params.get('w') || width.toString());
+
+  if (quality) {
+    params.set('q', quality.toString());
+  }
+
+  return url.href;
+}
+
+function akamaiLoader({
+  config,
+  src,
+  width
+}) {
+  return `${config.path}${normalizeSrc(src)}?imwidth=${width}`;
+}
+
+function cloudinaryLoader({
+  config,
+  src,
+  width,
+  quality
+}) {
+  // Demo: https://res.cloudinary.com/demo/image/upload/w_300,c_limit,q_auto/turtles.jpg
+  const params = ['f_auto', 'c_limit', 'w_' + width, 'q_' + (quality || 'auto')];
+  const paramsString = params.join(',') + '/';
+  return `${config.path}${paramsString}${normalizeSrc(src)}`;
+}
+
+function customLoader({
+  src
+}) {
+  throw new Error(`Image with src "${src}" is missing "loader" prop.` + `\nRead more: https://nextjs.org/docs/messages/next-image-missing-loader`);
+}
+
+function defaultLoader({
+  config,
+  src,
+  width,
+  quality
+}) {
+  if (false) {}
+
+  if (src.endsWith('.svg') && !config.dangerouslyAllowSVG) {
+    // Special case to make svg serve as-is to avoid proxying
+    // through the built-in Image Optimization API.
+    return src;
+  }
+
+  return `${(0, _normalizeTrailingSlash).normalizePathTrailingSlash(config.path)}?url=${encodeURIComponent(src)}&w=${width}&q=${quality || 75}`;
+}
+
 const loaders = new Map([['default', defaultLoader], ['imgix', imgixLoader], ['cloudinary', cloudinaryLoader], ['akamai', akamaiLoader], ['custom', customLoader]]);
 const VALID_LAYOUT_VALUES = (/* unused pure expression or super */ null && (['fill', 'fixed', 'intrinsic', 'responsive', undefined]));
 
@@ -647,7 +629,7 @@ const ImageElement = _param => {
     isVisible,
     noscriptSizes
   } = _param,
-      rest = _objectWithoutPropertiesLoose(_param, ["imgAttributes", "heightInt", "widthInt", "qualityInt", "layout", "className", "imgStyle", "blurStyle", "isLazy", "placeholder", "loading", "srcString", "config", "unoptimized", "loader", "onLoadingCompleteRef", "setBlurComplete", "setIntersection", "onLoad", "onError", "isVisible", "noscriptSizes"]);
+      rest = _object_without_properties_loose(_param, ["imgAttributes", "heightInt", "widthInt", "qualityInt", "layout", "className", "imgStyle", "blurStyle", "isLazy", "placeholder", "loading", "srcString", "config", "unoptimized", "loader", "onLoadingCompleteRef", "setBlurComplete", "setIntersection", "onLoad", "onError", "isVisible", "noscriptSizes"]);
 
   loading = isLazy ? 'lazy' : loading;
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("img", Object.assign({}, rest, imgAttributes, {
@@ -656,6 +638,8 @@ const ImageElement = _param => {
     className: className,
     style: _extends({}, imgStyle, blurStyle),
     ref: (0, _react).useCallback(img => {
+      if (false) {}
+
       setIntersection(img);
 
       if (img == null ? void 0 : img.complete) {
@@ -698,73 +682,6 @@ const ImageElement = _param => {
     loading: loading
   }))));
 };
-
-function normalizeSrc(src) {
-  return src[0] === '/' ? src.slice(1) : src;
-}
-
-function imgixLoader({
-  config,
-  src,
-  width,
-  quality
-}) {
-  // Demo: https://static.imgix.net/daisy.png?auto=format&fit=max&w=300
-  const url = new URL(`${config.path}${normalizeSrc(src)}`);
-  const params = url.searchParams;
-  params.set('auto', params.get('auto') || 'format');
-  params.set('fit', params.get('fit') || 'max');
-  params.set('w', params.get('w') || width.toString());
-
-  if (quality) {
-    params.set('q', quality.toString());
-  }
-
-  return url.href;
-}
-
-function akamaiLoader({
-  config,
-  src,
-  width
-}) {
-  return `${config.path}${normalizeSrc(src)}?imwidth=${width}`;
-}
-
-function cloudinaryLoader({
-  config,
-  src,
-  width,
-  quality
-}) {
-  // Demo: https://res.cloudinary.com/demo/image/upload/w_300,c_limit,q_auto/turtles.jpg
-  const params = ['f_auto', 'c_limit', 'w_' + width, 'q_' + (quality || 'auto')];
-  const paramsString = params.join(',') + '/';
-  return `${config.path}${paramsString}${normalizeSrc(src)}`;
-}
-
-function customLoader({
-  src
-}) {
-  throw new Error(`Image with src "${src}" is missing "loader" prop.` + `\nRead more: https://nextjs.org/docs/messages/next-image-missing-loader`);
-}
-
-function defaultLoader({
-  config,
-  src,
-  width,
-  quality
-}) {
-  if (false) {}
-
-  if (src.endsWith('.svg') && !config.dangerouslyAllowSVG) {
-    // Special case to make svg serve as-is to avoid proxying
-    // through the built-in Image Optimization API.
-    return src;
-  }
-
-  return `${(0, _normalizeTrailingSlash).normalizePathTrailingSlash(config.path)}?url=${encodeURIComponent(src)}&w=${width}&q=${quality || 75}`;
-}
 
 if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
   Object.defineProperty(exports.default, '__esModule', {

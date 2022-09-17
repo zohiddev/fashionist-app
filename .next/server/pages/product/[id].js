@@ -86,17 +86,17 @@ const ProductDescription = ({
   return /*#__PURE__*/jsx_runtime_.jsx(jsx_runtime_.Fragment, {
     children: desc === undefined ? /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
       children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
-        children: attributes === null || attributes === void 0 ? void 0 : attributes.map((item, index) => {
+        children: attributes?.map((item, index) => {
           return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
             className: "product_attr",
             children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("span", {
               className: "attribute",
-              children: [lang === 'uz' ? item === null || item === void 0 ? void 0 : item.attribute_uz : item === null || item === void 0 ? void 0 : item.attribute_ru, " :"]
+              children: [lang === 'uz' ? item?.attribute_uz : item?.attribute_ru, " :"]
             }), /*#__PURE__*/jsx_runtime_.jsx("span", {
               className: "product_line"
             }), /*#__PURE__*/jsx_runtime_.jsx("span", {
               className: "value",
-              children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.value_uz : item === null || item === void 0 ? void 0 : item.value_ru
+              children: lang === 'uz' ? item?.value_uz : item?.value_ru
             })]
           });
         })
@@ -149,7 +149,7 @@ const RelatedProducts = ({
     }), /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
       container: true,
       spacing: 8,
-      children: recommendedProducts === null || recommendedProducts === void 0 ? void 0 : recommendedProducts.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+      children: recommendedProducts?.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
         item: true,
         lg: 3,
         md: 4,
@@ -184,8 +184,6 @@ var Container = __webpack_require__(3158);
 const ProductDetails = ({
   data
 }) => {
-  var _data$product, _data$product2, _data$product3, _data$recommendedProd;
-
   const {
     0: selectedOption,
     1: setSelectedOption
@@ -229,12 +227,12 @@ const ProductDetails = ({
       }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Box/* default */.Z, {
         mb: "50px",
         children: [selectedOption === "description" && /*#__PURE__*/jsx_runtime_.jsx(products_ProductDescription, {
-          desc: lang === 'uz' ? data === null || data === void 0 ? void 0 : (_data$product = data.product) === null || _data$product === void 0 ? void 0 : _data$product.description_uz : data === null || data === void 0 ? void 0 : (_data$product2 = data.product) === null || _data$product2 === void 0 ? void 0 : _data$product2.description_ru
+          desc: lang === 'uz' ? data?.product?.description_uz : data?.product?.description_ru
         }), selectedOption === "attributes" && /*#__PURE__*/jsx_runtime_.jsx(products_ProductDescription, {
-          attributes: data === null || data === void 0 ? void 0 : (_data$product3 = data.product) === null || _data$product3 === void 0 ? void 0 : _data$product3.attributes
+          attributes: data?.product?.attributes
         })]
-      }), (data === null || data === void 0 ? void 0 : (_data$recommendedProd = data.recommendedProducts) === null || _data$recommendedProd === void 0 ? void 0 : _data$recommendedProd.length) === 0 ? null : /*#__PURE__*/jsx_runtime_.jsx(products_RelatedProducts, {
-        recommendedProducts: data === null || data === void 0 ? void 0 : data.recommendedProducts
+      }), data?.recommendedProducts?.length === 0 ? null : /*#__PURE__*/jsx_runtime_.jsx(products_RelatedProducts, {
+        recommendedProducts: data?.recommendedProducts
       })]
     })
   });
@@ -373,6 +371,13 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
 
 /***/ }),
 
@@ -579,7 +584,7 @@ module.exports = require("yup");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,928,27,372,483,685,916,545,741], () => (__webpack_exec__(1287)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,675,938,928,27,372,483,685,916,545,741], () => (__webpack_exec__(1287)));
 module.exports = __webpack_exports__;
 
 })();

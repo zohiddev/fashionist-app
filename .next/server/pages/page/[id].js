@@ -81,8 +81,6 @@ __webpack_require__.r(__webpack_exports__);
 const Page = ({
   data
 }) => {
-  var _data$page, _data$page2, _data$page3, _data$page4;
-
   const lang = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)(state => state.lang.lang);
   const router = (0,next_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_components_Container__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
@@ -90,11 +88,11 @@ const Page = ({
     mb: "50px",
     children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .ZP, {
       children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_1__.H1, {
-        children: lang === 'uz' ? data === null || data === void 0 ? void 0 : (_data$page = data.page) === null || _data$page === void 0 ? void 0 : _data$page.title_uz : data === null || data === void 0 ? void 0 : (_data$page2 = data.page) === null || _data$page2 === void 0 ? void 0 : _data$page2.title_ru
+        children: lang === 'uz' ? data?.page?.title_uz : data?.page?.title_ru
       })
     }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx("div", {
       dangerouslySetInnerHTML: {
-        __html: lang === 'uz' ? data === null || data === void 0 ? void 0 : (_data$page3 = data.page) === null || _data$page3 === void 0 ? void 0 : _data$page3.content_uz : data === null || data === void 0 ? void 0 : (_data$page4 = data.page) === null || _data$page4 === void 0 ? void 0 : _data$page4.content_ru
+        __html: lang === 'uz' ? data?.page?.content_uz : data?.page?.content_ru
       }
     })]
   });
@@ -107,7 +105,7 @@ async function getServerSideProps({
   const res = await fetch(`https://api.sdb.uz/dev/v1/page/${params.id}`);
   const data = await res.json();
 
-  if (data !== null && data !== void 0 && data.page) {
+  if (data?.page) {
     return {
       props: {
         data: data
@@ -239,6 +237,13 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
 
 /***/ }),
 
@@ -438,7 +443,7 @@ module.exports = require("yup");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,928,27,372,483,685,916], () => (__webpack_exec__(3755)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,675,938,928,27,372,483,685,916], () => (__webpack_exec__(3755)));
 module.exports = __webpack_exports__;
 
 })();

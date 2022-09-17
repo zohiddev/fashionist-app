@@ -50,9 +50,7 @@ const getBrands = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get("/v1/brand/list").then(function (response) {
-      var _response$data;
-
-      if (!(response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.error)) {
+      if (!response?.data?.error) {
         dispatch(setBrands(response.data.brands));
       }
 
@@ -67,9 +65,7 @@ const getFeaturedBrands = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get("/v1/brand/list?featured=1").then(function (response) {
-      var _response$data2;
-
-      if (!(response !== null && response !== void 0 && (_response$data2 = response.data) !== null && _response$data2 !== void 0 && _response$data2.error)) {
+      if (!response?.data?.error) {
         dispatch(setBrands(response.data.brands));
       }
 
@@ -154,9 +150,7 @@ const getFeaturedCategories = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     axios.get("https://api.sdb.uz/dev/v1/category/featured").then(function (response) {
-      var _response$data;
-
-      if (!(response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.error)) {
+      if (!response?.data?.error) {
         dispatch(setCategories2(response.data.categories));
       }
 
@@ -260,9 +254,7 @@ const getSmartphones = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get("/v1/category/smartfonlar?per_page=12").then(function (response) {
-      var _response$data;
-
-      if (!(response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.error)) {
+      if (!response?.data?.error) {
         dispatch(setSmartphones(response.data.products));
       }
 
@@ -277,9 +269,7 @@ const getRecommendedProducts = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get("/v1/product/list?type=recommended&per_page=12").then(function (response) {
-      var _response$data2;
-
-      if (!(response !== null && response !== void 0 && (_response$data2 = response.data) !== null && _response$data2 !== void 0 && _response$data2.error)) {
+      if (!response?.data?.error) {
         dispatch(setRecommendedProducts(response.data.products));
       }
 
@@ -294,9 +284,7 @@ const getNewProducts = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get("/v1/product/list?sort=id,desc&per_page=9").then(function (response) {
-      var _response$data3;
-
-      if (!(response !== null && response !== void 0 && (_response$data3 = response.data) !== null && _response$data3 !== void 0 && _response$data3.error)) {
+      if (!response?.data?.error) {
         dispatch(setNewProducts(response.data.products));
       }
 
@@ -311,9 +299,7 @@ const getMostVieweddProducts = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get("/v1/product/list?sort=views,desc&per_page=9").then(function (response) {
-      var _response$data4;
-
-      if (!(response !== null && response !== void 0 && (_response$data4 = response.data) !== null && _response$data4 !== void 0 && _response$data4.error)) {
+      if (!response?.data?.error) {
         dispatch(setMostVieweddProducts(response.data.products));
       }
 
@@ -328,9 +314,7 @@ const getBrands = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     $host.get("/v1/brand/list").then(function (response) {
-      var _response$data5;
-
-      if (!(response !== null && response !== void 0 && (_response$data5 = response.data) !== null && _response$data5 !== void 0 && _response$data5.error)) {
+      if (!response?.data?.error) {
         dispatch(setBrands(response.data.brands));
       }
 
@@ -390,9 +374,7 @@ const getSlides = () => {
   return async dispatch => {
     dispatch(setLoading(true));
     axios.get("https://api.sdb.uz/dev/v1/events/list").then(function (response) {
-      var _response$data;
-
-      if (!(response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.error)) {
+      if (!response?.data?.error) {
         dispatch(setSlides(response.data.events));
       }
 

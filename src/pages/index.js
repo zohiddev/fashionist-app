@@ -27,9 +27,9 @@ const IndexPage = ({
 	slides,
 	// featuredCategories,
 	mostViewedProducts,
-	// newProducts,
+	newProducts,
 	smartphones,
-	recommendedProducts,
+	// recommendedProducts,
 }) => {
 	const dispatch = useDispatch()
 	const state = useSelector((state) => state)
@@ -42,7 +42,7 @@ const IndexPage = ({
 		dispatch(setSlides(slides))
 		dispatch(setMostVieweddProducts(mostViewedProducts))
 		dispatch(setSmartphones(smartphones))
-		dispatch(setRecommendedProducts(recommendedProducts))
+		dispatch(setRecommendedProducts(newProducts))
 		getCartItems()(dispatch)
 		dispatch(setLang(localStorage.getItem('lang')))
 	}, [])
@@ -53,7 +53,7 @@ const IndexPage = ({
 			<MostViewed mostViewedProducts={mostViewedProducts} />
 			<Smartphones smartphones={smartphones} />
 			<SliderLower slides={slides} />
-			<SomeProducts recommendedProducts={recommendedProducts} />
+			<SomeProducts recommendedProducts={newProducts} />
 			<Services />
 		</main>
 	)
@@ -68,7 +68,7 @@ export async function getStaticProps() {
 		slidesRes,
 		mostViewedProductsRes,
 		smartphonesRes,
-		recommendedProductsRes,
+		newProductsRes,
 	] = await Promise.all([
 		fetch('https://api.sdb.uz/dev/v1/category/list'),
 		fetch('https://api.sdb.uz/dev/v1/brand/list?featured=1'),
@@ -78,7 +78,7 @@ export async function getStaticProps() {
 		),
 		fetch('https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12'),
 		fetch(
-			'https://api.sdb.uz/dev/v1/product/list?type=recommended&per_page=12'
+			'https://api.sdb.uz/dev/v1/product/list?type=new&per_page=12'
 		),
 	])
 	const [
@@ -87,14 +87,14 @@ export async function getStaticProps() {
 		slides,
 		mostViewedProducts,
 		smartphones,
-		recommendedProducts,
+		newProducts,
 	] = await Promise.all([
 		categoriesRes.json(),
 		featuredBrandsRes.json(),
 		slidesRes.json(),
 		mostViewedProductsRes.json(),
 		smartphonesRes.json(),
-		recommendedProductsRes.json(),
+		newProductsRes.json(),
 	])
 	return {
 		props: {
@@ -103,7 +103,7 @@ export async function getStaticProps() {
 			slides: slides?.events,
 			mostViewedProducts: mostViewedProducts?.products,
 			smartphones: smartphones?.products,
-			recommendedProducts: recommendedProducts?.products,
+			newProducts: newProducts?.products,
 		},
 		revalidate: 10,
 	}

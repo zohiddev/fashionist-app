@@ -5,6 +5,24 @@ exports.id = 820;
 exports.ids = [820];
 exports.modules = {
 
+/***/ 2648:
+/***/ ((__unused_webpack_module, exports) => {
+
+var __webpack_unused_export__;
+
+__webpack_unused_export__ = ({
+    value: true
+});
+exports.Z = _interopRequireDefault;
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+
+
+/***/ }),
+
 /***/ 9651:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -15,15 +33,11 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(__webpack_require__(6689));
+var _interop_require_default = (__webpack_require__(2648)/* ["default"] */ .Z);
 
-var _head = _interopRequireDefault(__webpack_require__(5429));
+var _react = _interop_require_default(__webpack_require__(6689));
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    default: obj
-  };
-}
+var _head = _interop_require_default(__webpack_require__(5429));
 
 const statusCodes = {
   400: 'Bad Request',
@@ -41,6 +55,42 @@ function _getInitialProps({
     statusCode
   };
 }
+
+const styles = {
+  error: {
+    fontFamily: '-apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif',
+    height: '100vh',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  desc: {
+    display: 'inline-block',
+    textAlign: 'left',
+    lineHeight: '49px',
+    height: '49px',
+    verticalAlign: 'middle'
+  },
+  h1: {
+    display: 'inline-block',
+    margin: 0,
+    marginRight: '20px',
+    padding: '0 23px 0 0',
+    fontSize: '24px',
+    fontWeight: 500,
+    verticalAlign: 'top',
+    lineHeight: '49px'
+  },
+  h2: {
+    fontSize: '14px',
+    fontWeight: 'normal',
+    lineHeight: '49px',
+    margin: 0,
+    padding: 0
+  }
+};
 
 var _Component;
 
@@ -60,7 +110,7 @@ class Error extends (_Component = _react.default.Component) {
                 .next-error-h1 {
                   border-right: 1px solid rgba(0, 0, 0, .3);
                 }
-                
+
                 ${withDarkMode ? `@media (prefers-color-scheme: dark) {
                   body { color: #fff; background: #000; }
                   .next-error-h1 {
@@ -83,40 +133,6 @@ class Error extends (_Component = _react.default.Component) {
 Error.displayName = 'ErrorPage';
 Error.getInitialProps = _getInitialProps;
 Error.origGetInitialProps = _getInitialProps;
-const styles = {
-  error: {
-    fontFamily: '-apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif',
-    height: '100vh',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  desc: {
-    display: 'inline-block',
-    textAlign: 'left',
-    lineHeight: '49px',
-    height: '49px',
-    verticalAlign: 'middle'
-  },
-  h1: {
-    display: 'inline-block',
-    margin: 0,
-    marginRight: '20px',
-    padding: '10px 23px 10px 0',
-    fontSize: '24px',
-    fontWeight: 500,
-    verticalAlign: 'top'
-  },
-  h2: {
-    fontSize: '14px',
-    fontWeight: 'normal',
-    lineHeight: 'inherit',
-    margin: 0,
-    padding: 0
-  }
-};
 exports["default"] = Error;
 
 /***/ }),

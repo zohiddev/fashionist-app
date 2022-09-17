@@ -192,8 +192,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 const SmartphonesView = _ref => {
-  var _state$lang, _state$cart, _state$cart$cartList, _product$price;
-
   let {
     id,
     imgUrl,
@@ -211,8 +209,8 @@ const SmartphonesView = _ref => {
   } = (0,external_react_.useState)(false);
   const state = (0,external_react_redux_.useSelector)(state => state); // const { state, dispatch } = useAppContext()
 
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
-  const cartItem = state === null || state === void 0 ? void 0 : (_state$cart = state.cart) === null || _state$cart === void 0 ? void 0 : (_state$cart$cartList = _state$cart.cartList) === null || _state$cart$cartList === void 0 ? void 0 : _state$cart$cartList.find(item => item.product_id === (product === null || product === void 0 ? void 0 : product.id));
+  const lang = state?.lang?.lang;
+  const cartItem = state?.cart?.cartList?.find(item => item.product_id === product?.id);
   const dispatch = (0,external_react_redux_.useDispatch)();
   const toggleDialog = (0,external_react_.useCallback)(() => {
     setOpen(open => !open);
@@ -245,7 +243,7 @@ const SmartphonesView = _ref => {
     if (localStorage.getItem('user')) {
       let addedItem = {};
       addedItem.qty = 1;
-      addedItem.product_id = Number(product === null || product === void 0 ? void 0 : product.id);
+      addedItem.product_id = Number(product?.id);
       (0,cartReducer/* addToCart */.Xq)(addedItem)(dispatch);
     } else {
       dispatch((0,userReducer/* setIsActive */.WA)(true));
@@ -262,7 +260,7 @@ const SmartphonesView = _ref => {
       style: {
         padding: '15px'
       },
-      children: [(product === null || product === void 0 ? void 0 : product.is_new) > 0 && /*#__PURE__*/jsx_runtime_.jsx(components_Chip/* Chip */.A, {
+      children: [product?.is_new > 0 && /*#__PURE__*/jsx_runtime_.jsx(components_Chip/* Chip */.A, {
         position: "absolute",
         bg: "primary.main",
         color: "primary.text",
@@ -283,13 +281,13 @@ const SmartphonesView = _ref => {
           children: "eye-alt"
         })
       }), /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-        href: `/product/${product === null || product === void 0 ? void 0 : product.slug}`,
+        href: `/product/${product?.slug}`,
         children: /*#__PURE__*/jsx_runtime_.jsx("a", {
           children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
             loader: myLoader,
-            src: product === null || product === void 0 ? void 0 : product.images[0],
+            src: product?.images[0],
             layout: "responsive",
-            alt: product === null || product === void 0 ? void 0 : product.name_uz,
+            alt: product?.name_uz,
             width: 100,
             height: 100,
             quality: "85",
@@ -306,7 +304,7 @@ const SmartphonesView = _ref => {
           minWidth: "0px",
           mr: "0.5rem",
           children: [/*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-            href: `/product/${product === null || product === void 0 ? void 0 : product.slug}`,
+            href: `/product/${product?.slug}`,
             children: /*#__PURE__*/jsx_runtime_.jsx("a", {
               children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
                 className: "title",
@@ -315,8 +313,8 @@ const SmartphonesView = _ref => {
                 fontWeight: "600",
                 color: "text.secondary",
                 mb: "10px",
-                title: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru,
-                children: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru
+                title: lang === 'uz' ? product?.name_uz : product?.name_ru,
+                children: lang === 'uz' ? product?.name_uz : product?.name_ru
               })
             })
           }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
@@ -326,12 +324,12 @@ const SmartphonesView = _ref => {
               pr: "0.5rem",
               fontWeight: "600",
               color: "primary.main",
-              children: [Intl.NumberFormat().format(product === null || product === void 0 ? void 0 : product.price), " UZS"]
+              children: [Intl.NumberFormat().format(product?.price), " UZS"]
             }), !!off && /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
               color: "text.muted",
               fontWeight: "600",
               children: /*#__PURE__*/jsx_runtime_.jsx("del", {
-                children: product === null || product === void 0 ? void 0 : (_product$price = product.price) === null || _product$price === void 0 ? void 0 : _product$price.toFixed(2)
+                children: product?.price?.toFixed(2)
               })
             })]
           })]
@@ -344,10 +342,10 @@ const SmartphonesView = _ref => {
         p: "1rem",
         position: "relative",
         children: [/*#__PURE__*/jsx_runtime_.jsx(ProductIntro/* default */.Z, {
-          imgUrl: product === null || product === void 0 ? void 0 : product.images,
-          title: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru,
-          price: product === null || product === void 0 ? void 0 : product.price,
-          id: product === null || product === void 0 ? void 0 : product.id,
+          imgUrl: product?.images,
+          title: lang === 'uz' ? product?.name_uz : product?.name_ru,
+          price: product?.price,
+          id: product?.id,
           product: product,
           lang: lang
         }), /*#__PURE__*/jsx_runtime_.jsx(components_Box/* default */.Z, {
@@ -455,7 +453,7 @@ const Smartphones = ({
         }), /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
           container: true,
           spacing: 6,
-          children: smartphones === null || smartphones === void 0 ? void 0 : smartphones.map((product, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+          children: smartphones?.map((product, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
             item: true,
             lg: 3,
             md: 4,
@@ -496,11 +494,11 @@ const SomeProducts = ({
     mb: window < 568 ? "1.75rem" : "3.75rem",
     children: [/*#__PURE__*/jsx_runtime_.jsx(components_CategorySectionHeader, {
       title: lang === 'uz' ? "Yangi qo`shilganlar" : 'Новое добавлено',
-      seeMoreLink: "/products/products?type=recommended"
+      seeMoreLink: "/products/products?type=new"
     }), /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
       container: true,
       spacing: 6,
-      children: recommendedProducts !== null && (recommendedProducts === null || recommendedProducts === void 0 ? void 0 : recommendedProducts.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+      children: recommendedProducts !== null && recommendedProducts?.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
         item: true,
         lg: 3,
         md: 4,
@@ -513,7 +511,7 @@ const SomeProducts = ({
           product: item // {...item}
 
         })
-      }, ind)))
+      }, ind))
     })]
   });
 };
@@ -870,7 +868,7 @@ const TopCategories = ({
     title: lang === 'uz' ? "Ommabop bo'limlar" : "Популярные разделы",
     seeMoreLink: "#",
     children: /*#__PURE__*/_jsx(Carousel, {
-      totalSlides: featuredCategories === null || featuredCategories === void 0 ? void 0 : featuredCategories.length,
+      totalSlides: featuredCategories?.length,
       visibleSlides: visibleSlides,
       showDots: width < 650 ? true : false,
       showArrow: width < 650 ? false : true,
@@ -946,21 +944,21 @@ const MostViewed = ({
         visibleSlides: visibleSlides,
         showDots: width < 650 ? true : false,
         showArrow: width < 650 ? false : true,
-        children: mostViewedProducts === null || mostViewedProducts === void 0 ? void 0 : mostViewedProducts.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(components_Box/* default */.Z, {
+        children: mostViewedProducts?.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(components_Box/* default */.Z, {
           py: "0.25rem",
           children: /*#__PURE__*/jsx_runtime_.jsx(components_Card/* default */.Z, {
             p: "1rem",
             children: /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-              href: `/product/${item === null || item === void 0 ? void 0 : item.slug}`,
+              href: `/product/${item?.slug}`,
               children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("a", {
                 children: [/*#__PURE__*/jsx_runtime_.jsx(components_HoverBox/* default */.Z, {
                   borderRadius: 8,
                   mb: "0.5rem",
                   children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
                     loader: myLoader,
-                    src: item === null || item === void 0 ? void 0 : item.images[0],
+                    src: item?.images[0],
                     layout: "responsive",
-                    alt: item === null || item === void 0 ? void 0 : item.name_uz,
+                    alt: item?.name_uz,
                     width: 100,
                     height: 100,
                     quality: "85",
@@ -974,15 +972,15 @@ const MostViewed = ({
                   fontWeight: "600",
                   color: "text.secondary",
                   mb: "10px",
-                  title: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru,
-                  children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
+                  title: lang === 'uz' ? item?.name_uz : item?.name_ru,
+                  children: lang === 'uz' ? item?.name_uz : item?.name_ru
                 }), /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
                   children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography.H4, {
                     fontWeight: "600",
                     fontSize: "14px",
                     color: "primary.main",
                     mr: "0.5rem",
-                    children: [Math.ceil(item === null || item === void 0 ? void 0 : item.price).toLocaleString(), /*#__PURE__*/jsx_runtime_.jsx("span", {
+                    children: [Math.ceil(item?.price).toLocaleString(), /*#__PURE__*/jsx_runtime_.jsx("span", {
                       children: " UZS"
                     })]
                   })
@@ -1029,20 +1027,20 @@ const CarouselCard1 = ({
 
   return /*#__PURE__*/jsx_runtime_.jsx(StyledCarouselCard1, {
     children: /*#__PURE__*/jsx_runtime_.jsx(Container/* default */.Z, {
-      children: (slide === null || slide === void 0 ? void 0 : slide.url) !== null ? /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
-        href: `/${slide === null || slide === void 0 ? void 0 : slide.url}`,
+      children: slide?.url !== null ? /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+        href: `/${slide?.url}`,
         children: /*#__PURE__*/jsx_runtime_.jsx("a", {
           children: /*#__PURE__*/jsx_runtime_.jsx("div", {
             className: "image-holder",
             style: {
               width: '100%',
-              height: (slide === null || slide === void 0 ? void 0 : slide.position) === 'lower' ? window < 568 ? '150px' : '350px' : window < 568 ? '150px' : '300px',
+              height: slide?.position === 'lower' ? window < 568 ? '150px' : '350px' : window < 568 ? '150px' : '300px',
               display: 'block',
               position: 'relative'
             },
             children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
               loader: myLoader,
-              src: slide === null || slide === void 0 ? void 0 : slide.image,
+              src: slide?.image,
               layout: "fill",
               alt: "banner_img",
               width: 100,
@@ -1062,7 +1060,7 @@ const CarouselCard1 = ({
         },
         children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
           loader: myLoader,
-          src: slide === null || slide === void 0 ? void 0 : slide.image,
+          src: slide?.image,
           layout: "fill",
           width: 100,
           height: 100,
@@ -1094,8 +1092,6 @@ var Navbar = __webpack_require__(8916);
 const SliderHero = ({
   slides
 }) => {
-  var _slides$filter;
-
   const state = (0,external_react_redux_.useSelector)(state => state.slides);
   const window = (0,hooks_useWindowSize/* default */.Z)();
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_.Fragment, {
@@ -1112,7 +1108,7 @@ const SliderHero = ({
         showDots: false,
         showArrow: false,
         spacing: "0px",
-        children: slides === null || slides === void 0 ? void 0 : (_slides$filter = slides.filter(el => el.position == "hero")) === null || _slides$filter === void 0 ? void 0 : _slides$filter.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
+        children: slides?.filter(el => el.position == "hero")?.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
           slide: slide
         }, ind))
       })
@@ -1134,8 +1130,6 @@ const SliderHero = ({
 const SliderLower = ({
   slides
 }) => {
-  var _slides$filter;
-
   const state = (0,external_react_redux_.useSelector)(state => state.slides);
   const window = (0,hooks_useWindowSize/* default */.Z)();
   return /*#__PURE__*/jsx_runtime_.jsx(external_react_.Fragment, {
@@ -1150,7 +1144,7 @@ const SliderLower = ({
           showDots: false,
           showArrow: false,
           spacing: "0px",
-          children: slides === null || slides === void 0 ? void 0 : (_slides$filter = slides.filter(el => (el === null || el === void 0 ? void 0 : el.position) == "lower")) === null || _slides$filter === void 0 ? void 0 : _slides$filter.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
+          children: slides?.filter(el => el?.position == "lower")?.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
             slide: slide
           }, ind))
         })
@@ -1203,7 +1197,7 @@ const Brands = ({
     if (width < 370) setVisibleSlides(1);else if (width < 650) setVisibleSlides(2);else if (width < 950) setVisibleSlides(5);else setVisibleSlides(7);
   }, [width]);
   return /*#__PURE__*/_jsx(_Fragment, {
-    children: (featuredBrands === null || featuredBrands === void 0 ? void 0 : featuredBrands.length) > 0 ? /*#__PURE__*/_jsx(CategorySectionCreator, {
+    children: featuredBrands?.length > 0 ? /*#__PURE__*/_jsx(CategorySectionCreator, {
       iconName: "Group",
       title: lang === 'uz' ? "Mashxur brendlar" : 'Известные бренды',
       seeMoreLink: `/products/products`,
@@ -1214,18 +1208,18 @@ const Brands = ({
           visibleSlides: visibleSlides,
           showDots: width < 650 ? true : false,
           showArrow: width < 650 ? false : true,
-          children: featuredBrands === null || featuredBrands === void 0 ? void 0 : featuredBrands.map((item, ind) => /*#__PURE__*/_jsx(Box, {
+          children: featuredBrands?.map((item, ind) => /*#__PURE__*/_jsx(Box, {
             py: "0.25rem",
             children: /*#__PURE__*/_jsx(Card, {
               p: "1rem",
               textAlign: "center",
               children: /*#__PURE__*/_jsx(Link, {
-                href: `/products/products?brand=${item === null || item === void 0 ? void 0 : item.id}`,
+                href: `/products/products?brand=${item?.id}`,
                 children: /*#__PURE__*/_jsxs("a", {
                   children: [/*#__PURE__*/_jsx(Image, {
                     loader: myLoader,
-                    src: item === null || item === void 0 ? void 0 : item.image,
-                    alt: item === null || item === void 0 ? void 0 : item.name_uz,
+                    src: item?.image,
+                    alt: item?.name_uz,
                     width: "100%",
                     objectFit: "contain",
                     height: 90,
@@ -1239,14 +1233,14 @@ const Brands = ({
                     fontWeight: "600",
                     color: "text.secondary",
                     mb: "10px",
-                    title: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru,
+                    title: lang === 'uz' ? item?.name_uz : item?.name_ru,
                     onClick: () => handleBrandId(item.id),
-                    children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
+                    children: lang === 'uz' ? item?.name_uz : item?.name_ru
                   })]
                 })
               })
             })
-          }, item === null || item === void 0 ? void 0 : item.id))
+          }, item?.id))
         })
       })
     }) : null
@@ -1291,15 +1285,13 @@ const IndexPage = ({
   slides,
   // featuredCategories,
   mostViewedProducts,
-  // newProducts,
-  smartphones,
-  recommendedProducts
-}) => {
-  var _state$categories;
+  newProducts,
+  smartphones // recommendedProducts,
 
+}) => {
   const dispatch = (0,external_react_redux_.useDispatch)();
   const state = (0,external_react_redux_.useSelector)(state => state);
-  const isActive = state === null || state === void 0 ? void 0 : (_state$categories = state.categories) === null || _state$categories === void 0 ? void 0 : _state$categories.categoryNavIsActive;
+  const isActive = state?.categories?.categoryNavIsActive;
   const {
     0: loading,
     1: setLoading
@@ -1310,7 +1302,7 @@ const IndexPage = ({
     dispatch((0,slidesReducer/* setSlides */.Yw)(slides));
     dispatch((0,productsReducer/* setMostVieweddProducts */.Du)(mostViewedProducts));
     dispatch((0,productsReducer/* setSmartphones */.G0)(smartphones));
-    dispatch((0,productsReducer/* setRecommendedProducts */.mP)(recommendedProducts));
+    dispatch((0,productsReducer/* setRecommendedProducts */.mP)(newProducts));
     (0,cartReducer/* getCartItems */.fq)()(dispatch);
     dispatch((0,LangReducer/* setLang */.W)(localStorage.getItem('lang')));
   }, []);
@@ -1324,23 +1316,23 @@ const IndexPage = ({
     }), /*#__PURE__*/jsx_runtime_.jsx(home_SliderLower, {
       slides: slides
     }), /*#__PURE__*/jsx_runtime_.jsx(home_SomeProducts, {
-      recommendedProducts: recommendedProducts
+      recommendedProducts: newProducts
     }), /*#__PURE__*/jsx_runtime_.jsx(home_Services, {})]
   });
 };
 
 IndexPage.layout = AppLayout/* default */.Z;
 async function getStaticProps() {
-  const [categoriesRes, featuredBrandsRes, slidesRes, mostViewedProductsRes, smartphonesRes, recommendedProductsRes] = await Promise.all([fetch('https://api.sdb.uz/dev/v1/category/list'), fetch('https://api.sdb.uz/dev/v1/brand/list?featured=1'), fetch('https://api.sdb.uz/dev/v1/events/list'), fetch('https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9'), fetch('https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12'), fetch('https://api.sdb.uz/dev/v1/product/list?type=recommended&per_page=12')]);
-  const [categories, featuredBrands, slides, mostViewedProducts, smartphones, recommendedProducts] = await Promise.all([categoriesRes.json(), featuredBrandsRes.json(), slidesRes.json(), mostViewedProductsRes.json(), smartphonesRes.json(), recommendedProductsRes.json()]);
+  const [categoriesRes, featuredBrandsRes, slidesRes, mostViewedProductsRes, smartphonesRes, newProductsRes] = await Promise.all([fetch('https://api.sdb.uz/dev/v1/category/list'), fetch('https://api.sdb.uz/dev/v1/brand/list?featured=1'), fetch('https://api.sdb.uz/dev/v1/events/list'), fetch('https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9'), fetch('https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12'), fetch('https://api.sdb.uz/dev/v1/product/list?type=new&per_page=12')]);
+  const [categories, featuredBrands, slides, mostViewedProducts, smartphones, newProducts] = await Promise.all([categoriesRes.json(), featuredBrandsRes.json(), slidesRes.json(), mostViewedProductsRes.json(), smartphonesRes.json(), newProductsRes.json()]);
   return {
     props: {
       items: categories.categories,
-      featuredBrands: featuredBrands === null || featuredBrands === void 0 ? void 0 : featuredBrands.brands,
-      slides: slides === null || slides === void 0 ? void 0 : slides.events,
-      mostViewedProducts: mostViewedProducts === null || mostViewedProducts === void 0 ? void 0 : mostViewedProducts.products,
-      smartphones: smartphones === null || smartphones === void 0 ? void 0 : smartphones.products,
-      recommendedProducts: recommendedProducts === null || recommendedProducts === void 0 ? void 0 : recommendedProducts.products
+      featuredBrands: featuredBrands?.brands,
+      slides: slides?.events,
+      mostViewedProducts: mostViewedProducts?.products,
+      smartphones: smartphones?.products,
+      newProducts: newProducts?.products
     },
     revalidate: 10
   };
@@ -1465,6 +1457,13 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
 
 /***/ }),
 
@@ -1671,7 +1670,7 @@ module.exports = require("yup");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,928,27,372,483,685,916,545,741,369], () => (__webpack_exec__(6847)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,675,938,928,27,372,483,685,916,545,741,369], () => (__webpack_exec__(6847)));
 module.exports = __webpack_exports__;
 
 })();

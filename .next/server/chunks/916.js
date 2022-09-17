@@ -119,7 +119,7 @@ const Navbar = ({
         RightArrow: () => /*#__PURE__*/jsx_runtime_.jsx(Arrow, {
           side: "right"
         }),
-        children: categories === null || categories === void 0 ? void 0 : categories.map(category => /*#__PURE__*/jsx_runtime_.jsx(Card, {
+        children: categories?.map(category => /*#__PURE__*/jsx_runtime_.jsx(Card, {
           mouseIn: mouseIn,
           mouseOut: mouseOut,
           itemId: category.id,
@@ -163,8 +163,6 @@ const Card = ({
   category,
   lang
 }) => {
-  var _category$image;
-
   const visibility = external_react_default().useContext(external_react_horizontal_scrolling_menu_.VisibilityContext);
   return /*#__PURE__*/jsx_runtime_.jsx("div", {
     onMouseEnter: event => mouseIn(category, event),
@@ -179,7 +177,7 @@ const Card = ({
           flexDirection: 'row'
         },
         children: [category.image && /*#__PURE__*/jsx_runtime_.jsx("img", {
-          src: (_category$image = category.image) === null || _category$image === void 0 ? void 0 : _category$image.replace(/https:\/\/api.sdb.uz/gi, "https://api.sdb.uz"),
+          src: category.image?.replace(/https:\/\/api.sdb.uz/gi, "https://api.sdb.uz"),
           alt: ""
         }), /*#__PURE__*/jsx_runtime_.jsx("div", {
           className: "title",
@@ -228,78 +226,70 @@ const CategoryDetails = ({
   mouseIn,
   mouseOut,
   lang
-}) => {
-  var _hoveredCategory$chil;
-
-  return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-    onMouseEnter: event => mouseIn(hoveredCategory, event),
-    onMouseLeave: mouseOut,
-    className: "wrap_cat_banner",
+}) => /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+  onMouseEnter: event => mouseIn(hoveredCategory, event),
+  onMouseLeave: mouseOut,
+  className: "wrap_cat_banner",
+  style: {
+    display: is_hovered ? 'block' : 'none'
+  },
+  children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
     style: {
-      display: is_hovered ? 'block' : 'none'
-    },
-    children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
-      style: {
-        height: '30px'
-      }
-    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-      className: "category_banner_details",
-      px: "1.25rem",
-      py: "0.875rem",
-      children: [/*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
-        className: "title",
-        fontSize: "18px",
-        textAlign: "left",
-        fontWeight: "600",
-        color: "text.secondary",
-        pl: "20px",
-        mb: "10px" // title={product?.name_uz}
-        ,
-        children: lang === 'uz' ? hoveredCategory[`name_${'uz'}`] : hoveredCategory[`name_${'ru'}`]
-      }), /*#__PURE__*/jsx_runtime_.jsx("div", {
-        children: /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
-          px: "1.25rem",
-          py: "0.875rem",
-          children: /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
-            flex: "1 1 0",
-            children: /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
-              container: true,
-              spacing: 4,
-              children: (_hoveredCategory$chil = hoveredCategory.children) === null || _hoveredCategory$chil === void 0 ? void 0 : _hoveredCategory$chil.map((sub, i2) => {
-                var _sub$children;
-
-                return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
-                  item: true,
-                  md: 3,
-                  children: [/*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
-                    className: "child-link",
-                    href: `/products/${sub.slug}`,
-                    children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
-                      className: "title",
-                      fontSize: "14px",
-                      textAlign: "left",
-                      fontWeight: "600",
-                      color: "text.secondary",
-                      mb: "10px",
-                      children: lang === 'uz' ? sub.name_uz : sub.name_ru
-                    })
-                  }, i2), (_sub$children = sub.children) === null || _sub$children === void 0 ? void 0 : _sub$children.map((item, i2) => /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
-                    className: "child-link",
-                    style: {
-                      display: 'block'
-                    },
-                    href: `/products/${item.slug}`,
-                    children: lang === 'uz' ? item.name_uz : item.name_ru
-                  }, i2))]
-                }, i2);
-              })
-            })
+      height: '30px'
+    }
+  }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+    className: "category_banner_details",
+    px: "1.25rem",
+    py: "0.875rem",
+    children: [/*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
+      className: "title",
+      fontSize: "18px",
+      textAlign: "left",
+      fontWeight: "600",
+      color: "text.secondary",
+      pl: "20px",
+      mb: "10px" // title={product?.name_uz}
+      ,
+      children: lang === 'uz' ? hoveredCategory[`name_${'uz'}`] : hoveredCategory[`name_${'ru'}`]
+    }), /*#__PURE__*/jsx_runtime_.jsx("div", {
+      children: /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+        px: "1.25rem",
+        py: "0.875rem",
+        children: /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
+          flex: "1 1 0",
+          children: /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+            container: true,
+            spacing: 4,
+            children: hoveredCategory.children?.map((sub, i2) => /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
+              item: true,
+              md: 3,
+              children: [/*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
+                className: "child-link",
+                href: `/products/${sub.slug}`,
+                children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
+                  className: "title",
+                  fontSize: "14px",
+                  textAlign: "left",
+                  fontWeight: "600",
+                  color: "text.secondary",
+                  mb: "10px",
+                  children: lang === 'uz' ? sub.name_uz : sub.name_ru
+                })
+              }, i2), sub.children?.map((item, i2) => /*#__PURE__*/jsx_runtime_.jsx(NavLink/* default */.Z, {
+                className: "child-link",
+                style: {
+                  display: 'block'
+                },
+                href: `/products/${item.slug}`,
+                children: lang === 'uz' ? item.name_uz : item.name_ru
+              }, i2))]
+            }, i2))
           })
         })
-      })]
+      })
     })]
-  });
-};
+  })]
+});
 
 /***/ })
 
