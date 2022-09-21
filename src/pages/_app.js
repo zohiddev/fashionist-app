@@ -8,7 +8,6 @@ import { theme } from "../utils/theme";
 import { wrapper } from "store/store";
 import AppLayout from "components/layout/AppLayout";
 import "../assets/styles.scss";
-import Script from 'next/script'
 
 //Binding events.
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -40,19 +39,6 @@ const App = ({ Component, pageProps }) => {
 
         <script src="//code.jivo.ru/widget/zc7HkArwKt" async></script>
 
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-MF5K6P5DGG"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-MF5K6P5DGG');
-        `}
-        </Script>
       </Head>
       <GlobalStyles />
       <AppLayout>
