@@ -67,6 +67,11 @@ export default class extends Document {
           <meta name="application-name" content="sdb" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
+          <meta name="robots" content="all" />
+          <meta name="googlebot" content="noindex,nofollow" />
+          <meta name="google" content="nositelinkssearchbox" />
+          <meta name="google" content="notranslate" />
+
         </Head>
         <body>
           <Main />
