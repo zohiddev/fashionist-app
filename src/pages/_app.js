@@ -1,74 +1,66 @@
-import Head from "next/head"
-import Router from "next/router"
-import NProgress from "nprogress"
-import React from "react"
-import { ThemeProvider } from "styled-components"
-import { GlobalStyles } from "../utils/globalStyles"
-import { theme } from "../utils/theme"
-import { wrapper } from "store/store"
-import AppLayout from "components/layout/AppLayout"
-import "../assets/styles.scss"
+import Head from "next/head";
+import Router from "next/router";
+import NProgress from "nprogress";
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "../utils/globalStyles";
+import { theme } from "../utils/theme";
+import { wrapper } from "store/store";
+import AppLayout from "components/layout/AppLayout";
+import "../assets/styles.scss";
+import Script from 'next/script'
 
 //Binding events.
-Router.events.on("routeChangeStart", () => NProgress.start())
-Router.events.on("routeChangeComplete", () => NProgress.done())
-Router.events.on("routeChangeError", () => NProgress.done())
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
-NProgress.configure({ showSpinner: true })
+NProgress.configure({ showSpinner: true });
 
 const App = ({ Component, pageProps }) => {
-	// let Layout = Component.layout || Fragment
+  // let Layout = Component.layout || Fragment
 
-	return (
-		<ThemeProvider theme={theme}>
-			<Head>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1"
-				/>
-				<meta
-					httpEquiv="Content-Type"
-					content="text/html; charset=utf-8"
-				/>
-				<meta property="og:url" content="https://sdb.uz" />
-				{/* thumbnail And title for social media */}
-				<meta property="og:type" content="website" />
-				<meta
-					property="og:title"
-					content="Samsung dexqon bozor - Onlayn do'kon"
-				/>
-				<meta
-					property="og:description"
-					content="Hamyonbop narxlarda minglab tovarlar: elektronika, smartfonlar, smart soatlar, maishiy texnikalar va poyabzal, kompyuterlar ...."
-				/>
-				<meta
-					property="og:image"
-					content="banner.jpg"
-				/>
+  return (
+    <ThemeProvider theme={theme}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta property="og:url" content="https://sdb.uz" />
+        {/* thumbnail And title for social media */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Samsung dexqon bozor - Onlayn do'kon"
+        />
+        <meta
+          property="og:description"
+          content="Hamyonbop narxlarda minglab tovarlar: elektronika, smartfonlar, smart soatlar, maishiy texnikalar va poyabzal, kompyuterlar ...."
+        />
+        <meta property="og:image" content="banner.jpg" />
 
-				<script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=G-SGG7GE7HZC"
-				></script>
-				<script src="//code.jivo.ru/widget/zc7HkArwKt" async></script>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SGG7GE7HZC');
-          `,
-					}}
-				></script>
-			</Head>
-			<GlobalStyles />
-			<AppLayout>
-				<Component {...pageProps} />
-			</AppLayout>
-		</ThemeProvider>
-	)
-}
+        <script src="//code.jivo.ru/widget/zc7HkArwKt" async></script>
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MF5K6P5DGG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-MF5K6P5DGG');
+        `}
+        </Script>
+      </Head>
+      <GlobalStyles />
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
+    </ThemeProvider>
+  );
+};
 
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
@@ -82,4 +74,4 @@ const App = ({ Component, pageProps }) => {
 //   return { ...appProps }
 // }
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(App);

@@ -9,8 +9,7 @@ export default class extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -35,15 +34,15 @@ export default class extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;900&display=swap"
             rel="preload"
-			as="style"
-			onload="this.onload=null;this.rel='stylesheet'"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
           />
-			<noscript>
-				<link
-				rel="stylesheet"
-				href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;900&display=swap"
-				/>
-			</noscript>
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;900&display=swap"
+            />
+          </noscript>
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -72,22 +71,6 @@ export default class extends Document {
           <Main />
           <NextScript />
 
-		  <script type="text/javascript"
-		  		  dangerouslySetInnerHTML={{__html: `(function(m,e,t,r,i,k,a){m[i]=m[i]function(){(m[i].a=m[i].a[]).push(arguments)};
-					m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-					(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-					ym(87153956, "init", {
-							clickmap:true,
-							trackLinks:true,
-							accurateTrackBounce:true,
-							webvisor:true,
-							ecommerce:"dataLayer"
-					});`}}
-		  ></script>
-			<noscript dangerouslySetInnerHTML={{
-				__html:`<div><img src="https://mc.yandex.ru/watch/87153956" style="position:absolute; left:-9999px;" alt="" /></div>`
-			}}></noscript>
         </body>
       </Html>
     );

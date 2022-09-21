@@ -1297,14 +1297,17 @@ const IndexPage = ({
     1: setLoading
   } = (0,external_react_.useState)(true);
   (0,external_react_.useEffect)(() => {
+    if (localStorage.getItem("accessToken")) {
+      dispatch((0,cartReducer/* getCartItems */.fq)());
+    }
+
     dispatch((0,categoriesReducer/* setCategories */.DG)(items));
     dispatch((0,brandsReducer/* setBrands */.dk)(featuredBrands));
     dispatch((0,slidesReducer/* setSlides */.Yw)(slides));
     dispatch((0,productsReducer/* setMostVieweddProducts */.Du)(mostViewedProducts));
     dispatch((0,productsReducer/* setSmartphones */.G0)(smartphones));
     dispatch((0,productsReducer/* setRecommendedProducts */.mP)(newProducts));
-    (0,cartReducer/* getCartItems */.fq)()(dispatch);
-    dispatch((0,LangReducer/* setLang */.W)(localStorage.getItem('lang')));
+    dispatch((0,LangReducer/* setLang */.W)(localStorage.getItem("lang")));
   }, []);
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)("main", {
     children: [/*#__PURE__*/jsx_runtime_.jsx(home_SliderHero, {
@@ -1323,7 +1326,7 @@ const IndexPage = ({
 
 IndexPage.layout = AppLayout/* default */.Z;
 async function getStaticProps() {
-  const [categoriesRes, featuredBrandsRes, slidesRes, mostViewedProductsRes, smartphonesRes, newProductsRes] = await Promise.all([fetch('https://api.sdb.uz/dev/v1/category/list'), fetch('https://api.sdb.uz/dev/v1/brand/list?featured=1'), fetch('https://api.sdb.uz/dev/v1/events/list'), fetch('https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9'), fetch('https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12'), fetch('https://api.sdb.uz/dev/v1/product/list?type=new&per_page=12')]);
+  const [categoriesRes, featuredBrandsRes, slidesRes, mostViewedProductsRes, smartphonesRes, newProductsRes] = await Promise.all([fetch("https://api.sdb.uz/dev/v1/category/list"), fetch("https://api.sdb.uz/dev/v1/brand/list?featured=1"), fetch("https://api.sdb.uz/dev/v1/events/list"), fetch("https://api.sdb.uz/dev/v1/product/list?sort=views,desc&per_page=9"), fetch("https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12"), fetch("https://api.sdb.uz/dev/v1/product/list?type=new&per_page=12")]);
   const [categories, featuredBrands, slides, mostViewedProducts, smartphones, newProducts] = await Promise.all([categoriesRes.json(), featuredBrandsRes.json(), slidesRes.json(), mostViewedProductsRes.json(), smartphonesRes.json(), newProductsRes.json()]);
   return {
     props: {

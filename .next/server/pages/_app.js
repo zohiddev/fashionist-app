@@ -1,4 +1,3 @@
-"use strict";
 (() => {
 var exports = {};
 exports.id = 888;
@@ -8,6 +7,7 @@ exports.modules = {
 /***/ 7199:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
@@ -170,6 +170,9 @@ const makeStore = () => (0,external_redux_namespaceObject.createStore)(reducers_
 const wrapper = (0,external_next_redux_wrapper_namespaceObject.createWrapper)(makeStore);
 // EXTERNAL MODULE: ./src/components/layout/AppLayout.js + 19 modules
 var AppLayout = __webpack_require__(2685);
+// EXTERNAL MODULE: ./node_modules/next/script.js
+var script = __webpack_require__(4298);
+var script_default = /*#__PURE__*/__webpack_require__.n(script);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./src/pages/_app.js
@@ -178,6 +181,7 @@ function _app_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); 
 function _app_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? _app_ownKeys(Object(source), !0).forEach(function (key) { _app_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : _app_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _app_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -229,20 +233,21 @@ const App = ({
         property: "og:image",
         content: "banner.jpg"
       }), /*#__PURE__*/jsx_runtime_.jsx("script", {
-        async: true,
-        src: "https://www.googletagmanager.com/gtag/js?id=G-SGG7GE7HZC"
-      }), /*#__PURE__*/jsx_runtime_.jsx("script", {
         src: "//code.jivo.ru/widget/zc7HkArwKt",
         async: true
-      }), /*#__PURE__*/jsx_runtime_.jsx("script", {
-        dangerouslySetInnerHTML: {
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SGG7GE7HZC');
-          `
-        }
+      }), /*#__PURE__*/jsx_runtime_.jsx((script_default()), {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-MF5K6P5DGG",
+        strategy: "afterInteractive"
+      }), /*#__PURE__*/jsx_runtime_.jsx((script_default()), {
+        id: "google-analytics",
+        strategy: "afterInteractive",
+        children: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-MF5K6P5DGG');
+        `
       })]
     }), /*#__PURE__*/jsx_runtime_.jsx(GlobalStyles, {}), /*#__PURE__*/jsx_runtime_.jsx(AppLayout/* default */.Z, {
       children: /*#__PURE__*/jsx_runtime_.jsx(Component, _app_objectSpread({}, pageProps))
@@ -268,6 +273,7 @@ const App = ({
 /***/ 9745:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "R": () => (/* binding */ setHeaderContent),
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -297,9 +303,18 @@ const setHeaderContent = content => ({
 
 /***/ }),
 
+/***/ 4298:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(2189)
+
+
+/***/ }),
+
 /***/ 2038:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("@styled-system/css");
 
 /***/ }),
@@ -307,6 +322,7 @@ module.exports = require("@styled-system/css");
 /***/ 9099:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("@styled-system/theme-get");
 
 /***/ }),
@@ -314,6 +330,7 @@ module.exports = require("@styled-system/theme-get");
 /***/ 2167:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("axios");
 
 /***/ }),
@@ -321,6 +338,7 @@ module.exports = require("axios");
 /***/ 4146:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("date-fns");
 
 /***/ }),
@@ -328,6 +346,7 @@ module.exports = require("date-fns");
 /***/ 2296:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("formik");
 
 /***/ }),
@@ -335,6 +354,7 @@ module.exports = require("formik");
 /***/ 6517:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("lodash");
 
 /***/ }),
@@ -342,6 +362,7 @@ module.exports = require("lodash");
 /***/ 3280:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/app-router-context.js");
 
 /***/ }),
@@ -349,6 +370,7 @@ module.exports = require("next/dist/shared/lib/app-router-context.js");
 /***/ 2796:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
@@ -356,6 +378,7 @@ module.exports = require("next/dist/shared/lib/head-manager-context.js");
 /***/ 5429:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/head.js");
 
 /***/ }),
@@ -363,6 +386,7 @@ module.exports = require("next/dist/shared/lib/head.js");
 /***/ 4014:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
@@ -370,6 +394,7 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 /***/ 744:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/image-config-context.js");
 
 /***/ }),
@@ -377,6 +402,7 @@ module.exports = require("next/dist/shared/lib/image-config-context.js");
 /***/ 5843:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/image-config.js");
 
 /***/ }),
@@ -384,6 +410,7 @@ module.exports = require("next/dist/shared/lib/image-config.js");
 /***/ 8524:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/is-plain-object.js");
 
 /***/ }),
@@ -391,6 +418,7 @@ module.exports = require("next/dist/shared/lib/is-plain-object.js");
 /***/ 8020:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/mitt.js");
 
 /***/ }),
@@ -398,6 +426,7 @@ module.exports = require("next/dist/shared/lib/mitt.js");
 /***/ 4406:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
 
 /***/ }),
@@ -405,6 +434,7 @@ module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.j
 /***/ 4964:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
@@ -412,6 +442,7 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 /***/ 1751:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
 
 /***/ }),
@@ -419,6 +450,7 @@ module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js")
 /***/ 6220:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
 
 /***/ }),
@@ -426,6 +458,7 @@ module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
 /***/ 299:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
 
 /***/ }),
@@ -433,6 +466,7 @@ module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname
 /***/ 3938:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
 
 /***/ }),
@@ -440,6 +474,7 @@ module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
 /***/ 9565:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-route.js");
 
 /***/ }),
@@ -447,6 +482,7 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 /***/ 5789:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
 
 /***/ }),
@@ -454,6 +490,7 @@ module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-in
 /***/ 1428:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
@@ -461,6 +498,7 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 /***/ 8854:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
 
 /***/ }),
@@ -468,6 +506,7 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
 /***/ 1292:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.js");
 
 /***/ }),
@@ -475,6 +514,7 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 /***/ 4567:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
 
 /***/ }),
@@ -482,6 +522,7 @@ module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js")
 /***/ 979:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
 
 /***/ }),
@@ -489,6 +530,7 @@ module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
 /***/ 3297:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
 
 /***/ }),
@@ -496,6 +538,7 @@ module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slas
 /***/ 6052:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js");
 
 /***/ }),
@@ -503,6 +546,7 @@ module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js"
 /***/ 4226:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 
 /***/ }),
@@ -510,6 +554,7 @@ module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 /***/ 5052:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 
 /***/ }),
@@ -517,6 +562,7 @@ module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 /***/ 9232:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/dist/shared/lib/utils.js");
 
 /***/ }),
@@ -524,6 +570,7 @@ module.exports = require("next/dist/shared/lib/utils.js");
 /***/ 968:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/head");
 
 /***/ }),
@@ -531,6 +578,7 @@ module.exports = require("next/head");
 /***/ 1853:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/router");
 
 /***/ }),
@@ -538,6 +586,7 @@ module.exports = require("next/router");
 /***/ 6689:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react");
 
 /***/ }),
@@ -545,6 +594,7 @@ module.exports = require("react");
 /***/ 6405:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react-dom");
 
 /***/ }),
@@ -552,6 +602,7 @@ module.exports = require("react-dom");
 /***/ 2765:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react-imask");
 
 /***/ }),
@@ -559,6 +610,7 @@ module.exports = require("react-imask");
 /***/ 6022:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react-redux");
 
 /***/ }),
@@ -566,6 +618,7 @@ module.exports = require("react-redux");
 /***/ 7128:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react-svg");
 
 /***/ }),
@@ -573,6 +626,7 @@ module.exports = require("react-svg");
 /***/ 997:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react/jsx-runtime");
 
 /***/ }),
@@ -580,6 +634,7 @@ module.exports = require("react/jsx-runtime");
 /***/ 7518:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("styled-components");
 
 /***/ }),
@@ -587,6 +642,7 @@ module.exports = require("styled-components");
 /***/ 5834:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("styled-system");
 
 /***/ }),
@@ -594,6 +650,7 @@ module.exports = require("styled-system");
 /***/ 5609:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("yup");
 
 /***/ })

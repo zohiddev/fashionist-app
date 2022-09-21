@@ -12,7 +12,7 @@ const defaultState = {
 	user: {},
 	orders: [],
 	order: null,
-	isActive: false,
+	isActive: false ,
 	loading: false,
 }
 
