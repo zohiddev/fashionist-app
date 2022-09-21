@@ -11,14 +11,13 @@ async function generateUrls() {
         return `
         <url>
           <loc>https://sdb.uz/product/${product.slug}</loc>
-          <lastmod>${new Date()}</lastmod>
+          <lastmod>${new Date().toISOString()}</lastmod>
           <changefreq>daily</changefreq>
           <priority>0.7</priority>
-        </url>;
-        
+        </url>
         `;
       });
-      return urls.join('');
+      return urls.join("");
     });
 }
 
