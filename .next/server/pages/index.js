@@ -141,8 +141,10 @@ const serviceList = [{
 var ProductIntro = __webpack_require__(8198);
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(5675);
+var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: ./src/components/Box.js
 var Box = __webpack_require__(6883);
 // EXTERNAL MODULE: ./src/components/buttons/Button.js
@@ -160,9 +162,9 @@ var userReducer = __webpack_require__(8221);
 ;// CONCATENATED MODULE: ./src/components/product-cards/SmartphonesView.js
 const _excluded = ["id", "imgUrl", "title", "price", "off", "product", "rating"];
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -190,8 +192,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 const SmartphonesView = _ref => {
-  var _state$lang, _state$cart, _state$cart$cartList, _product$price;
-
   let {
     id,
     imgUrl,
@@ -209,8 +209,8 @@ const SmartphonesView = _ref => {
   } = (0,external_react_.useState)(false);
   const state = (0,external_react_redux_.useSelector)(state => state); // const { state, dispatch } = useAppContext()
 
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
-  const cartItem = state === null || state === void 0 ? void 0 : (_state$cart = state.cart) === null || _state$cart === void 0 ? void 0 : (_state$cart$cartList = _state$cart.cartList) === null || _state$cart$cartList === void 0 ? void 0 : _state$cart$cartList.find(item => item.product_id === (product === null || product === void 0 ? void 0 : product.id));
+  const lang = state?.lang?.lang;
+  const cartItem = state?.cart?.cartList?.find(item => item.product_id === product?.id);
   const dispatch = (0,external_react_redux_.useDispatch)();
   const toggleDialog = (0,external_react_.useCallback)(() => {
     setOpen(open => !open);
@@ -243,7 +243,7 @@ const SmartphonesView = _ref => {
     if (localStorage.getItem('user')) {
       let addedItem = {};
       addedItem.qty = 1;
-      addedItem.product_id = Number(product === null || product === void 0 ? void 0 : product.id);
+      addedItem.product_id = Number(product?.id);
       (0,cartReducer/* addToCart */.Xq)(addedItem)(dispatch);
     } else {
       dispatch((0,userReducer/* setIsActive */.WA)(true));
@@ -260,7 +260,7 @@ const SmartphonesView = _ref => {
       style: {
         padding: '15px'
       },
-      children: [(product === null || product === void 0 ? void 0 : product.is_new) > 0 && /*#__PURE__*/jsx_runtime_.jsx(Chip/* Chip */.A, {
+      children: [product?.is_new > 0 && /*#__PURE__*/jsx_runtime_.jsx(Chip/* Chip */.A, {
         position: "absolute",
         bg: "primary.main",
         color: "primary.text",
@@ -280,14 +280,14 @@ const SmartphonesView = _ref => {
           onClick: toggleDialog,
           children: "eye-alt"
         })
-      }), /*#__PURE__*/jsx_runtime_.jsx(next_link["default"], {
-        href: `/product/${product === null || product === void 0 ? void 0 : product.slug}`,
+      }), /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+        href: `/product/${product?.slug}`,
         children: /*#__PURE__*/jsx_runtime_.jsx("a", {
-          children: /*#__PURE__*/jsx_runtime_.jsx(next_image["default"], {
+          children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
             loader: myLoader,
-            src: product === null || product === void 0 ? void 0 : product.images[0],
+            src: product?.images[0],
             layout: "responsive",
-            alt: product === null || product === void 0 ? void 0 : product.name_uz,
+            alt: product?.name_uz,
             width: 100,
             height: 100,
             quality: "85",
@@ -303,8 +303,8 @@ const SmartphonesView = _ref => {
           flex: "1 1 0",
           minWidth: "0px",
           mr: "0.5rem",
-          children: [/*#__PURE__*/jsx_runtime_.jsx(next_link["default"], {
-            href: `/product/${product === null || product === void 0 ? void 0 : product.slug}`,
+          children: [/*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+            href: `/product/${product?.slug}`,
             children: /*#__PURE__*/jsx_runtime_.jsx("a", {
               children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
                 className: "title",
@@ -313,8 +313,8 @@ const SmartphonesView = _ref => {
                 fontWeight: "600",
                 color: "text.secondary",
                 mb: "10px",
-                title: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru,
-                children: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru
+                title: lang === 'uz' ? product?.name_uz : product?.name_ru,
+                children: lang === 'uz' ? product?.name_uz : product?.name_ru
               })
             })
           }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
@@ -324,12 +324,12 @@ const SmartphonesView = _ref => {
               pr: "0.5rem",
               fontWeight: "600",
               color: "primary.main",
-              children: [Intl.NumberFormat().format(product === null || product === void 0 ? void 0 : product.price), " UZS"]
+              children: [Intl.NumberFormat().format(product?.price), " UZS"]
             }), !!off && /*#__PURE__*/jsx_runtime_.jsx(Typography/* SemiSpan */.kf, {
               color: "text.muted",
               fontWeight: "600",
               children: /*#__PURE__*/jsx_runtime_.jsx("del", {
-                children: product === null || product === void 0 ? void 0 : (_product$price = product.price) === null || _product$price === void 0 ? void 0 : _product$price.toFixed(2)
+                children: product?.price?.toFixed(2)
               })
             })]
           })]
@@ -342,10 +342,10 @@ const SmartphonesView = _ref => {
         p: "1rem",
         position: "relative",
         children: [/*#__PURE__*/jsx_runtime_.jsx(ProductIntro/* default */.Z, {
-          imgUrl: product === null || product === void 0 ? void 0 : product.images,
-          title: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru,
-          price: product === null || product === void 0 ? void 0 : product.price,
-          id: product === null || product === void 0 ? void 0 : product.id,
+          imgUrl: product?.images,
+          title: lang === 'uz' ? product?.name_uz : product?.name_ru,
+          price: product?.price,
+          id: product?.id,
           product: product,
           lang: lang
         }), /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
@@ -398,7 +398,7 @@ const CategorySectionHeader = ({
         lineHeight: "1",
         children: title
       })]
-    }), seeMoreLink && /*#__PURE__*/jsx_runtime_.jsx(next_link["default"], {
+    }), seeMoreLink && /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
       href: seeMoreLink,
       children: /*#__PURE__*/jsx_runtime_.jsx("a", {
         children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
@@ -453,7 +453,7 @@ const Smartphones = ({
         }), /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
           container: true,
           spacing: 6,
-          children: smartphones === null || smartphones === void 0 ? void 0 : smartphones.map((product, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+          children: smartphones?.map((product, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
             item: true,
             lg: 3,
             md: 4,
@@ -498,7 +498,7 @@ const SomeProducts = ({
     }), /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
       container: true,
       spacing: 6,
-      children: recommendedProducts !== null && (recommendedProducts === null || recommendedProducts === void 0 ? void 0 : recommendedProducts.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+      children: recommendedProducts !== null && recommendedProducts?.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
         item: true,
         lg: 3,
         md: 4,
@@ -511,14 +511,14 @@ const SomeProducts = ({
           product: item // {...item}
 
         })
-      }, ind)))
+      }, ind))
     })]
   });
 };
 
 /* harmony default export */ const home_SomeProducts = (SomeProducts);
-// EXTERNAL MODULE: ./src/components/layout/AppLayout.js + 19 modules
-var AppLayout = __webpack_require__(2685);
+// EXTERNAL MODULE: ./src/components/layout/AppLayout.js + 20 modules
+var AppLayout = __webpack_require__(5348);
 // EXTERNAL MODULE: ./src/reducers/categoriesReducer.js
 var categoriesReducer = __webpack_require__(8677);
 ;// CONCATENATED MODULE: external "clsx"
@@ -538,9 +538,9 @@ var utils = __webpack_require__(8967);
 ;// CONCATENATED MODULE: ./src/components/carousel/CarouselStyle.js
 const CarouselStyle_excluded = ["spacing", "showDots", "showArrowOnHover", "dotGroupMarginTop", "dotColor"];
 
-function CarouselStyle_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function CarouselStyle_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function CarouselStyle_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { CarouselStyle_ownKeys(Object(source), true).forEach(function (key) { CarouselStyle_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { CarouselStyle_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function CarouselStyle_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? CarouselStyle_ownKeys(Object(source), !0).forEach(function (key) { CarouselStyle_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : CarouselStyle_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function CarouselStyle_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -595,9 +595,9 @@ const StyledCarousel = external_styled_components_default()(_ref => {
   dotColor
 }) => dotColor || (0,utils/* getTheme */.gh)("colors.secondary.main"));
 ;// CONCATENATED MODULE: ./src/components/carousel/Carousel.js
-function Carousel_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function Carousel_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function Carousel_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { Carousel_ownKeys(Object(source), true).forEach(function (key) { Carousel_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { Carousel_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function Carousel_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? Carousel_ownKeys(Object(source), !0).forEach(function (key) { Carousel_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : Carousel_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function Carousel_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -832,46 +832,57 @@ const MostViewed = ({
         visibleSlides: visibleSlides,
         showDots: width < 650 ? true : false,
         showArrow: width < 650 ? false : true,
-        children: mostViewedProducts === null || mostViewedProducts === void 0 ? void 0 : mostViewedProducts.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
+        children: mostViewedProducts?.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
           py: "0.25rem",
+          height: "100%",
           children: /*#__PURE__*/jsx_runtime_.jsx(Card/* default */.Z, {
             p: "1rem",
-            children: /*#__PURE__*/jsx_runtime_.jsx(next_link["default"], {
-              href: `/product/${item === null || item === void 0 ? void 0 : item.slug}`,
+            height: "100%",
+            children: /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+              href: `/product/${item?.slug}`,
               children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("a", {
+                style: {
+                  display: 'block',
+                  height: '100%'
+                },
                 children: [/*#__PURE__*/jsx_runtime_.jsx(HoverBox/* default */.Z, {
                   borderRadius: 8,
                   mb: "0.5rem",
-                  children: /*#__PURE__*/jsx_runtime_.jsx(next_image["default"], {
+                  children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
                     loader: myLoader,
-                    src: item === null || item === void 0 ? void 0 : item.images[0],
+                    src: item?.images[0],
                     layout: "responsive",
-                    alt: item === null || item === void 0 ? void 0 : item.name_uz,
+                    alt: item?.name_uz,
                     width: 100,
                     height: 100,
                     quality: "85",
                     placeholder: "blur",
                     blurDataURL: "placeholder.png"
                   })
-                }), /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
-                  className: "details title",
-                  fontSize: "14px",
-                  textAlign: "left",
-                  fontWeight: "600",
-                  color: "text.secondary",
-                  mb: "10px",
-                  title: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru,
-                  children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
-                }), /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
-                  children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography.H4, {
+                }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+                  flexDirection: "column",
+                  height: "30%",
+                  children: [/*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
+                    flexGrow: 1,
+                    children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
+                      className: "details title",
+                      fontSize: "14px",
+                      textAlign: "left",
+                      fontWeight: "600",
+                      color: "text.secondary",
+                      mb: "10px",
+                      title: lang === 'uz' ? item?.name_uz : item?.name_ru,
+                      children: lang === 'uz' ? item?.name_uz : item?.name_ru
+                    })
+                  }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography.H4, {
                     fontWeight: "600",
                     fontSize: "14px",
                     color: "primary.main",
                     mr: "0.5rem",
-                    children: [Math.ceil(item === null || item === void 0 ? void 0 : item.price).toLocaleString(), /*#__PURE__*/jsx_runtime_.jsx("span", {
+                    children: [Math.ceil(item?.price).toLocaleString(), /*#__PURE__*/jsx_runtime_.jsx("span", {
                       children: " UZS"
                     })]
-                  })
+                  })]
                 })]
               })
             })
@@ -915,20 +926,20 @@ const CarouselCard1 = ({
 
   return /*#__PURE__*/jsx_runtime_.jsx(StyledCarouselCard1, {
     children: /*#__PURE__*/jsx_runtime_.jsx(Container/* default */.Z, {
-      children: (slide === null || slide === void 0 ? void 0 : slide.url) !== null ? /*#__PURE__*/jsx_runtime_.jsx(next_link["default"], {
-        href: `/${slide === null || slide === void 0 ? void 0 : slide.url}`,
+      children: slide?.url !== null ? /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+        href: `/${slide?.url}`,
         children: /*#__PURE__*/jsx_runtime_.jsx("a", {
           children: /*#__PURE__*/jsx_runtime_.jsx("div", {
             className: "image-holder",
             style: {
               width: '100%',
-              height: (slide === null || slide === void 0 ? void 0 : slide.position) === 'lower' ? window < 568 ? '150px' : '350px' : window < 568 ? '150px' : '300px',
+              height: slide?.position === 'lower' ? window < 568 ? '150px' : '350px' : window < 568 ? '150px' : '300px',
               display: 'block',
               position: 'relative'
             },
-            children: /*#__PURE__*/jsx_runtime_.jsx(next_image["default"], {
+            children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
               loader: myLoader,
-              src: slide === null || slide === void 0 ? void 0 : slide.image,
+              src: slide?.image,
               layout: "fill",
               alt: "banner_img",
               width: 100,
@@ -946,9 +957,9 @@ const CarouselCard1 = ({
           display: 'block',
           position: 'relative'
         },
-        children: /*#__PURE__*/jsx_runtime_.jsx(next_image["default"], {
+        children: /*#__PURE__*/jsx_runtime_.jsx((image_default()), {
           loader: myLoader,
-          src: slide === null || slide === void 0 ? void 0 : slide.image,
+          src: slide?.image,
           layout: "fill",
           width: 100,
           height: 100,
@@ -980,8 +991,6 @@ var Navbar = __webpack_require__(8916);
 const SliderHero = ({
   slides
 }) => {
-  var _slides$filter;
-
   const state = (0,external_react_redux_.useSelector)(state => state.slides);
   const window = (0,useWindowSize/* default */.Z)();
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_.Fragment, {
@@ -990,17 +999,20 @@ const SliderHero = ({
     }), /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
       bg: "gray.white",
       mb: window < 568 ? "1.75rem" : "3.75rem",
-      children: /*#__PURE__*/jsx_runtime_.jsx(carousel_Carousel, {
-        totalSlides: slides.filter(el => el.position == "hero").length,
-        visibleSlides: 1,
-        infinite: true,
-        autoPlay: true,
-        showDots: false,
-        showArrow: false,
-        spacing: "0px",
-        children: slides === null || slides === void 0 ? void 0 : (_slides$filter = slides.filter(el => el.position == "hero")) === null || _slides$filter === void 0 ? void 0 : _slides$filter.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
-          slide: slide
-        }, ind))
+      children: /*#__PURE__*/jsx_runtime_.jsx(Container/* default */.Z, {
+        mb: window < 568 ? "1.75rem" : "3.75rem",
+        children: /*#__PURE__*/jsx_runtime_.jsx(carousel_Carousel, {
+          totalSlides: slides.filter(el => el.position == "hero").length,
+          visibleSlides: 1,
+          infinite: true,
+          autoPlay: true,
+          showDots: false,
+          showArrow: false,
+          spacing: "0px",
+          children: slides?.filter(el => el.position == "hero")?.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
+            slide: slide
+          }, ind))
+        })
       })
     })]
   });
@@ -1020,8 +1032,6 @@ const SliderHero = ({
 const SliderLower = ({
   slides
 }) => {
-  var _slides$filter;
-
   const state = (0,external_react_redux_.useSelector)(state => state.slides);
   const window = (0,useWindowSize/* default */.Z)();
   return /*#__PURE__*/jsx_runtime_.jsx(external_react_.Fragment, {
@@ -1036,7 +1046,7 @@ const SliderLower = ({
           showDots: false,
           showArrow: false,
           spacing: "0px",
-          children: slides === null || slides === void 0 ? void 0 : (_slides$filter = slides.filter(el => (el === null || el === void 0 ? void 0 : el.position) == "lower")) === null || _slides$filter === void 0 ? void 0 : _slides$filter.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
+          children: slides?.filter(el => el?.position == "lower")?.map((slide, ind) => /*#__PURE__*/jsx_runtime_.jsx(carousel_cards_CarouselCard1, {
             slide: slide
           }, ind))
         })
@@ -1085,11 +1095,9 @@ const IndexPage = ({
   smartphones // recommendedProducts,
 
 }) => {
-  var _state$categories;
-
   const dispatch = (0,external_react_redux_.useDispatch)();
   const state = (0,external_react_redux_.useSelector)(state => state);
-  const isActive = state === null || state === void 0 ? void 0 : (_state$categories = state.categories) === null || _state$categories === void 0 ? void 0 : _state$categories.categoryNavIsActive;
+  const isActive = state?.categories?.categoryNavIsActive;
   const {
     0: loading,
     1: setLoading
@@ -1129,11 +1137,11 @@ async function getStaticProps() {
   return {
     props: {
       items: categories.categories,
-      featuredBrands: featuredBrands === null || featuredBrands === void 0 ? void 0 : featuredBrands.brands,
-      slides: slides === null || slides === void 0 ? void 0 : slides.events,
-      mostViewedProducts: mostViewedProducts === null || mostViewedProducts === void 0 ? void 0 : mostViewedProducts.products,
-      smartphones: smartphones === null || smartphones === void 0 ? void 0 : smartphones.products,
-      newProducts: newProducts === null || newProducts === void 0 ? void 0 : newProducts.products
+      featuredBrands: featuredBrands?.brands,
+      slides: slides?.events,
+      mostViewedProducts: mostViewedProducts?.products,
+      smartphones: smartphones?.products,
+      newProducts: newProducts?.products
     },
     revalidate: 10
   };
@@ -1177,17 +1185,17 @@ module.exports = require("lodash");
 
 /***/ }),
 
-/***/ 562:
+/***/ 3280:
 /***/ ((module) => {
 
-module.exports = require("next/dist/server/denormalize-page-path.js");
+module.exports = require("next/dist/shared/lib/app-router-context.js");
 
 /***/ }),
 
-/***/ 8028:
+/***/ 2796:
 /***/ ((module) => {
 
-module.exports = require("next/dist/server/image-config.js");
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
@@ -1205,10 +1213,38 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
+/***/ 744:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config-context.js");
+
+/***/ }),
+
+/***/ 5843:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config.js");
+
+/***/ }),
+
+/***/ 8524:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
 /***/ 8020:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/mitt.js");
+
+/***/ }),
+
+/***/ 4406:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
 
 /***/ }),
 
@@ -1219,6 +1255,34 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
 
+/***/ 1751:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
+
+/***/ }),
+
+/***/ 299:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
 /***/ 9565:
 /***/ ((module) => {
 
@@ -1226,10 +1290,10 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 
 /***/ }),
 
-/***/ 4365:
+/***/ 5789:
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
+module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
 
 /***/ }),
 
@@ -1240,6 +1304,13 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
+/***/ 8854:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
+
+/***/ }),
+
 /***/ 1292:
 /***/ ((module) => {
 
@@ -1247,10 +1318,24 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 
 /***/ }),
 
+/***/ 4567:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
+
+/***/ }),
+
 /***/ 979:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
+
+/***/ }),
+
+/***/ 3297:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
 
 /***/ }),
 
@@ -1272,13 +1357,6 @@ module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
-
-/***/ }),
-
-/***/ 3018:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/to-base-64.js");
 
 /***/ }),
 
@@ -1380,7 +1458,7 @@ module.exports = require("styled-system");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [400,664,675,938,903,27,372,483,685,916,545,741,369], () => (__webpack_exec__(7368)));
+var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,903,27,372,483,348,916,545,741,369], () => (__webpack_exec__(7368)));
 module.exports = __webpack_exports__;
 
 })();

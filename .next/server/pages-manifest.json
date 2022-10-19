@@ -1,17 +1,17 @@
 {
-  "/404": "pages/404.html",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/cart": "pages/cart.html",
-  "/category": "pages/category.js",
+  "/404": "pages/404.html",
   "/checkout": "pages/checkout.html",
-  "/": "pages/index.js",
   "/login": "pages/login.html",
   "/orders/[id]": "pages/orders/[id].html",
-  "/page/[id]": "pages/page/[id].js",
-  "/product/[id]": "pages/product/[id].js",
-  "/products/[id]": "pages/products/[id].js",
   "/profile/edit": "pages/profile/edit.html",
   "/profile": "pages/profile.html",
-  "/_error": "pages/_error.js"
+  "/_error": "pages/_error.js",
+  "/cart": "pages/cart.html",
+  "/category": "pages/category.js",
+  "/": "pages/index.js",
+  "/page/[id]": "pages/page/[id].js",
+  "/products/[id]": "pages/products/[id].js",
+  "/product/[id]": "pages/product/[id].js"
 }

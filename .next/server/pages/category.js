@@ -44,8 +44,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Box__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6883);
 /* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2770);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1664);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _components_HoverBox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(9786);
 /* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5675);
+/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _components_FlexBox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(2938);
 /* harmony import */ var components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(7407);
 /* harmony import */ var components_accordion_Accordion__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(9678);
@@ -70,10 +72,8 @@ __webpack_require__.r(__webpack_exports__);
 function Category({
   data
 }) {
-  var _state$lang, _data$categories;
-
   const state = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(state => state);
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
+  const lang = state?.lang?.lang;
 
   const myLoader = ({
     src,
@@ -90,56 +90,52 @@ function Category({
       fontSize: "18px",
       mb: "20px",
       children: lang === 'uz' ? 'Tovarlarning katalogi' : 'Каталог товаров'
-    }), data === null || data === void 0 ? void 0 : (_data$categories = data.categories) === null || _data$categories === void 0 ? void 0 : _data$categories.map((item, ind) => {
-      var _item$children;
-
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(components_accordion_Accordion__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z, {
-        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_accordion_AccordionHeader__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {
-          px: "0px",
-          py: "10px",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_components_FlexBox__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
-            alignItems: "center",
-            children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(next_image__WEBPACK_IMPORTED_MODULE_8__["default"], {
-              quality: "85",
-              loader: myLoader,
-              src: item === null || item === void 0 ? void 0 : item.image,
-              layout: "fixed",
-              alt: item === null || item === void 0 ? void 0 : item.name_uz,
-              width: '30px',
-              height: '30px'
-            }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .ZP, {
-              fontWeight: "600",
-              fontSize: "18px",
-              ml: "10px",
-              children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.name_uz : item === null || item === void 0 ? void 0 : item.name_ru
-            })]
-          })
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(_components_Box__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
-          pl: "40px",
-          mb: "2rem",
-          mt: "0.5rem",
-          children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
-            spacing: 5,
-            children: item === null || item === void 0 ? void 0 : (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.map((el, ind) => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
-              lg: 1,
-              md: 2,
-              sm: 3,
-              xs: 4,
-              children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(next_link__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                href: "/products/" + (el === null || el === void 0 ? void 0 : el.slug),
-                children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx("a", {
-                  children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__.H3, {
-                    mb: "5px",
-                    fontSize: "15px",
-                    children: lang === 'uz' ? el === null || el === void 0 ? void 0 : el.name_uz : el === null || el === void 0 ? void 0 : el.name_ru
-                  })
+    }), data?.categories?.map((item, ind) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(components_accordion_Accordion__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z, {
+      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_accordion_AccordionHeader__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {
+        px: "0px",
+        py: "10px",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_components_FlexBox__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
+          alignItems: "center",
+          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx((next_image__WEBPACK_IMPORTED_MODULE_8___default()), {
+            quality: "85",
+            loader: myLoader,
+            src: item?.image,
+            layout: "fixed",
+            alt: item?.name_uz,
+            width: '30px',
+            height: '30px'
+          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .ZP, {
+            fontWeight: "600",
+            fontSize: "18px",
+            ml: "10px",
+            children: lang === 'uz' ? item?.name_uz : item?.name_ru
+          })]
+        })
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(_components_Box__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+        pl: "40px",
+        mb: "2rem",
+        mt: "0.5rem",
+        children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
+          spacing: 5,
+          children: item?.children?.map((el, ind) => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_grid_Grid__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
+            lg: 1,
+            md: 2,
+            sm: 3,
+            xs: 4,
+            children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx((next_link__WEBPACK_IMPORTED_MODULE_6___default()), {
+              href: "/products/" + el?.slug,
+              children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx("a", {
+                children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(components_Typography__WEBPACK_IMPORTED_MODULE_2__.H3, {
+                  mb: "5px",
+                  fontSize: "15px",
+                  children: lang === 'uz' ? el?.name_uz : el?.name_ru
                 })
               })
-            }, ind))
-          })
-        })]
-      }, ind);
-    })]
+            })
+          }, ind))
+        })
+      })]
+    }, ind))]
   });
 }
 async function getServerSideProps() {
@@ -182,17 +178,17 @@ module.exports = require("lodash");
 
 /***/ }),
 
-/***/ 562:
+/***/ 3280:
 /***/ ((module) => {
 
-module.exports = require("next/dist/server/denormalize-page-path.js");
+module.exports = require("next/dist/shared/lib/app-router-context.js");
 
 /***/ }),
 
-/***/ 8028:
+/***/ 2796:
 /***/ ((module) => {
 
-module.exports = require("next/dist/server/image-config.js");
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
@@ -210,10 +206,38 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
+/***/ 744:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config-context.js");
+
+/***/ }),
+
+/***/ 5843:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config.js");
+
+/***/ }),
+
+/***/ 8524:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
 /***/ 8020:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/mitt.js");
+
+/***/ }),
+
+/***/ 4406:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
 
 /***/ }),
 
@@ -224,6 +248,34 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
 
+/***/ 1751:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
+
+/***/ }),
+
+/***/ 299:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
 /***/ 9565:
 /***/ ((module) => {
 
@@ -231,10 +283,10 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 
 /***/ }),
 
-/***/ 4365:
+/***/ 5789:
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
+module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
 
 /***/ }),
 
@@ -245,6 +297,13 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
+/***/ 8854:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
+
+/***/ }),
+
 /***/ 1292:
 /***/ ((module) => {
 
@@ -252,10 +311,24 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 
 /***/ }),
 
+/***/ 4567:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
+
+/***/ }),
+
 /***/ 979:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
+
+/***/ }),
+
+/***/ 3297:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
 
 /***/ }),
 
@@ -277,13 +350,6 @@ module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
-
-/***/ }),
-
-/***/ 3018:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/to-base-64.js");
 
 /***/ }),
 
@@ -343,7 +409,7 @@ module.exports = require("styled-system");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [400,664,675,938,903,483], () => (__webpack_exec__(7490)));
+var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,903,483], () => (__webpack_exec__(7490)));
 module.exports = __webpack_exports__;
 
 })();

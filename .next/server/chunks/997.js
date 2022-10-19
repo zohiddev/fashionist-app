@@ -105,8 +105,8 @@ Stepper.defaultProps = {
   selectedStep: 1
 };
 /* harmony default export */ const stepper_Stepper = (Stepper);
-// EXTERNAL MODULE: ./src/components/layout/AppLayout.js + 19 modules
-var AppLayout = __webpack_require__(2685);
+// EXTERNAL MODULE: ./src/components/layout/AppLayout.js + 20 modules
+var AppLayout = __webpack_require__(5348);
 ;// CONCATENATED MODULE: ./src/components/layout/CheckoutNavLayout.js
 
 
@@ -134,7 +134,7 @@ const CheckoutNavLayout = ({
   const handleStepChange = (_step, ind) => {
     const handlers = [() => router.push("/cart"), () => router.push("/checkout"), () => router.push("/payment"), () => router.push("/orders")];
     const handler = handlers[ind];
-    handler === null || handler === void 0 ? void 0 : handler();
+    handler?.();
   };
 
   (0,external_react_.useEffect)(() => {

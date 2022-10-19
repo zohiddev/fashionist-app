@@ -7,8 +7,8 @@ exports.modules = {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TO": () => (/* binding */ StyledProductCard1),
-/* harmony export */   "HI": () => (/* binding */ StyledProductCard7)
+/* harmony export */   "HI": () => (/* binding */ StyledProductCard7),
+/* harmony export */   "TO": () => (/* binding */ StyledProductCard1)
 /* harmony export */ });
 /* unused harmony exports StyledProductCard2, StyledProductCard3, StyledProductCard5, StyledProductCard9 */
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7518);

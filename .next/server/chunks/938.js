@@ -53,7 +53,7 @@ Box.defaultProps = {
 const FlexBox = styled_components__WEBPACK_IMPORTED_MODULE_0___default()(_Box__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z).withConfig({
   displayName: "FlexBox",
   componentId: "sc-1blu014-0"
-})(["display:flex;flex-direction:row;", " ", " ", " ", " ", ""], styled_system__WEBPACK_IMPORTED_MODULE_1__.layout, styled_system__WEBPACK_IMPORTED_MODULE_1__.color, styled_system__WEBPACK_IMPORTED_MODULE_1__.flexbox, styled_system__WEBPACK_IMPORTED_MODULE_1__.space, styled_system__WEBPACK_IMPORTED_MODULE_1__.border);
+})(["display:flex;flex-direction:row;", " ", " ", " ", " ", " ", ""], styled_system__WEBPACK_IMPORTED_MODULE_1__.flexbox, styled_system__WEBPACK_IMPORTED_MODULE_1__.layout, styled_system__WEBPACK_IMPORTED_MODULE_1__.color, styled_system__WEBPACK_IMPORTED_MODULE_1__.flexbox, styled_system__WEBPACK_IMPORTED_MODULE_1__.space, styled_system__WEBPACK_IMPORTED_MODULE_1__.border);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FlexBox);
 
 /***/ })

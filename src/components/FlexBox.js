@@ -17,6 +17,7 @@ const FlexBox = styled(Box)`
   display: flex;
   flex-direction: row;
 
+  ${flexbox}
   ${layout}
   ${color}
   ${flexbox}

@@ -15,6 +15,7 @@ const SliderHero = ({slides}) => {
 		<Fragment>
 			<Navbar navListOpen={true} />
 			<Box bg="gray.white" mb={window < 568 ? "1.75rem" : "3.75rem"}>
+				<Container mb={window < 568 ? "1.75rem" : "3.75rem"}>
 					<Carousel
 						totalSlides={
 							slides.filter((el) => el.position == "hero")
@@ -31,6 +32,7 @@ const SliderHero = ({slides}) => {
 								<CarouselCard1 slide={slide} key={ind} />
 							))}
 					</Carousel>
+				</Container>
 			</Box>
 		</Fragment>
 	)

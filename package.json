@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export",
+    "build": "next build",
     "export": "next export",
     "start": "next start",
-    "build-static-page": "next build",
-    "serve": "set NODE_ENV=production && node sdb-web.js",
-    "postbuild": "node site-gen.js"
+    "build-static-page": "next build"
   },
   "dependencies": {
     "@styled-system/theme-get": "^5.1.2",

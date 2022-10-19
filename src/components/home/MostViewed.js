@@ -35,10 +35,10 @@ const MostViewed = ({mostViewedProducts}) => {
 			<Box my="-0.25rem">
 				<Carousel totalSlides={9} visibleSlides={visibleSlides} showDots={width < 650 ? true : false} showArrow={width < 650 ? false : true}>
 					{mostViewedProducts?.map((item, ind) => (
-						<Box py="0.25rem" key={item.id}>
-							<Card p="1rem">
+						<Box py="0.25rem" key={item.id} height="100%">
+							<Card p="1rem" height="100%">
 								<Link href={`/product/${item?.slug}`}>
-									<a>
+									<a style={{display: 'block', height: '100%'}}>
 										<HoverBox borderRadius={8} mb="0.5rem">
 											<Image
 												loader={myLoader}
@@ -53,19 +53,21 @@ const MostViewed = ({mostViewedProducts}) => {
 											/>
 										</HoverBox>
 
-										<H3
-											className="details title"
-											fontSize="14px"
-											textAlign="left"
-											fontWeight="600"
-											color="text.secondary"
-											mb="10px"
-											title={lang === 'uz' ? item?.name_uz : item?.name_ru}
-										>
-											{/* {lang === 'uz' ? item?.name_uz.length > 20 ? item?.name_uz.slice(0, 20) + "..." : item?.name_ru : item?.name_ru.length > 20 ? item?.name_ru.slice(0, 20) + "..." : item?.name_ru} */}
-											{lang === 'uz' ? item?.name_uz : item?.name_ru}
-										</H3>
-										<FlexBox>
+										<FlexBox flexDirection="column" height="30%">
+											<Box flexGrow={1} >
+												<H3
+													className="details title"
+													fontSize="14px"
+													textAlign="left"
+													fontWeight="600"
+													color="text.secondary"
+													mb="10px"
+													title={lang === 'uz' ? item?.name_uz : item?.name_ru}
+												>
+													{/* {lang === 'uz' ? item?.name_uz.length > 20 ? item?.name_uz.slice(0, 20) + "..." : item?.name_ru : item?.name_ru.length > 20 ? item?.name_ru.slice(0, 20) + "..." : item?.name_ru} */}
+													{lang === 'uz' ? item?.name_uz : item?.name_ru}
+												</H3>
+											</Box>
 											<H4
 												fontWeight="600"
 												fontSize="14px"

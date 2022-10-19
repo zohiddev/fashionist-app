@@ -3,302 +3,37 @@ exports.ids = [675];
 exports.modules = {
 
 /***/ 8566:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
-var __webpack_unused_export__;
 
 
-__webpack_unused_export__ = ({
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 exports["default"] = Image;
 
-var _react = _interopRequireDefault(__webpack_require__(6689));
+var _extends = (__webpack_require__(6495)/* ["default"] */ .Z);
 
-var _head = _interopRequireDefault(__webpack_require__(5429));
+var _interop_require_default = (__webpack_require__(2648)/* ["default"] */ .Z);
 
-var _toBase64 = __webpack_require__(3018);
+var _interop_require_wildcard = (__webpack_require__(1598)/* ["default"] */ .Z);
 
-var _imageConfig = __webpack_require__(8028);
+var _object_without_properties_loose = (__webpack_require__(7273)/* ["default"] */ .Z);
+
+var _react = _interop_require_wildcard(__webpack_require__(6689));
+
+var _head = _interop_require_default(__webpack_require__(5429));
+
+var _imageConfig = __webpack_require__(5843);
 
 var _useIntersection = __webpack_require__(639);
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
+var _imageConfigContext = __webpack_require__(744);
 
-  return obj;
-}
+var _utils = __webpack_require__(9232);
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    default: obj
-  };
-}
-
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-    var ownKeys = Object.keys(source);
-
-    if (typeof Object.getOwnPropertySymbols === "function") {
-      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
-    }
-
-    ownKeys.forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    });
-  }
-
-  return target;
-}
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-const loadedImageURLs = new Set();
-const allImgs = new Map();
-let perfObserver;
-const emptyDataURL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-
-if (true) {
-  global.__NEXT_IMAGE_IMPORTED = true;
-}
-
-const VALID_LOADING_VALUES = (/* unused pure expression or super */ null && (['lazy', 'eager', undefined]));
-const loaders = new Map([['default', defaultLoader], ['imgix', imgixLoader], ['cloudinary', cloudinaryLoader], ['akamai', akamaiLoader], ['custom', customLoader]]);
-const VALID_LAYOUT_VALUES = (/* unused pure expression or super */ null && (['fill', 'fixed', 'intrinsic', 'responsive', undefined]));
-
-function isStaticRequire(src) {
-  return src.default !== undefined;
-}
-
-function isStaticImageData(src) {
-  return src.src !== undefined;
-}
-
-function isStaticImport(src) {
-  return typeof src === 'object' && (isStaticRequire(src) || isStaticImageData(src));
-}
-
-const {
-  deviceSizes: configDeviceSizes,
-  imageSizes: configImageSizes,
-  loader: configLoader,
-  path: configPath,
-  domains: configDomains
-} = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default"} || _imageConfig.imageConfigDefault; // sort smallest to largest
-
-const allSizes = [...configDeviceSizes, ...configImageSizes];
-configDeviceSizes.sort((a, b) => a - b);
-allSizes.sort((a, b) => a - b);
-
-function getWidths(width, layout, sizes) {
-  if (sizes && (layout === 'fill' || layout === 'responsive')) {
-    // Find all the "vw" percent sizes used in the sizes prop
-    const viewportWidthRe = /(^|\s)(1?\d?\d)vw/g;
-    const percentSizes = [];
-
-    for (let match; match = viewportWidthRe.exec(sizes); match) {
-      percentSizes.push(parseInt(match[2]));
-    }
-
-    if (percentSizes.length) {
-      const smallestRatio = Math.min(...percentSizes) * 0.01;
-      return {
-        widths: allSizes.filter(s => s >= configDeviceSizes[0] * smallestRatio),
-        kind: 'w'
-      };
-    }
-
-    return {
-      widths: allSizes,
-      kind: 'w'
-    };
-  }
-
-  if (typeof width !== 'number' || layout === 'fill' || layout === 'responsive') {
-    return {
-      widths: configDeviceSizes,
-      kind: 'w'
-    };
-  }
-
-  const widths = [...new Set( // > This means that most OLED screens that say they are 3x resolution,
-  // > are actually 3x in the green color, but only 1.5x in the red and
-  // > blue colors. Showing a 3x resolution image in the app vs a 2x
-  // > resolution image will be visually the same, though the 3x image
-  // > takes significantly more data. Even true 3x resolution screens are
-  // > wasteful as the human eye cannot see that level of detail without
-  // > something like a magnifying glass.
-  // https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/capping-image-fidelity-on-ultra-high-resolution-devices.html
-  [width, width * 2
-  /*, width * 3*/
-  ].map(w => allSizes.find(p => p >= w) || allSizes[allSizes.length - 1]))];
-  return {
-    widths,
-    kind: 'x'
-  };
-}
-
-function generateImgAttrs({
-  src,
-  unoptimized,
-  layout,
-  width,
-  quality,
-  sizes,
-  loader
-}) {
-  if (unoptimized) {
-    return {
-      src,
-      srcSet: undefined,
-      sizes: undefined
-    };
-  }
-
-  const {
-    widths,
-    kind
-  } = getWidths(width, layout, sizes);
-  const last = widths.length - 1;
-  return {
-    sizes: !sizes && kind === 'w' ? '100vw' : sizes,
-    srcSet: widths.map((w, i) => `${loader({
-      src,
-      quality,
-      width: w
-    })} ${kind === 'w' ? w : i + 1}${kind}`).join(', '),
-    // It's intended to keep `src` the last attribute because React updates
-    // attributes in order. If we keep `src` the first one, Safari will
-    // immediately start to fetch `src`, before `sizes` and `srcSet` are even
-    // updated by React. That causes multiple unnecessary requests if `srcSet`
-    // and `sizes` are defined.
-    // This bug cannot be reproduced in Chrome or Firefox.
-    src: loader({
-      src,
-      quality,
-      width: widths[last]
-    })
-  };
-}
-
-function getInt(x) {
-  if (typeof x === 'number') {
-    return x;
-  }
-
-  if (typeof x === 'string') {
-    return parseInt(x, 10);
-  }
-
-  return undefined;
-}
-
-function defaultImageLoader(loaderProps) {
-  const load = loaders.get(configLoader);
-
-  if (load) {
-    return load(_objectSpread({
-      root: configPath
-    }, loaderProps));
-  }
-
-  throw new Error(`Unknown "loader" found in "next.config.js". Expected: ${_imageConfig.VALID_LOADERS.join(', ')}. Received: ${configLoader}`);
-} // See https://stackoverflow.com/q/39777833/266535 for why we use this ref
-// handler instead of the img's onLoad attribute.
-
-
-function handleLoading(img, src, layout, placeholder, onLoadingComplete) {
-  if (!img) {
-    return;
-  }
-
-  const handleLoad = () => {
-    if (img.src !== emptyDataURL) {
-      const p = 'decode' in img ? img.decode() : Promise.resolve();
-      p.catch(() => {}).then(() => {
-        if (placeholder === 'blur') {
-          img.style.filter = '';
-          img.style.backgroundSize = '';
-          img.style.backgroundImage = '';
-          img.style.backgroundPosition = '';
-        }
-
-        loadedImageURLs.add(src);
-
-        if (onLoadingComplete) {
-          const {
-            naturalWidth,
-            naturalHeight
-          } = img; // Pass back read-only primitive values but not the
-          // underlying DOM element because it could be misused.
-
-          onLoadingComplete({
-            naturalWidth,
-            naturalHeight
-          });
-        }
-
-        if (false) { var ref; }
-      });
-    }
-  };
-
-  if (img.complete) {
-    // If the real image fails to load, this will still remove the placeholder.
-    // This is the desired behavior for now, and will be revisited when error
-    // handling is worked on for the image component itself.
-    handleLoad();
-  } else {
-    img.onload = handleLoad;
-  }
-}
+var _normalizeTrailingSlash = __webpack_require__(4969);
 
 function Image(_param) {
   var {
@@ -307,28 +42,63 @@ function Image(_param) {
     unoptimized = false,
     priority = false,
     loading,
-    lazyBoundary = '200px',
+    lazyRoot = null,
+    lazyBoundary,
     className,
     quality,
     width,
     height,
+    style,
     objectFit,
     objectPosition,
     onLoadingComplete,
-    loader = defaultImageLoader,
     placeholder = 'empty',
     blurDataURL
   } = _param,
-      all = _objectWithoutProperties(_param, ["src", "sizes", "unoptimized", "priority", "loading", "lazyBoundary", "className", "quality", "width", "height", "objectFit", "objectPosition", "onLoadingComplete", "loader", "placeholder", "blurDataURL"]);
+      all = _object_without_properties_loose(_param, ["src", "sizes", "unoptimized", "priority", "loading", "lazyRoot", "lazyBoundary", "className", "quality", "width", "height", "style", "objectFit", "objectPosition", "onLoadingComplete", "placeholder", "blurDataURL"]);
 
+  const configContext = (0, _react).useContext(_imageConfigContext.ImageConfigContext);
+  const config = (0, _react).useMemo(() => {
+    const c = configEnv || configContext || _imageConfig.imageConfigDefault;
+    const allSizes = [...c.deviceSizes, ...c.imageSizes].sort((a, b) => a - b);
+    const deviceSizes = c.deviceSizes.sort((a, b) => a - b);
+    return _extends({}, c, {
+      allSizes,
+      deviceSizes
+    });
+  }, [configContext]);
   let rest = all;
   let layout = sizes ? 'responsive' : 'intrinsic';
 
   if ('layout' in rest) {
     // Override default layout if the user specified one:
-    if (rest.layout) layout = rest.layout; // Remove property so it's not spread into image:
+    if (rest.layout) layout = rest.layout; // Remove property so it's not spread on <img>:
 
-    delete rest['layout'];
+    delete rest.layout;
+  }
+
+  let loader = defaultImageLoader;
+
+  if ('loader' in rest) {
+    if (rest.loader) {
+      const customImageLoader = rest.loader;
+
+      var _tmp;
+
+      _tmp = obj => {
+        const {
+          config: _
+        } = obj,
+              opts = _object_without_properties_loose(obj, ["config"]); // The config object is internal only so we must
+        // not pass it to the user-defined loader()
+
+
+        return customImageLoader(opts);
+      }, loader = _tmp, _tmp;
+    } // Remove property so it's not spread on <img>
+
+
+    delete rest.loader;
   }
 
   let staticSrc = '';
@@ -354,9 +124,6 @@ function Image(_param) {
   }
 
   src = typeof src === 'string' ? src : staticSrc;
-  const widthInt = getInt(width);
-  const heightInt = getInt(height);
-  const qualityInt = getInt(quality);
   let isLazy = !priority && (loading === 'lazy' || typeof loading === 'undefined');
 
   if (src.startsWith('data:') || src.startsWith('blob:')) {
@@ -367,10 +134,14 @@ function Image(_param) {
 
   if (false) {}
 
-  if (false) {}
+  if (config.unoptimized) {
+    unoptimized = true;
+  }
 
-  const [setRef, isIntersected] = (0, _useIntersection).useIntersection({
-    rootMargin: lazyBoundary,
+  const [blurComplete, setBlurComplete] = (0, _react).useState(false);
+  const [setIntersection, isIntersected, resetIntersected] = (0, _useIntersection).useIntersection({
+    rootRef: lazyRoot,
+    rootMargin: lazyBoundary || '200px',
     disabled: !isLazy
   });
   const isVisible = !isLazy || isIntersected;
@@ -398,8 +169,8 @@ function Image(_param) {
     padding: 0
   };
   let hasSizer = false;
-  let sizerSvg;
-  const imgStyle = {
+  let sizerSvgUrl;
+  const layoutStyle = {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -419,11 +190,18 @@ function Image(_param) {
     objectFit,
     objectPosition
   };
-  const blurStyle = placeholder === 'blur' ? {
-    filter: 'blur(20px)',
+  let widthInt = getInt(width);
+  let heightInt = getInt(height);
+  const qualityInt = getInt(quality);
+
+  if (false) {}
+
+  const imgStyle = Object.assign({}, style, layoutStyle);
+  const blurStyle = placeholder === 'blur' && !blurComplete ? {
     backgroundSize: objectFit || 'cover',
-    backgroundImage: `url("${blurDataURL}")`,
-    backgroundPosition: objectPosition || '0% 0%'
+    backgroundPosition: objectPosition || '0% 0%',
+    filter: 'blur(20px)',
+    backgroundImage: `url("${blurDataURL}")`
   } : {};
 
   if (layout === 'fill') {
@@ -452,7 +230,7 @@ function Image(_param) {
       wrapperStyle.maxWidth = '100%';
       hasSizer = true;
       sizerStyle.maxWidth = '100%';
-      sizerSvg = `<svg width="${widthInt}" height="${heightInt}" xmlns="http://www.w3.org/2000/svg" version="1.1"/>`;
+      sizerSvgUrl = `data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27${widthInt}%27%20height=%27${heightInt}%27/%3e`;
     } else if (layout === 'fixed') {
       // <Image src="i.png" width="100" height="100" layout="fixed" />
       wrapperStyle.display = 'inline-block';
@@ -473,6 +251,7 @@ function Image(_param) {
 
   if (isVisible) {
     imgAttributes = generateImgAttrs({
+      config,
       src,
       unoptimized,
       layout,
@@ -497,11 +276,47 @@ function Image(_param) {
     [imageSrcSetPropName]: imgAttributes.srcSet,
     [imageSizesPropName]: imgAttributes.sizes
   };
-  return /*#__PURE__*/_react.default.createElement("span", {
+  const useLayoutEffect =  true ? _react.default.useEffect : 0;
+  const onLoadingCompleteRef = (0, _react).useRef(onLoadingComplete);
+  const previousImageSrc = (0, _react).useRef(src);
+  (0, _react).useEffect(() => {
+    onLoadingCompleteRef.current = onLoadingComplete;
+  }, [onLoadingComplete]);
+  useLayoutEffect(() => {
+    if (previousImageSrc.current !== src) {
+      resetIntersected();
+      previousImageSrc.current = src;
+    }
+  }, [resetIntersected, src]);
+
+  const imgElementArgs = _extends({
+    isLazy,
+    imgAttributes,
+    heightInt,
+    widthInt,
+    qualityInt,
+    layout,
+    className,
+    imgStyle,
+    blurStyle,
+    loading,
+    config,
+    unoptimized,
+    placeholder,
+    loader,
+    srcString,
+    onLoadingCompleteRef,
+    setBlurComplete,
+    setIntersection,
+    isVisible,
+    noscriptSizes: sizes
+  }, rest);
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
     style: wrapperStyle
   }, hasSizer ? /*#__PURE__*/_react.default.createElement("span", {
     style: sizerStyle
-  }, sizerSvg ? /*#__PURE__*/_react.default.createElement("img", {
+  }, sizerSvgUrl ? /*#__PURE__*/_react.default.createElement("img", {
     style: {
       display: 'block',
       maxWidth: '100%',
@@ -515,32 +330,8 @@ function Image(_param) {
     },
     alt: "",
     "aria-hidden": true,
-    src: `data:image/svg+xml;base64,${(0, _toBase64).toBase64(sizerSvg)}`
-  }) : null) : null, /*#__PURE__*/_react.default.createElement("img", Object.assign({}, rest, imgAttributes, {
-    decoding: "async",
-    "data-nimg": layout,
-    className: className,
-    ref: img => {
-      setRef(img);
-      handleLoading(img, srcString, layout, placeholder, onLoadingComplete);
-    },
-    style: _objectSpread({}, imgStyle, blurStyle)
-  })), isLazy && /*#__PURE__*/_react.default.createElement("noscript", null, /*#__PURE__*/_react.default.createElement("img", Object.assign({}, rest, generateImgAttrs({
-    src,
-    unoptimized,
-    layout,
-    width: widthInt,
-    quality: qualityInt,
-    sizes,
-    loader
-  }), {
-    decoding: "async",
-    "data-nimg": layout,
-    style: imgStyle,
-    className: className,
-    // @ts-ignore - TODO: upgrade to `@types/react@17`
-    loading: loading || 'lazy'
-  }))), priority ? // Note how we omit the `href` attribute, as it would only be relevant
+    src: sizerSvgUrl
+  }) : null) : null, /*#__PURE__*/_react.default.createElement(ImageElement, Object.assign({}, imgElementArgs))), priority ? // Note how we omit the `href` attribute, as it would only be relevant
   // for browsers that do not support `imagesrcset`, and in those cases
   // it would likely cause the incorrect image to be preloaded.
   //
@@ -559,16 +350,29 @@ function normalizeSrc(src) {
   return src[0] === '/' ? src.slice(1) : src;
 }
 
+const configEnv = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image/","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true};
+const loadedImageURLs = new Set();
+const allImgs = new Map();
+let perfObserver;
+const emptyDataURL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+if (true) {
+  global.__NEXT_IMAGE_IMPORTED = true;
+}
+
+const VALID_LOADING_VALUES = (/* unused pure expression or super */ null && (['lazy', 'eager', undefined]));
+
 function imgixLoader({
-  root,
+  config,
   src,
   width,
   quality
 }) {
   // Demo: https://static.imgix.net/daisy.png?auto=format&fit=max&w=300
-  const url = new URL(`${root}${normalizeSrc(src)}`);
-  const params = url.searchParams;
-  params.set('auto', params.get('auto') || 'format');
+  const url = new URL(`${config.path}${normalizeSrc(src)}`);
+  const params = url.searchParams; // auto params can be combined with comma separation, or reiteration
+
+  params.set('auto', params.getAll('auto').join(',') || 'format');
   params.set('fit', params.get('fit') || 'max');
   params.set('w', params.get('w') || width.toString());
 
@@ -580,15 +384,15 @@ function imgixLoader({
 }
 
 function akamaiLoader({
-  root,
+  config,
   src,
   width
 }) {
-  return `${root}${normalizeSrc(src)}?imwidth=${width}`;
+  return `${config.path}${normalizeSrc(src)}?imwidth=${width}`;
 }
 
 function cloudinaryLoader({
-  root,
+  config,
   src,
   width,
   quality
@@ -596,7 +400,7 @@ function cloudinaryLoader({
   // Demo: https://res.cloudinary.com/demo/image/upload/w_300,c_limit,q_auto/turtles.jpg
   const params = ['f_auto', 'c_limit', 'w_' + width, 'q_' + (quality || 'auto')];
   const paramsString = params.join(',') + '/';
-  return `${root}${paramsString}${normalizeSrc(src)}`;
+  return `${config.path}${paramsString}${normalizeSrc(src)}`;
 }
 
 function customLoader({
@@ -606,14 +410,285 @@ function customLoader({
 }
 
 function defaultLoader({
-  root,
+  config,
   src,
   width,
   quality
 }) {
   if (false) {}
 
-  return `${root}?url=${encodeURIComponent(src)}&w=${width}&q=${quality || 75}`;
+  if (src.endsWith('.svg') && !config.dangerouslyAllowSVG) {
+    // Special case to make svg serve as-is to avoid proxying
+    // through the built-in Image Optimization API.
+    return src;
+  }
+
+  return `${(0, _normalizeTrailingSlash).normalizePathTrailingSlash(config.path)}?url=${encodeURIComponent(src)}&w=${width}&q=${quality || 75}`;
+}
+
+const loaders = new Map([['default', defaultLoader], ['imgix', imgixLoader], ['cloudinary', cloudinaryLoader], ['akamai', akamaiLoader], ['custom', customLoader]]);
+const VALID_LAYOUT_VALUES = (/* unused pure expression or super */ null && (['fill', 'fixed', 'intrinsic', 'responsive', undefined]));
+
+function isStaticRequire(src) {
+  return src.default !== undefined;
+}
+
+function isStaticImageData(src) {
+  return src.src !== undefined;
+}
+
+function isStaticImport(src) {
+  return typeof src === 'object' && (isStaticRequire(src) || isStaticImageData(src));
+}
+
+function getWidths({
+  deviceSizes,
+  allSizes
+}, width, layout, sizes) {
+  if (sizes && (layout === 'fill' || layout === 'responsive')) {
+    // Find all the "vw" percent sizes used in the sizes prop
+    const viewportWidthRe = /(^|\s)(1?\d?\d)vw/g;
+    const percentSizes = [];
+
+    for (let match; match = viewportWidthRe.exec(sizes); match) {
+      percentSizes.push(parseInt(match[2]));
+    }
+
+    if (percentSizes.length) {
+      const smallestRatio = Math.min(...percentSizes) * 0.01;
+      return {
+        widths: allSizes.filter(s => s >= deviceSizes[0] * smallestRatio),
+        kind: 'w'
+      };
+    }
+
+    return {
+      widths: allSizes,
+      kind: 'w'
+    };
+  }
+
+  if (typeof width !== 'number' || layout === 'fill' || layout === 'responsive') {
+    return {
+      widths: deviceSizes,
+      kind: 'w'
+    };
+  }
+
+  const widths = [...new Set( // > This means that most OLED screens that say they are 3x resolution,
+  // > are actually 3x in the green color, but only 1.5x in the red and
+  // > blue colors. Showing a 3x resolution image in the app vs a 2x
+  // > resolution image will be visually the same, though the 3x image
+  // > takes significantly more data. Even true 3x resolution screens are
+  // > wasteful as the human eye cannot see that level of detail without
+  // > something like a magnifying glass.
+  // https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/capping-image-fidelity-on-ultra-high-resolution-devices.html
+  [width, width * 2
+  /*, width * 3*/
+  ].map(w => allSizes.find(p => p >= w) || allSizes[allSizes.length - 1]))];
+  return {
+    widths,
+    kind: 'x'
+  };
+}
+
+function generateImgAttrs({
+  config,
+  src,
+  unoptimized,
+  layout,
+  width,
+  quality,
+  sizes,
+  loader
+}) {
+  if (unoptimized) {
+    return {
+      src,
+      srcSet: undefined,
+      sizes: undefined
+    };
+  }
+
+  const {
+    widths,
+    kind
+  } = getWidths(config, width, layout, sizes);
+  const last = widths.length - 1;
+  return {
+    sizes: !sizes && kind === 'w' ? '100vw' : sizes,
+    srcSet: widths.map((w, i) => `${loader({
+      config,
+      src,
+      quality,
+      width: w
+    })} ${kind === 'w' ? w : i + 1}${kind}`).join(', '),
+    // It's intended to keep `src` the last attribute because React updates
+    // attributes in order. If we keep `src` the first one, Safari will
+    // immediately start to fetch `src`, before `sizes` and `srcSet` are even
+    // updated by React. That causes multiple unnecessary requests if `srcSet`
+    // and `sizes` are defined.
+    // This bug cannot be reproduced in Chrome or Firefox.
+    src: loader({
+      config,
+      src,
+      quality,
+      width: widths[last]
+    })
+  };
+}
+
+function getInt(x) {
+  if (typeof x === 'number') {
+    return x;
+  }
+
+  if (typeof x === 'string') {
+    return parseInt(x, 10);
+  }
+
+  return undefined;
+}
+
+function defaultImageLoader(loaderProps) {
+  var ref;
+  const loaderKey = ((ref = loaderProps.config) == null ? void 0 : ref.loader) || 'default';
+  const load = loaders.get(loaderKey);
+
+  if (load) {
+    return load(loaderProps);
+  }
+
+  throw new Error(`Unknown "loader" found in "next.config.js". Expected: ${_imageConfig.VALID_LOADERS.join(', ')}. Received: ${loaderKey}`);
+} // See https://stackoverflow.com/q/39777833/266535 for why we use this ref
+// handler instead of the img's onLoad attribute.
+
+
+function handleLoading(img, src, layout, placeholder, onLoadingCompleteRef, setBlurComplete) {
+  if (!img || img.src === emptyDataURL || img['data-loaded-src'] === src) {
+    return;
+  }
+
+  img['data-loaded-src'] = src;
+  const p = 'decode' in img ? img.decode() : Promise.resolve();
+  p.catch(() => {}).then(() => {
+    if (!img.parentNode) {
+      // Exit early in case of race condition:
+      // - onload() is called
+      // - decode() is called but incomplete
+      // - unmount is called
+      // - decode() completes
+      return;
+    }
+
+    loadedImageURLs.add(src);
+
+    if (placeholder === 'blur') {
+      setBlurComplete(true);
+    }
+
+    if (onLoadingCompleteRef == null ? void 0 : onLoadingCompleteRef.current) {
+      const {
+        naturalWidth,
+        naturalHeight
+      } = img; // Pass back read-only primitive values but not the
+      // underlying DOM element because it could be misused.
+
+      onLoadingCompleteRef.current({
+        naturalWidth,
+        naturalHeight
+      });
+    }
+
+    if (false) { var ref; }
+  });
+}
+
+const ImageElement = _param => {
+  var {
+    imgAttributes,
+    heightInt,
+    widthInt,
+    qualityInt,
+    layout,
+    className,
+    imgStyle,
+    blurStyle,
+    isLazy,
+    placeholder,
+    loading,
+    srcString,
+    config,
+    unoptimized,
+    loader,
+    onLoadingCompleteRef,
+    setBlurComplete,
+    setIntersection,
+    onLoad,
+    onError,
+    isVisible,
+    noscriptSizes
+  } = _param,
+      rest = _object_without_properties_loose(_param, ["imgAttributes", "heightInt", "widthInt", "qualityInt", "layout", "className", "imgStyle", "blurStyle", "isLazy", "placeholder", "loading", "srcString", "config", "unoptimized", "loader", "onLoadingCompleteRef", "setBlurComplete", "setIntersection", "onLoad", "onError", "isVisible", "noscriptSizes"]);
+
+  loading = isLazy ? 'lazy' : loading;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("img", Object.assign({}, rest, imgAttributes, {
+    decoding: "async",
+    "data-nimg": layout,
+    className: className,
+    style: _extends({}, imgStyle, blurStyle),
+    ref: (0, _react).useCallback(img => {
+      if (false) {}
+
+      setIntersection(img);
+
+      if (img == null ? void 0 : img.complete) {
+        handleLoading(img, srcString, layout, placeholder, onLoadingCompleteRef, setBlurComplete);
+      }
+    }, [setIntersection, srcString, layout, placeholder, onLoadingCompleteRef, setBlurComplete]),
+    onLoad: event => {
+      const img = event.currentTarget;
+      handleLoading(img, srcString, layout, placeholder, onLoadingCompleteRef, setBlurComplete);
+
+      if (onLoad) {
+        onLoad(event);
+      }
+    },
+    onError: event => {
+      if (placeholder === 'blur') {
+        // If the real image fails to load, this will still remove the placeholder.
+        setBlurComplete(true);
+      }
+
+      if (onError) {
+        onError(event);
+      }
+    }
+  })), (isLazy || placeholder === 'blur') && /*#__PURE__*/_react.default.createElement("noscript", null, /*#__PURE__*/_react.default.createElement("img", Object.assign({}, rest, generateImgAttrs({
+    config,
+    src: srcString,
+    unoptimized,
+    layout,
+    width: widthInt,
+    quality: qualityInt,
+    sizes: noscriptSizes,
+    loader
+  }), {
+    decoding: "async",
+    "data-nimg": layout,
+    style: imgStyle,
+    className: className,
+    // @ts-ignore - TODO: upgrade to `@types/react@17`
+    loading: loading
+  }))));
+};
+
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+  Object.defineProperty(exports.default, '__esModule', {
+    value: true
+  });
+  Object.assign(exports.default, exports);
+  module.exports = exports.default;
 }
 
 /***/ }),

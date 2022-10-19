@@ -8,6 +8,7 @@ import { theme } from "../utils/theme";
 import { wrapper } from "store/store";
 import AppLayout from "components/layout/AppLayout";
 import "../assets/styles.scss";
+import Script from "next/script";
 
 //Binding events.
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -37,8 +38,13 @@ const App = ({ Component, pageProps }) => {
         />
         <meta property="og:image" content="banner.jpg" />
 
-        <script src="//code.jivo.ru/widget/zc7HkArwKt" async></script>
-
+        {/* <script src="//code.jivo.ru/widget/zc7HkArwKt" async></script> */}
+        <Script>
+          {` window.replainSettings = { id: 'eaca7a8c-7b57-4d60-9f69-615974c9601d' };
+          (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+          var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+          })('https://widget.replain.cc/dist/client.js');`}
+        </Script>
       </Head>
       <GlobalStyles />
       <AppLayout>

@@ -47,9 +47,9 @@ var external_react_toast_ = __webpack_require__(9180);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./src/components/sessions/Login.js
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -69,8 +69,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 const Login = () => {
-  var _state$lang;
-
   const router = (0,router_.useRouter)();
   const {
     0: isVerify,
@@ -92,7 +90,7 @@ const Login = () => {
     1: setPassword
   } = (0,external_react_.useState)('');
   const state = (0,external_react_redux_.useSelector)(state => state);
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
+  const lang = state?.lang?.lang;
   const dispatch = (0,external_react_redux_.useDispatch)();
 
   const loginBtn = async e => {
@@ -118,10 +116,8 @@ const Login = () => {
           alert(res.data.error);
         }
       } catch (error) {
-        var _error$response, _error$response$data;
-
         console.error(error);
-        alert(((_error$response = error.response) === null || _error$response === void 0 ? void 0 : (_error$response$data = _error$response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.error) || 'Error');
+        alert(error.response?.data?.error || 'Error');
       }
     }
   };
@@ -142,8 +138,6 @@ const Login = () => {
         });
 
         if (res.data.isOk) {
-          var _state$user;
-
           setIsVerify(false);
           let {
             accessToken,
@@ -151,7 +145,7 @@ const Login = () => {
           } = res.data;
           localStorage.setItem('accessToken', accessToken);
           localStorage.setItem('refreshToken', refreshToken);
-          dispatch((0,userReducer/* setIsActive */.WA)(!(state !== null && state !== void 0 && (_state$user = state.user) !== null && _state$user !== void 0 && _state$user.isActive)));
+          dispatch((0,userReducer/* setIsActive */.WA)(!state?.user?.isActive));
           (0,userReducer/* getUser */.PR)()(dispatch);
           setIsValidate(_objectSpread(_objectSpread({}, isValidate), {}, {
             code: false
@@ -330,9 +324,9 @@ var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./src/components/text-field/TextField.js
 const _excluded = ["id", "label", "errorText", "labelColor", "endAdornment", "span", "spanTitle"];
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -417,12 +411,12 @@ TextField.defaultProps = {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "WA": () => (/* binding */ setIsActive),
-/* harmony export */   "PR": () => (/* binding */ getUser),
 /* harmony export */   "Nq": () => (/* binding */ updateUser),
+/* harmony export */   "PR": () => (/* binding */ getUser),
+/* harmony export */   "WA": () => (/* binding */ setIsActive),
+/* harmony export */   "ZP": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "co": () => (/* binding */ getOrder),
-/* harmony export */   "fS": () => (/* binding */ addOrder),
-/* harmony export */   "ZP": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "fS": () => (/* binding */ addOrder)
 /* harmony export */ });
 /* unused harmony exports setUser, setOrders, setOrder */
 /* harmony import */ var utils_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1643);
@@ -496,13 +490,9 @@ const getUser = () => {
       type: SHOW_LOADER
     });
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.get */ .GJ.get(`/v1/user/profile`).then(function (response) {
-      var _response$data, _response$data2;
-
-      if (response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.orders && response !== null && response !== void 0 && (_response$data2 = response.data) !== null && _response$data2 !== void 0 && _response$data2.user) {
-        var _response$data3, _response$data4;
-
-        dispatch(setUser((response === null || response === void 0 ? void 0 : (_response$data3 = response.data) === null || _response$data3 === void 0 ? void 0 : _response$data3.user) || {}));
-        dispatch(setOrders((response === null || response === void 0 ? void 0 : (_response$data4 = response.data) === null || _response$data4 === void 0 ? void 0 : _response$data4.orders) || []));
+      if (response?.data?.orders && response?.data?.user) {
+        dispatch(setUser(response?.data?.user || {}));
+        dispatch(setOrders(response?.data?.orders || []));
       }
 
       dispatch({
@@ -542,12 +532,8 @@ const getOrder = id => {
       type: SHOW_LOADER
     });
     utils_http__WEBPACK_IMPORTED_MODULE_0__/* .$authHost.get */ .GJ.get(`/v1/order/view/${id}`).then(function (response) {
-      var _response$data5;
-
-      if (response !== null && response !== void 0 && (_response$data5 = response.data) !== null && _response$data5 !== void 0 && _response$data5.order) {
-        var _response$data6;
-
-        dispatch(setOrder((response === null || response === void 0 ? void 0 : (_response$data6 = response.data) === null || _response$data6 === void 0 ? void 0 : _response$data6.order) || {}));
+      if (response?.data?.order) {
+        dispatch(setOrder(response?.data?.order || {}));
       }
 
       dispatch({
@@ -590,8 +576,8 @@ const addOrder = (data, callback) => {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "hi": () => (/* binding */ api),
 /* harmony export */   "GJ": () => (/* binding */ $authHost),
+/* harmony export */   "hi": () => (/* binding */ api),
 /* harmony export */   "y_": () => (/* binding */ $host)
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2167);

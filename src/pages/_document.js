@@ -71,7 +71,6 @@ export default class extends Document {
           <meta name="googlebot" content="noindex,nofollow" />
           <meta name="google" content="nositelinkssearchbox" />
           <meta name="google" content="notranslate" />
-
         </Head>
         <body>
           <Main />
@@ -90,6 +89,7 @@ export default class extends Document {
           gtag('config', 'G-MF5K6P5DGG');
         `}
           </Script>
+         
         </body>
       </Html>
     );

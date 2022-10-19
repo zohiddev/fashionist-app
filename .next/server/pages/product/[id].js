@@ -15,7 +15,7 @@ exports.modules = {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3158);
 /* harmony import */ var _navbar_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8916);
-/* harmony import */ var _AppLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2685);
+/* harmony import */ var _AppLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5348);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -86,17 +86,17 @@ const ProductDescription = ({
   return /*#__PURE__*/jsx_runtime_.jsx(jsx_runtime_.Fragment, {
     children: desc === undefined ? /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
       children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
-        children: attributes === null || attributes === void 0 ? void 0 : attributes.map((item, index) => {
+        children: attributes?.map((item, index) => {
           return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
             className: "product_attr",
             children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("span", {
               className: "attribute",
-              children: [lang === 'uz' ? item === null || item === void 0 ? void 0 : item.attribute_uz : item === null || item === void 0 ? void 0 : item.attribute_ru, " :"]
+              children: [lang === 'uz' ? item?.attribute_uz : item?.attribute_ru, " :"]
             }), /*#__PURE__*/jsx_runtime_.jsx("span", {
               className: "product_line"
             }), /*#__PURE__*/jsx_runtime_.jsx("span", {
               className: "value",
-              children: lang === 'uz' ? item === null || item === void 0 ? void 0 : item.value_uz : item === null || item === void 0 ? void 0 : item.value_ru
+              children: lang === 'uz' ? item?.value_uz : item?.value_ru
             })]
           });
         })
@@ -122,9 +122,9 @@ var Grid = __webpack_require__(7407);
 // EXTERNAL MODULE: ./src/components/product-cards/ProductCard1.js
 var ProductCard1 = __webpack_require__(9741);
 ;// CONCATENATED MODULE: ./src/components/products/RelatedProducts.js
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -149,7 +149,7 @@ const RelatedProducts = ({
     }), /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
       container: true,
       spacing: 8,
-      children: recommendedProducts === null || recommendedProducts === void 0 ? void 0 : recommendedProducts.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
+      children: recommendedProducts?.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx(Grid/* default */.Z, {
         item: true,
         lg: 3,
         md: 4,
@@ -187,8 +187,6 @@ var headerReducer = __webpack_require__(9745);
 const ProductDetails = ({
   data
 }) => {
-  var _data$product, _data$product2, _data$product3, _data$recommendedProd;
-
   const {
     0: selectedOption,
     1: setSelectedOption
@@ -251,12 +249,12 @@ const ProductDetails = ({
       }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Box/* default */.Z, {
         mb: "50px",
         children: [selectedOption === 'description' && /*#__PURE__*/jsx_runtime_.jsx(products_ProductDescription, {
-          desc: lang === 'uz' ? data === null || data === void 0 ? void 0 : (_data$product = data.product) === null || _data$product === void 0 ? void 0 : _data$product.description_uz : data === null || data === void 0 ? void 0 : (_data$product2 = data.product) === null || _data$product2 === void 0 ? void 0 : _data$product2.description_ru
+          desc: lang === 'uz' ? data?.product?.description_uz : data?.product?.description_ru
         }), selectedOption === 'attributes' && /*#__PURE__*/jsx_runtime_.jsx(products_ProductDescription, {
-          attributes: data === null || data === void 0 ? void 0 : (_data$product3 = data.product) === null || _data$product3 === void 0 ? void 0 : _data$product3.attributes
+          attributes: data?.product?.attributes
         })]
-      }), (data === null || data === void 0 ? void 0 : (_data$recommendedProd = data.recommendedProducts) === null || _data$recommendedProd === void 0 ? void 0 : _data$recommendedProd.length) === 0 ? null : /*#__PURE__*/jsx_runtime_.jsx(products_RelatedProducts, {
-        recommendedProducts: data === null || data === void 0 ? void 0 : data.recommendedProducts
+      }), data?.recommendedProducts?.length === 0 ? null : /*#__PURE__*/jsx_runtime_.jsx(products_RelatedProducts, {
+        recommendedProducts: data?.recommendedProducts
       })]
     })
   });
@@ -346,17 +344,17 @@ module.exports = require("lodash");
 
 /***/ }),
 
-/***/ 562:
+/***/ 3280:
 /***/ ((module) => {
 
-module.exports = require("next/dist/server/denormalize-page-path.js");
+module.exports = require("next/dist/shared/lib/app-router-context.js");
 
 /***/ }),
 
-/***/ 8028:
+/***/ 2796:
 /***/ ((module) => {
 
-module.exports = require("next/dist/server/image-config.js");
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
@@ -374,10 +372,38 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
+/***/ 744:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config-context.js");
+
+/***/ }),
+
+/***/ 5843:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/image-config.js");
+
+/***/ }),
+
+/***/ 8524:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
 /***/ 8020:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/mitt.js");
+
+/***/ }),
+
+/***/ 4406:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
 
 /***/ }),
 
@@ -388,6 +414,34 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
 
+/***/ 1751:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
+
+/***/ }),
+
+/***/ 299:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
 /***/ 9565:
 /***/ ((module) => {
 
@@ -395,10 +449,10 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 
 /***/ }),
 
-/***/ 4365:
+/***/ 5789:
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
+module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
 
 /***/ }),
 
@@ -409,6 +463,13 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
+/***/ 8854:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
+
+/***/ }),
+
 /***/ 1292:
 /***/ ((module) => {
 
@@ -416,10 +477,24 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 
 /***/ }),
 
+/***/ 4567:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
+
+/***/ }),
+
 /***/ 979:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
+
+/***/ }),
+
+/***/ 3297:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
 
 /***/ }),
 
@@ -441,13 +516,6 @@ module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
-
-/***/ }),
-
-/***/ 3018:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/to-base-64.js");
 
 /***/ }),
 
@@ -549,7 +617,7 @@ module.exports = require("styled-system");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [400,664,675,938,903,27,372,483,685,916,545,741], () => (__webpack_exec__(1287)));
+var __webpack_exports__ = __webpack_require__.X(0, [383,664,675,938,903,27,372,483,348,916,545,741], () => (__webpack_exec__(1287)));
 module.exports = __webpack_exports__;
 
 })();

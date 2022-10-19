@@ -11,7 +11,9 @@ exports.modules = {
 /* harmony export */ });
 /* harmony import */ var components_products_ProductIntro__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8198);
 /* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5675);
+/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1664);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var reducers_cartReducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7079);
@@ -32,9 +34,9 @@ exports.modules = {
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__);
 const _excluded = ["id", "imgUrl", "title", "price", "off", "product", "rating"];
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -63,8 +65,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 const ProductCard1 = _ref => {
-  var _state$lang, _state$cart, _state$cart$cartList;
-
   let {
     id,
     imgUrl,
@@ -81,14 +81,14 @@ const ProductCard1 = _ref => {
     1: setOpen
   } = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
   const state = (0,react_redux__WEBPACK_IMPORTED_MODULE_14__.useSelector)(state => state);
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
-  const cartItem = (_state$cart = state.cart) === null || _state$cart === void 0 ? void 0 : (_state$cart$cartList = _state$cart.cartList) === null || _state$cart$cartList === void 0 ? void 0 : _state$cart$cartList.find(item => item.product_id === (product === null || product === void 0 ? void 0 : product.id));
+  const lang = state?.lang?.lang;
+  const cartItem = state.cart?.cartList?.find(item => item.product_id === product?.id);
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_14__.useDispatch)();
   const windowSize = (0,_hooks_useWindowSize__WEBPACK_IMPORTED_MODULE_16__/* ["default"] */ .Z)();
   const toggleDialog = (0,react__WEBPACK_IMPORTED_MODULE_3__.useCallback)(() => {
     setOpen(open => !open);
   }, []);
-  const src = `${product === null || product === void 0 ? void 0 : product.image}`;
+  const src = `${product?.image}`;
 
   const handleDeleteBtn = id => {
     (0,reducers_cartReducer__WEBPACK_IMPORTED_MODULE_4__/* .deleteToCart */ .ul)(id)(dispatch);
@@ -123,7 +123,7 @@ const ProductCard1 = _ref => {
       style: {
         padding: '15px'
       },
-      children: [(product === null || product === void 0 ? void 0 : product.is_new) > 0 ? /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(_Chip__WEBPACK_IMPORTED_MODULE_8__/* .Chip */ .A, {
+      children: [product?.is_new > 0 ? /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(_Chip__WEBPACK_IMPORTED_MODULE_8__/* .Chip */ .A, {
         position: "absolute",
         bg: "primary.main",
         color: "primary.text",
@@ -143,14 +143,14 @@ const ProductCard1 = _ref => {
           onClick: toggleDialog,
           children: "eye-alt"
         })
-      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(next_link__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        href: `/product/${product === null || product === void 0 ? void 0 : product.slug}`,
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
+        href: `/product/${product?.slug}`,
         children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx("a", {
-          children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(next_image__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
             loader: myLoader,
-            src: product === null || product === void 0 ? void 0 : product.images[0],
+            src: product?.images[0],
             layout: "responsive",
-            alt: product === null || product === void 0 ? void 0 : product.name_uz,
+            alt: product?.name_uz,
             width: 100,
             height: 100,
             quality: "85",
@@ -166,8 +166,8 @@ const ProductCard1 = _ref => {
           flex: "1 1 0",
           minWidth: "0px",
           mr: "0.5rem",
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(next_link__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            href: `/product/${product === null || product === void 0 ? void 0 : product.slug}`,
+          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {
+            href: `/product/${product?.slug}`,
             children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx("a", {
               children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(_Typography__WEBPACK_IMPORTED_MODULE_12__.H3, {
                 className: "title",
@@ -176,8 +176,8 @@ const ProductCard1 = _ref => {
                 fontWeight: "600",
                 color: "text.secondary",
                 mb: "10px",
-                title: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru,
-                children: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru
+                title: lang === 'uz' ? product?.name_uz : product?.name_ru,
+                children: lang === 'uz' ? product?.name_uz : product?.name_ru
               })
             })
           }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(_FlexBox__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
@@ -187,7 +187,7 @@ const ProductCard1 = _ref => {
               pr: "0.5rem",
               fontWeight: "600",
               color: "primary.main",
-              children: [Intl.NumberFormat().format(product === null || product === void 0 ? void 0 : product.price), " UZS"]
+              children: [Intl.NumberFormat().format(product?.price), " UZS"]
             })
           })]
         })
@@ -202,10 +202,10 @@ const ProductCard1 = _ref => {
         p: "1rem",
         position: "relative",
         children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(components_products_ProductIntro__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z, {
-          imgUrl: product === null || product === void 0 ? void 0 : product.images,
-          title: product === null || product === void 0 ? void 0 : product.name_uz,
-          price: product === null || product === void 0 ? void 0 : product.price,
-          id: product === null || product === void 0 ? void 0 : product.id,
+          imgUrl: product?.images,
+          title: product?.name_uz,
+          price: product?.price,
+          id: product?.id,
           product: product
         }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx(_Box__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
           position: "absolute",
@@ -237,6 +237,7 @@ const ProductCard1 = _ref => {
 /* harmony export */ });
 /* harmony import */ var components_Image__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2116);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1664);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1853);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6689);
@@ -281,19 +282,17 @@ const ProductIntro = ({
   id,
   product
 }) => {
-  var _state$cart, _state$lang, _product$brand, _product$brand2, _product$price, _cartItem$qty;
-
   const {
     0: selectedImage,
     1: setSelectedImage
   } = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(0);
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_12__.useDispatch)();
   const state = (0,react_redux__WEBPACK_IMPORTED_MODULE_12__.useSelector)(state => state);
-  const cartList = state === null || state === void 0 ? void 0 : (_state$cart = state.cart) === null || _state$cart === void 0 ? void 0 : _state$cart.cartList;
-  const lang = state === null || state === void 0 ? void 0 : (_state$lang = state.lang) === null || _state$lang === void 0 ? void 0 : _state$lang.lang;
+  const cartList = state?.cart?.cartList;
+  const lang = state?.lang?.lang;
   const router = (0,next_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
   const routerId = router.query.id;
-  const cartItem = cartList.find(item => item.product_id === (product === null || product === void 0 ? void 0 : product.id));
+  const cartItem = cartList.find(item => item.product_id === product?.id);
 
   const handleImageClick = ind => () => {
     setSelectedImage(ind);
@@ -340,37 +339,33 @@ const ProductIntro = ({
               quality: "85",
               width: 300,
               height: 300,
-              src: product === null || product === void 0 ? void 0 : product.images[selectedImage],
+              src: product?.images[selectedImage],
               style: {
                 objectFit: "contain"
               }
             })
           }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_FlexBox__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
             overflow: "auto",
-            children: product === null || product === void 0 ? void 0 : product.images.map((url, ind) => {
-              var _product$images;
-
-              return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_Box__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
-                size: 70,
-                minWidth: 70,
-                bg: "white",
+            children: product?.images.map((url, ind) => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_Box__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
+              size: 70,
+              minWidth: 70,
+              bg: "white",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+              border: "1px solid",
+              ml: ind === 0 && "auto",
+              mr: ind === product?.images?.length - 1 ? "auto" : "10px",
+              borderColor: selectedImage === ind ? "primary.main" : "gray.400",
+              onClick: handleImageClick(ind),
+              children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_avatar_Avatar__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
+                src: url,
                 borderRadius: "10px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                cursor: "pointer",
-                border: "1px solid",
-                ml: ind === 0 && "auto",
-                mr: ind === (product === null || product === void 0 ? void 0 : (_product$images = product.images) === null || _product$images === void 0 ? void 0 : _product$images.length) - 1 ? "auto" : "10px",
-                borderColor: selectedImage === ind ? "primary.main" : "gray.400",
-                onClick: handleImageClick(ind),
-                children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_avatar_Avatar__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                  src: url,
-                  borderRadius: "10px",
-                  size: 40
-                })
-              }, ind);
-            })
+                size: 40
+              })
+            }, ind))
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_grid_Grid__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
@@ -380,7 +375,7 @@ const ProductIntro = ({
         alignItems: "center",
         children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_Typography__WEBPACK_IMPORTED_MODULE_11__.H1, {
           mb: "1rem",
-          children: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.name_uz : product === null || product === void 0 ? void 0 : product.name_ru
+          children: lang === 'uz' ? product?.name_uz : product?.name_ru
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_FlexBox__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
           alignItems: "center",
           mb: "1rem",
@@ -388,7 +383,7 @@ const ProductIntro = ({
             children: "Brand:"
           }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_Typography__WEBPACK_IMPORTED_MODULE_11__.H6, {
             ml: "8px",
-            children: lang === 'uz' ? product === null || product === void 0 ? void 0 : (_product$brand = product.brand) === null || _product$brand === void 0 ? void 0 : _product$brand.name_uz : product === null || product === void 0 ? void 0 : (_product$brand2 = product.brand) === null || _product$brand2 === void 0 ? void 0 : _product$brand2.name_ru
+            children: lang === 'uz' ? product?.brand?.name_uz : product?.brand?.name_ru
           })]
         }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_Box__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
           mb: "24px",
@@ -396,14 +391,14 @@ const ProductIntro = ({
             color: "primary.main",
             mb: "4px",
             lineHeight: "1",
-            children: [product === null || product === void 0 ? void 0 : (_product$price = product.price) === null || _product$price === void 0 ? void 0 : _product$price.toLocaleString(), " UZS"]
+            children: [product?.price?.toLocaleString(), " UZS"]
           })
-        }), !(cartItem !== null && cartItem !== void 0 && cartItem.qty) ? /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_buttons_Button__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
+        }), !cartItem?.qty ? /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_buttons_Button__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
           variant: "contained",
           size: "small",
           color: "primary",
           mb: "36px",
-          onClick: () => handleAddBtn(product === null || product === void 0 ? void 0 : product.id),
+          onClick: () => handleAddBtn(product?.id),
           children: lang === 'uz' ? 'Savatga qo’shish' : 'Добавить в корзину'
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_FlexBox__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
           alignItems: "center",
@@ -413,7 +408,7 @@ const ProductIntro = ({
             variant: "outlined",
             size: "small",
             color: "primary",
-            onClick: () => handleRemoveBtn(product === null || product === void 0 ? void 0 : product.id),
+            onClick: () => handleRemoveBtn(product?.id),
             children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_icon_Icon__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
               variant: "small",
               children: "minus"
@@ -421,13 +416,13 @@ const ProductIntro = ({
           }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_Typography__WEBPACK_IMPORTED_MODULE_11__.H3, {
             fontWeight: "600",
             mx: "20px",
-            children: cartItem === null || cartItem === void 0 ? void 0 : (_cartItem$qty = cartItem.qty) === null || _cartItem$qty === void 0 ? void 0 : _cartItem$qty.toString().padStart(2, "0")
+            children: cartItem?.qty?.toString().padStart(2, "0")
           }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_buttons_Button__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
             p: "9px",
             variant: "outlined",
             size: "small",
             color: "primary",
-            onClick: () => handleAddBtn(product === null || product === void 0 ? void 0 : product.id),
+            onClick: () => handleAddBtn(product?.id),
             children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx(_icon_Icon__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
               variant: "small",
               children: "plus"
@@ -442,7 +437,7 @@ const ProductIntro = ({
           children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx("span", {
             className: "product_desc",
             dangerouslySetInnerHTML: {
-              __html: lang === 'uz' ? product === null || product === void 0 ? void 0 : product.description_uz : product === null || product === void 0 ? void 0 : product.description_ru
+              __html: lang === 'uz' ? product?.description_uz : product?.description_ru
             }
           })
         })]

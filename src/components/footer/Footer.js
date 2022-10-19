@@ -1,8 +1,7 @@
 import AppStore from "components/AppStore"
-import LogoSVGWhite from "components/header/LogoSVGWhite"
 import Image from "components/Image"
 import Link from "next/link"
-import React, {useEffect} from "react"
+import React from "react"
 import styled from "styled-components"
 import { getTheme } from "../../utils/utils"
 import Box from "../Box"
@@ -10,10 +9,11 @@ import Container from "../Container"
 import FlexBox from "../FlexBox"
 import Grid from "../grid/Grid"
 import Icon from "../icon/Icon"
-import Typography, { Paragraph } from "../Typography"
+import Typography from "../Typography"
 import { useSelector } from 'react-redux';
 import Divider from './../Divider';
 import useWindowSize from './../../hooks/useWindowSize';
+import MyCompany from "components/MyCompany"
 
 const StyledLink = styled.a`
 	position: relative;
@@ -79,7 +79,6 @@ const Footer = () => {
 												objectFit="contain"
 												alt="logo"
 											/>
-											{/* <LogoSVGWhite/> */}
 										</a>
 									</Link>
 
@@ -109,9 +108,7 @@ const Footer = () => {
 											</a>
 										))}
 									</FlexBox> : <AppStore />
-
 									}
-
 								</FlexBox>
 							</Grid>
 
@@ -133,25 +130,6 @@ const Footer = () => {
 									))}
 								</div>
 							</Grid>
-
-							{/* <Grid item lg={3} md={6} sm={6} xs={12}>
-								<Typography
-									fontSize="25px"
-									fontWeight="600"
-									mb="1.25rem"
-									lineHeight="1"
-								>
-
-								</Typography>
-
-								<div>
-									{customerCareLinks.map((item, ind) => (
-										<Link href="/" key={ind}>
-											<StyledLink>{item}</StyledLink>
-										</Link>
-									))}
-								</div>
-							</Grid> */}
 
 							<Grid item lg={4} md={4} sm={6} xs={12}>
 								<Typography
@@ -203,25 +181,25 @@ const Footer = () => {
 									))}
 								</FlexBox>
 								}
-
-
 							</Grid>
 						</Grid>
 					</Box>
 				</Container>
 				<Divider/>
-				<FlexBox alignItems='center' justifyContent="center" pt='10px'>
-					<Typography
-						fontSize="18px"
-						fontWeight="600"
-						mb="1.25rem"
-						lineHeight="1"
-						textAlign="center"
-						color="#fff"
-					>
-						{lang === 'uz' ? 'Sayt yaratuvchisi:' : 'Создатель сайта:'}  <a className="footer_link" href='https://appx.uz' target="_blank" rel="noreferrer"> Appx Group</a>
-					</Typography>
-				</FlexBox>
+				<Container>
+					<FlexBox alignItems='center' justifyContent="space-between" py='24px'>
+						<Typography
+							fontSize="18px"
+							fontWeight="600"
+							lineHeight="1"
+							textAlign="center"
+							color="#fff"
+						>
+							Copyright © Samsung Dehqon bozor , {new Date().getFullYear()}
+						</Typography>
+						<MyCompany/>
+					</FlexBox>
+				</Container>
 			</Box>
 		</footer>
 	)
