@@ -89,7 +89,13 @@ export default class extends Document {
           gtag('config', 'G-MF5K6P5DGG');
         `}
           </Script>
-         
+
+          <Script id="replain" strategy="afterInteractive"> 
+            {` window.replainSettings = { id: 'eaca7a8c-7b57-4d60-9f69-615974c9601d' };
+          (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+          var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+          })('https://widget.replain.cc/dist/client.js');`}
+          </Script>
         </body>
       </Html>
     );

@@ -126,6 +126,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           gtag('config', 'G-MF5K6P5DGG');
         `
+        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx((next_script__WEBPACK_IMPORTED_MODULE_1___default()), {
+          id: "replain",
+          strategy: "afterInteractive",
+          children: ` window.replainSettings = { id: 'eaca7a8c-7b57-4d60-9f69-615974c9601d' };
+          (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+          var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+          })('https://widget.replain.cc/dist/client.js');`
         })]
       })]
     });

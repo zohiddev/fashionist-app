@@ -1,17 +1,17 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
   "/404": "pages/404.html",
+  "/cart": "pages/cart.html",
   "/checkout": "pages/checkout.html",
   "/login": "pages/login.html",
   "/orders/[id]": "pages/orders/[id].html",
   "/profile/edit": "pages/profile/edit.html",
   "/profile": "pages/profile.html",
-  "/_error": "pages/_error.js",
-  "/cart": "pages/cart.html",
   "/category": "pages/category.js",
   "/": "pages/index.js",
-  "/page/[id]": "pages/page/[id].js",
+  "/_document": "pages/_document.js",
   "/products/[id]": "pages/products/[id].js",
+  "/page/[id]": "pages/page/[id].js",
   "/product/[id]": "pages/product/[id].js"
 }

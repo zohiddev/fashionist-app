@@ -172,7 +172,6 @@ const wrapper = (0,external_next_redux_wrapper_namespaceObject.createWrapper)(ma
 var AppLayout = __webpack_require__(5348);
 // EXTERNAL MODULE: ./node_modules/next/script.js
 var script = __webpack_require__(4298);
-var script_default = /*#__PURE__*/__webpack_require__.n(script);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./src/pages/_app.js
@@ -232,11 +231,6 @@ const App = ({
       }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
         property: "og:image",
         content: "banner.jpg"
-      }), /*#__PURE__*/jsx_runtime_.jsx((script_default()), {
-        children: ` window.replainSettings = { id: 'eaca7a8c-7b57-4d60-9f69-615974c9601d' };
-          (function(u){var s=document.createElement('script');s.async=true;s.src=u;
-          var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
-          })('https://widget.replain.cc/dist/client.js');`
       })]
     }), /*#__PURE__*/jsx_runtime_.jsx(GlobalStyles, {}), /*#__PURE__*/jsx_runtime_.jsx(AppLayout/* default */.Z, {
       children: /*#__PURE__*/jsx_runtime_.jsx(Component, _app_objectSpread({}, pageProps))
