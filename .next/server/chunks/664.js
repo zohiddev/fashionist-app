@@ -215,8 +215,8 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
 /***/ 7942:
 /***/ ((module, exports, __webpack_require__) => {
 
+"client";
 "use strict";
-
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
@@ -241,10 +241,9 @@ var _useIntersection = __webpack_require__(639);
 
 var _getDomainLocale = __webpack_require__(4019);
 
-var _addBasePath = __webpack_require__(227); // @ts-ignore useTransition exist
+var _addBasePath = __webpack_require__(227);
 
-
-const hasUseTransition = typeof _react.default.useTransition !== 'undefined';
+'client';
 const prefetched = {};
 
 function prefetch(router, href, as, options) {
@@ -269,7 +268,7 @@ function isModifiedEvent(event) {
   return target && target !== '_self' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.nativeEvent && event.nativeEvent.which === 2;
 }
 
-function linkClicked(e, router, href, as, replace, shallow, scroll, locale, startTransition, prefetchEnabled) {
+function linkClicked(e, router, href, as, replace, shallow, scroll, locale, isAppRouter, prefetchEnabled) {
   const {
     nodeName
   } = e.currentTarget; // anchors inside an svg have a lowercase nodeName
@@ -300,15 +299,16 @@ function linkClicked(e, router, href, as, replace, shallow, scroll, locale, star
     }
   };
 
-  if (startTransition) {
-    startTransition(navigate);
+  if (isAppRouter) {
+    // @ts-expect-error startTransition exists.
+    _react.default.startTransition(navigate);
   } else {
     navigate();
   }
 }
 
 const Link = /*#__PURE__*/_react.default.forwardRef(function LinkComponent(props, forwardedRef) {
-  if (false) {}
+  if (false) { var createPropError; }
 
   let children;
 
@@ -336,12 +336,6 @@ const Link = /*#__PURE__*/_react.default.forwardRef(function LinkComponent(props
   }
 
   const p = prefetchProp !== false;
-  const [,
-  /* isPending */
-  startTransition] = hasUseTransition ? // There is no difference between renders in this case, only between using React 18 vs 17.
-  // @ts-ignore useTransition exists
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  _react.default.useTransition() : [];
 
   let router = _react.default.useContext(_routerContext.RouterContext); // TODO-APP: type error. Remove `as any`
 
@@ -424,7 +418,7 @@ const Link = /*#__PURE__*/_react.default.forwardRef(function LinkComponent(props
       }
 
       if (!e.defaultPrevented) {
-        linkClicked(e, router, href, as, replace, shallow, scroll, locale, appRouter ? startTransition : undefined, p);
+        linkClicked(e, router, href, as, replace, shallow, scroll, locale, Boolean(appRouter), p);
       }
     },
     onMouseEnter: e => {
@@ -506,7 +500,7 @@ var _removeTrailingSlash = __webpack_require__(3297);
 var _parsePath = __webpack_require__(8854);
 
 const normalizePathTrailingSlash = path => {
-  if (!path.startsWith('/')) {
+  if (!path.startsWith('/') || undefined) {
     return path;
   }
 
@@ -1175,6 +1169,8 @@ var _formatNextPathnameInfo = __webpack_require__(299);
 
 var _compareStates = __webpack_require__(6220);
 
+var _isBot = __webpack_require__(1897);
+
 function buildCancellationError() {
   return Object.assign(new Error('Route Cancelled'), {
     cancelled: true
@@ -1526,6 +1522,14 @@ function fetchRetry(url, attempts, options) {
 }
 
 const backgroundCache = {};
+
+function handleSmoothScroll(fn) {
+  const htmlElement = document.documentElement;
+  const existing = htmlElement.style.scrollBehavior;
+  htmlElement.style.scrollBehavior = 'auto';
+  fn();
+  htmlElement.style.scrollBehavior = existing;
+}
 
 function tryToParseAsJSON(text) {
   try {
@@ -1975,7 +1979,9 @@ class Router {
             query = Object.assign({}, routeInfo.query || {}, query);
           }
 
-          if (routeMatch && pathname !== parsed.pathname) {
+          const cleanedParsedPathname = (0, _hasBasePath).hasBasePath(parsed.pathname) ? (0, _removeBasePath).removeBasePath(parsed.pathname) : parsed.pathname;
+
+          if (routeMatch && pathname !== cleanedParsedPathname) {
             Object.keys(routeMatch).forEach(key => {
               if (routeMatch && query[key] === routeMatch[key]) {
                 delete query[key];
@@ -2341,25 +2347,17 @@ class Router {
           Component: res.page,
           styleSheets: res.styleSheets,
           __N_SSG: res.mod.__N_SSG,
-          __N_SSP: res.mod.__N_SSP,
-          __N_RSC: !!res.mod.__next_rsc__
+          __N_SSP: res.mod.__N_SSP
         })));
 
         if (false) {}
-        /**
-        * For server components, non-SSR pages will have statically optimized
-        * flight data in a production build. So only development and SSR pages
-        * will always have the real-time generated and streamed flight data.
-        */
 
-
-        const useStreamedFlightData = routeInfo.__N_RSC && ( false || routeInfo.__N_SSP);
-        const shouldFetchData = routeInfo.__N_SSG || routeInfo.__N_SSP || routeInfo.__N_RSC;
+        const shouldFetchData = routeInfo.__N_SSG || routeInfo.__N_SSP;
         const {
           props,
           cacheKey
         } = yield _this._getData(_async_to_generator(function* () {
-          if (shouldFetchData && !useStreamedFlightData) {
+          if (shouldFetchData) {
             const {
               json,
               cacheKey: _cacheKey
@@ -2416,20 +2414,7 @@ class Router {
           })).catch(() => {});
         }
 
-        let flightInfo;
-
-        if (routeInfo.__N_RSC) {
-          flightInfo = {
-            __flight__: useStreamedFlightData ? (yield _this._getData(() => _this._getFlightData((0, _formatUrl).formatWithValidation({
-              query: _extends({}, query, {
-                __flight__: '1'
-              }),
-              pathname: (0, _isDynamic).isDynamicRoute(route) ? interpolateAs(pathname, (0, _parseRelativeUrl).parseRelativeUrl(resolvedAs).pathname, query).result : pathname
-            })))).data : props.__flight__
-          };
-        }
-
-        props.pageProps = Object.assign({}, props.pageProps, flightInfo);
+        props.pageProps = Object.assign({}, props.pageProps);
         routeInfo.props = props;
         routeInfo.route = route;
         routeInfo.query = query;
@@ -2482,7 +2467,7 @@ class Router {
     // To mirror browsers
 
     if (hash === '' || hash === 'top') {
-      window.scrollTo(0, 0);
+      handleSmoothScroll(() => window.scrollTo(0, 0));
       return;
     } // Decode hash to make non-latin anchor works.
 
@@ -2492,7 +2477,7 @@ class Router {
     const idEl = document.getElementById(rawHash);
 
     if (idEl) {
-      idEl.scrollIntoView();
+      handleSmoothScroll(() => idEl.scrollIntoView());
       return;
     } // If there's no element with the id, we check the `name` property
     // To mirror browsers
@@ -2501,7 +2486,7 @@ class Router {
     const nameEl = document.getElementsByName(rawHash)[0];
 
     if (nameEl) {
-      nameEl.scrollIntoView();
+      handleSmoothScroll(() => nameEl.scrollIntoView());
     }
   }
 
@@ -2520,6 +2505,8 @@ class Router {
     var _this = this;
 
     return _async_to_generator(function* () {
+      if (false) {}
+
       let parsed = (0, _parseRelativeUrl).parseRelativeUrl(url);
       let {
         pathname,
@@ -2681,8 +2668,7 @@ class Router {
     locales,
     defaultLocale,
     domainLocales,
-    isPreview,
-    isRsc
+    isPreview
   }) {
     // Server Data Cache
     this.sdc = {};
@@ -2780,8 +2766,7 @@ class Router {
         props: initialProps,
         err,
         __N_SSG: initialProps && initialProps.__N_SSG,
-        __N_SSP: initialProps && initialProps.__N_SSP,
-        __N_RSC: !!isRsc
+        __N_SSP: initialProps && initialProps.__N_SSP
       };
     }
 

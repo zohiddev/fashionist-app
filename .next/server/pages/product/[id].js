@@ -456,6 +456,13 @@ module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-in
 
 /***/ }),
 
+/***/ 1897:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/router/utils/is-bot.js");
+
+/***/ }),
+
 /***/ 1428:
 /***/ ((module) => {
 

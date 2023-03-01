@@ -1,4 +1,3 @@
-"use strict";
 exports.id = 383;
 exports.ids = [383];
 exports.modules = {
@@ -6,6 +5,7 @@ exports.modules = {
 /***/ 6495:
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 var __webpack_unused_export__;
 
 __webpack_unused_export__ = ({
@@ -36,6 +36,7 @@ function extends_() {
 /***/ 1598:
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 var __webpack_unused_export__;
 
 __webpack_unused_export__ = ({
@@ -88,6 +89,7 @@ function _getRequireWildcardCache(nodeInterop1) {
 /***/ 7273:
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 var __webpack_unused_export__;
 
 __webpack_unused_export__ = ({
@@ -113,6 +115,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 /***/ 877:
 /***/ ((module, exports) => {
 
+"use strict";
 
 
 Object.defineProperty(exports, "__esModule", ({
@@ -270,6 +273,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
 /***/ 6286:
 /***/ ((module, exports) => {
 
+"use strict";
 
 
 Object.defineProperty(exports, "__esModule", ({
@@ -310,7 +314,8 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
 /***/ 2189:
 /***/ ((module, exports, __webpack_require__) => {
 
-
+"client";
+"use strict";
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
@@ -333,6 +338,7 @@ var _headManager = __webpack_require__(877);
 
 var _requestIdleCallback = __webpack_require__(6286);
 
+'client';
 const ScriptCache = new Map();
 const LoadCache = new Set();
 const ignoreProps = ['onLoad', 'onReady', 'dangerouslySetInnerHTML', 'children', 'onError', 'strategy'];
@@ -356,7 +362,8 @@ const loadScript = props => {
 
 
   if (ScriptCache.has(src)) {
-    LoadCache.add(cacheKey); // Execute onLoad since the script loading has begun
+    LoadCache.add(cacheKey); // It is possible that multiple `next/script` components all have same "src", but has different "onLoad"
+    // This is to make sure the same remote script will only load once, but "onLoad" are executed in order
 
     ScriptCache.get(src).then(onLoad, onError);
     return;
@@ -484,12 +491,13 @@ function Script(props) {
   *   2. hasOnReadyEffectCalled.current is false, but the script hasn't loaded yet (not in LoadCache)
   *      onReady is skipped, set hasOnReadyEffectCalled.current to true
   *   3. The useEffect for loadScript executes
-  *      Once the script is loaded, the onReady will be called by then
+  *   4. hasLoadScriptEffectCalled.current is false, loadScript executes
+  *      Once the script is loaded, the onLoad and onReady will be called by then
   *   [If strict mode is enabled / is wrapped in <OffScreen /> component]
   *   5. The useEffect for onReady executes again
   *   6. hasOnReadyEffectCalled.current is true, so entire effect is skipped
   *   7. The useEffect for loadScript executes again
-  *   8. The script is already loaded/loading, loadScript bails out
+  *   8. hasLoadScriptEffectCalled.current is true, so entire effect is skipped
   *
   * - Second mount:
   *   1. The useEffect for onReady executes
@@ -501,7 +509,7 @@ function Script(props) {
   *   5. The useEffect for onReady executes again
   *   6. hasOnReadyEffectCalled.current is true, so entire effect is skipped
   *   7. The useEffect for loadScript executes again
-  *   8. The script is already loaded, loadScript will bail out
+  *   8. hasLoadScriptEffectCalled.current is true, so entire effect is skipped
   */
 
   const hasOnReadyEffectCalled = (0, _react).useRef(false);
@@ -517,11 +525,16 @@ function Script(props) {
       hasOnReadyEffectCalled.current = true;
     }
   }, [onReady, id, src]);
+  const hasLoadScriptEffectCalled = (0, _react).useRef(false);
   (0, _react).useEffect(() => {
-    if (strategy === 'afterInteractive') {
-      loadScript(props);
-    } else if (strategy === 'lazyOnload') {
-      loadLazyScript(props);
+    if (!hasLoadScriptEffectCalled.current) {
+      if (strategy === 'afterInteractive') {
+        loadScript(props);
+      } else if (strategy === 'lazyOnload') {
+        loadLazyScript(props);
+      }
+
+      hasLoadScriptEffectCalled.current = true;
     }
   }, [props, strategy]);
 
@@ -565,6 +578,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
 /***/ 676:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 Object.defineProperty(exports, "__esModule", ({
     value: true

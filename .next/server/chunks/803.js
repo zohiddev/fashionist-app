@@ -43,7 +43,7 @@ var _isError = _interopRequireDefault(__webpack_require__(676));
 
 var _htmlContext = __webpack_require__(8743);
 
-class Document extends _react.Component {
+class Document extends _react.default.Component {
   /**
   * `getInitialProps` hook returns the context object with the addition of `renderPage`.
   * `renderPage` callback executes `React` rendering logic synchronously to support server-rendering wrappers
@@ -355,7 +355,7 @@ function getAmpPath(ampPath, asPath) {
   return ampPath || `${asPath}${asPath.includes("?") ? "&" : "?"}amp=1`;
 }
 
-class Head extends _react.Component {
+class Head extends _react.default.Component {
   getCssLinks(files) {
     const {
       assetPrefix,
@@ -732,7 +732,7 @@ function handleDocumentScriptLoaderItems(scriptLoader, __NEXT_DATA__, props) {
   __NEXT_DATA__.scriptLoader = scriptLoaderItems;
 }
 
-class NextScript extends _react.Component {
+class NextScript extends _react.default.Component {
   getDynamicChunks(files) {
     return getDynamicChunks(this.context, this.props, files);
   }

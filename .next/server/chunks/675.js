@@ -5,8 +5,8 @@ exports.modules = {
 /***/ 8566:
 /***/ ((module, exports, __webpack_require__) => {
 
+"client";
 "use strict";
-
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
@@ -274,7 +274,8 @@ function Image(_param) {
   const linkProps = {
     // Note: imagesrcset and imagesizes are not in the link element type with react 17.
     [imageSrcSetPropName]: imgAttributes.srcSet,
-    [imageSizesPropName]: imgAttributes.sizes
+    [imageSizesPropName]: imgAttributes.sizes,
+    crossOrigin: rest.crossOrigin
   };
   const useLayoutEffect =  true ? _react.default.useEffect : 0;
   const onLoadingCompleteRef = (0, _react).useRef(onLoadingComplete);
@@ -345,6 +346,8 @@ function Image(_param) {
     href: imgAttributes.srcSet ? undefined : imgAttributes.src
   }, linkProps))) : null);
 }
+
+'client';
 
 function normalizeSrc(src) {
   return src[0] === '/' ? src.slice(1) : src;
