@@ -1,22 +1,22 @@
-name: CI
+# name: CI
 
-on: [push]
+# on: [push]
 
-jobs:
-  deploy:
-    # if: github.ref == 'refs/heads/master'
-    runs-on: [ubuntu-18.04]
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - uses: actions/labeler@v2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push to server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          script: cd ../home/admin/web/sdb.uz/public_html/ && git pull origin master && npm run build && forever restart sdb-web.js
+# jobs:
+#   deploy:
+#     # if: github.ref == 'refs/heads/master'
+#     runs-on: [ubuntu-18.04]
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           persist-credentials: false
+#       - uses: actions/labeler@v2
+#         with:
+#           repo-token: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Push to server
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.SERVER_IP }}
+#           username: ${{ secrets.SERVER_USERNAME }}
+#           password: ${{ secrets.SERVER_PASSWORD }}
+#           script: cd ../home/admin/web/sdb.uz/public_html/ && git pull origin master && npm run build && forever restart sdb-web.js
