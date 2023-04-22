@@ -11,18 +11,13 @@ exports.modules = {
 /* harmony export */ });
 const gray = {
   900: "#2B3445",
-  // Main Text
   800: "#373F50",
-  // Paragraph
   700: "#4B566B",
   600: "#7D879C",
-  // Low Priority form Title/Text
   500: "#AEB4BE",
   400: "#DAE1E7",
-  // Border
   300: "#E3E9EF",
   200: "#F3F5F9",
-  // Line Stroke
   100: "#F6F9FC",
   white: "#FFFFFF"
 };
@@ -41,14 +36,12 @@ const bodyColor = {
 const primaryColor = {
   light: "#FFE1E6",
   main: "#050448",
-  // dark: "#D23F57",
   dark: "#4F4CB6",
-  text: "#ffffff" // 100: "#FCE9EC",
-
+  text: "#ffffff"
 };
 const secondaryColor = {
   light: "rgba(15, 52, 96, 0.2)",
-  main: "rgba(15, 52, 96, 1)",
+  main: "#469AE0",
   dark: "#303A47",
   text: "#ffffff",
   900: "#041533",

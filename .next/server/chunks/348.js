@@ -707,13 +707,13 @@ __webpack_require__.d(__webpack_exports__, {
 var external_react_ = __webpack_require__(6689);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
 // EXTERNAL MODULE: ./src/components/Box.js
-var Box = __webpack_require__(6883);
+var components_Box = __webpack_require__(6883);
 // EXTERNAL MODULE: ./src/components/FlexBox.js
-var FlexBox = __webpack_require__(2938);
+var components_FlexBox = __webpack_require__(2938);
 // EXTERNAL MODULE: ./src/components/icon/Icon.js + 1 modules
-var Icon = __webpack_require__(5937);
+var icon_Icon = __webpack_require__(5937);
 // EXTERNAL MODULE: ./src/components/Typography.js
-var Typography = __webpack_require__(2278);
+var components_Typography = __webpack_require__(2278);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 ;// CONCATENATED MODULE: ./src/components/AppStore.js
@@ -726,15 +726,15 @@ var jsx_runtime_ = __webpack_require__(997);
 
 
 const AppStore = () => {
-  return /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+  return /*#__PURE__*/_jsx(FlexBox, {
     flexWrap: "wrap",
     m: "-0.5rem",
     flexDirection: "column",
-    children: appList.map(item => /*#__PURE__*/jsx_runtime_.jsx("a", {
+    children: appList.map(item => /*#__PURE__*/_jsx("a", {
       href: "/",
       target: "_blank",
       rel: "noreferrer noopener",
-      children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Box/* default */.Z, {
+      children: /*#__PURE__*/_jsxs(Box, {
         display: "flex",
         alignItems: "center",
         borderRadius: "5px",
@@ -743,18 +743,18 @@ const AppStore = () => {
         p: "10px 16px",
         cursor: "pointer",
         m: "0.5rem",
-        children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+        children: [/*#__PURE__*/_jsx(Icon, {
           defaultcolor: "auto",
           size: "24px",
           children: item.iconName
-        }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Box/* default */.Z, {
+        }), /*#__PURE__*/_jsxs(Box, {
           ml: "8px",
-          children: [/*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+          children: [/*#__PURE__*/_jsx(Typography, {
             fontSize: "8px",
             fontWeight: "600",
             lineHeight: "1",
             children: item.subtitle
-          }), /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+          }), /*#__PURE__*/_jsx(Typography, {
             fontSize: "14px",
             fontWeight: "900",
             children: item.title
@@ -776,7 +776,7 @@ const appList = [{
   subtitle: "Download on the",
   url: "/"
 }];
-/* harmony default export */ const components_AppStore = (AppStore);
+/* harmony default export */ const components_AppStore = ((/* unused pure expression or super */ null && (AppStore)));
 // EXTERNAL MODULE: ./src/components/Image.js
 var Image = __webpack_require__(2116);
 // EXTERNAL MODULE: ./node_modules/next/link.js
@@ -799,15 +799,15 @@ var Divider = __webpack_require__(1177);
 var useWindowSize = __webpack_require__(7781);
 ;// CONCATENATED MODULE: ./src/components/MyCompany.styled.js
 
-const Company = external_styled_components_default().a.withConfig({
+const MyCompany_styled_Company = external_styled_components_default().a.withConfig({
   displayName: "MyCompanystyled__Company",
   componentId: "sc-3g94pc-0"
 })(["border-radius:10px;background-color:#dfe9ff;padding:12px;display:inline-flex;"]);
-const CompanyImage = external_styled_components_default().div.withConfig({
+const MyCompany_styled_CompanyImage = external_styled_components_default().div.withConfig({
   displayName: "MyCompanystyled__CompanyImage",
   componentId: "sc-3g94pc-1"
 })(["position:relative;width:30px;height:30px;svg{flex-shrink:0;}"]);
-const CompanyText = external_styled_components_default().div.withConfig({
+const MyCompany_styled_CompanyText = external_styled_components_default().div.withConfig({
   displayName: "MyCompanystyled__CompanyText",
   componentId: "sc-3g94pc-2"
 })(["font-size:12px;line-height:130%;color:#1c1917;margin-left:12px;max-width:170px;"]);
@@ -823,19 +823,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-const CompanyIcon = props => /*#__PURE__*/jsx_runtime_.jsx("svg", _objectSpread(_objectSpread({
+const CompanyIcon = props => /*#__PURE__*/_jsx("svg", _objectSpread(_objectSpread({
   xmlns: "http://www.w3.org/2000/svg",
   width: 33,
   height: 33,
   transform: "scale(.8)",
   viewBox: "0 0 40 40"
 }, props), {}, {
-  children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("g", {
-    children: [/*#__PURE__*/jsx_runtime_.jsx("path", {
+  children: /*#__PURE__*/_jsxs("g", {
+    children: [/*#__PURE__*/_jsx("path", {
       fill: "#2b2b2b",
       fillRule: "evenodd",
       d: "M23.352 23.371c.777-.793 2.05-.8 2.84-.02a.104.104 0 0 1 .023.02l4.605 4.676 4.61-4.676a2.008 2.008 0 0 1 2.863 0 2.065 2.065 0 0 1 0 2.906l-4.605 4.676 4.605 4.676a2.065 2.065 0 0 1 0 2.906c-.777.79-2.05.8-2.844.02-.004-.008-.011-.012-.02-.02L30.82 33.86l-4.605 4.676c-.781.79-2.055.8-2.844.02-.008-.008-.016-.012-.02-.02a2.065 2.065 0 0 1 0-2.906l4.606-4.676-4.605-4.676a2.065 2.065 0 0 1 0-2.906zm0 0"
-    }), /*#__PURE__*/jsx_runtime_.jsx("path", {
+    }), /*#__PURE__*/_jsx("path", {
       fill: "none",
       stroke: "#2b2b2b",
       strokeWidth: 4.11,
@@ -845,18 +845,18 @@ const CompanyIcon = props => /*#__PURE__*/jsx_runtime_.jsx("svg", _objectSpread(
 }));
 
 const MyCompany = () => {
-  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Company, {
+  return /*#__PURE__*/_jsxs(Company, {
     href: "https://appx.uz/",
     target: "_blank",
-    children: [/*#__PURE__*/jsx_runtime_.jsx(CompanyImage, {
-      children: /*#__PURE__*/jsx_runtime_.jsx(CompanyIcon, {})
-    }), /*#__PURE__*/jsx_runtime_.jsx(CompanyText, {
+    children: [/*#__PURE__*/_jsx(CompanyImage, {
+      children: /*#__PURE__*/_jsx(CompanyIcon, {})
+    }), /*#__PURE__*/_jsx(CompanyText, {
       children: "Developed and designed by Appx Group"
     })]
   });
 };
 
-/* harmony default export */ const components_MyCompany = (MyCompany);
+/* harmony default export */ const components_MyCompany = ((/* unused pure expression or super */ null && (MyCompany)));
 ;// CONCATENATED MODULE: ./src/components/footer/Footer.js
 
 
@@ -879,7 +879,7 @@ const MyCompany = () => {
 const StyledLink = external_styled_components_default().a.withConfig({
   displayName: "Footer__StyledLink",
   componentId: "sc-1bcc16t-0"
-})(["position:relative;display:block;padding:0.3rem 0rem;color:", ";cursor:pointer;border-radius:4px;:hover{color:", ";}"], (0,utils/* getTheme */.gh)("colors.gray.500"), (0,utils/* getTheme */.gh)("colors.gray.100"));
+})(["position:relative;display:block;padding:0.3rem 0rem;color:#fff;cursor:pointer;border-radius:4px;:hover{color:#121212;}"]);
 
 const Footer = () => {
   const lang = (0,external_react_redux_.useSelector)(state => state.lang.lang);
@@ -888,30 +888,30 @@ const Footer = () => {
     id: 1,
     name_uz: "To’lov turlari",
     name_ru: "Виды оплаты",
-    slug: '/page/tolov-turlari'
+    slug: "/page/tolov-turlari"
   }, {
     id: 2,
     name_uz: "Yetkazib berish xizmati haqida",
     name_ru: "О службе доставки",
-    slug: '/page/yetkazib-berish'
+    slug: "/page/yetkazib-berish"
   }, {
     id: 3,
     name_uz: "Biz haqimizda",
     name_ru: "О нас",
-    slug: '/page/biz-haqimizda'
+    slug: "/page/biz-haqimizda"
   }, {
     id: 4,
     name_uz: "Aksiyalar va qaynoq chegirmalar",
     name_ru: "Акции и горячие скидки",
-    slug: '/page/aksiyalar'
+    slug: "/page/aksiyalar"
   }];
   return /*#__PURE__*/jsx_runtime_.jsx("footer", {
-    children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Box/* default */.Z, {
-      bg: "#0F3460",
+    children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Box/* default */.Z, {
+      bg: "#469AE0",
       children: [/*#__PURE__*/jsx_runtime_.jsx(Container/* default */.Z, {
         p: "1rem",
         color: "white",
-        children: /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
+        children: /*#__PURE__*/jsx_runtime_.jsx(components_Box/* default */.Z, {
           overflow: "hidden",
           children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
             container: true,
@@ -923,44 +923,25 @@ const Footer = () => {
               sm: 6,
               xs: 12,
               alignSelf: "center",
-              children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+              children: /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
                 justifyContent: "space-around",
                 alignItems: "center",
-                flexDirection: windowSize <= 768 ? 'column' : 'row',
-                children: [/*#__PURE__*/jsx_runtime_.jsx((link_default()), {
+                flexDirection: windowSize <= 768 ? "column" : "row",
+                children: /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
                   href: "/",
                   children: /*#__PURE__*/jsx_runtime_.jsx("a", {
                     children: /*#__PURE__*/jsx_runtime_.jsx(Image/* default */.Z, {
-                      mb: "1.25rem",
-                      src: "/sdb_svg_logo.svg",
-                      width: "100px",
-                      height: "100px",
-                      layout: "responsive",
-                      objectFit: "contain",
-                      alt: "logo"
+                      src: "/logo-white.png",
+                      width: "150px",
+                      height: "150px",
+                      layout: "fill",
+                      alt: "logo",
+                      style: {
+                        objectFit: "contain"
+                      }
                     })
                   })
-                }), windowSize <= 768 ? /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
-                  className: "flex",
-                  mx: "-5px",
-                  children: iconList.map(item => /*#__PURE__*/jsx_runtime_.jsx("a", {
-                    href: item.url,
-                    target: "_blank",
-                    rel: "noreferrer noopenner",
-                    children: /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
-                      m: "5px",
-                      size: "small",
-                      p: "10px",
-                      bg: "rgba(0,0,0,0.2)",
-                      borderRadius: "50%",
-                      children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
-                        size: "12px",
-                        defaultcolor: "auto",
-                        children: item.iconName
-                      })
-                    })
-                  }, item.iconName))
-                }) : /*#__PURE__*/jsx_runtime_.jsx(components_AppStore, {})]
+                })
               })
             }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Grid/* default */.Z, {
               item: true,
@@ -968,17 +949,17 @@ const Footer = () => {
               md: 4,
               sm: 6,
               xs: 12,
-              children: [/*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+              children: [/*#__PURE__*/jsx_runtime_.jsx(components_Typography/* default */.ZP, {
                 fontSize: "25px",
                 fontWeight: "600",
                 mb: "1.25rem",
                 lineHeight: "1",
-                children: lang === 'uz' ? 'Ma’lumotlar' : 'Информация'
+                children: lang === "uz" ? "Ma’lumotlar" : "Информация"
               }), /*#__PURE__*/jsx_runtime_.jsx("div", {
                 children: aboutLinks.map((item, ind) => /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
                   href: item?.slug,
                   children: /*#__PURE__*/jsx_runtime_.jsx(StyledLink, {
-                    children: lang === 'uz' ? item?.name_uz : item?.name_ru
+                    children: lang === "uz" ? item?.name_uz : item?.name_ru
                   })
                 }, ind))
               })]
@@ -988,39 +969,39 @@ const Footer = () => {
               md: 4,
               sm: 6,
               xs: 12,
-              children: [/*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+              children: [/*#__PURE__*/jsx_runtime_.jsx(components_Typography/* default */.ZP, {
                 fontSize: "25px",
                 fontWeight: "600",
                 mb: "1.25rem",
                 lineHeight: "1",
-                children: lang === 'uz' ? 'Aloqa' : 'Коммуникация'
-              }), /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+                children: lang === "uz" ? "Aloqa" : "Коммуникация"
+              }), /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* default */.ZP, {
                 py: "0.3rem",
-                color: "gray.500",
-                children: lang === 'uz' ? 'Xorazm, Urganch Shahar, Buyum Bozori. Raysentr' : 'Хорезм, город Ургенч, Буюм базар. Райцентр'
-              }), /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+                color: "white",
+                children: lang === "uz" ? "Xorazm, Urganch Shahar, TATUUF" : "Хорезм, город Ургенч TATUUF"
+              }), /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* default */.ZP, {
                 py: "0.3rem",
-                color: "gray.500",
-                children: "Email: info@sdb.uz"
-              }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* default */.ZP, {
+                color: "white",
+                children: "Email: info@fashionista.uz"
+              }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Typography/* default */.ZP, {
                 py: "0.3rem",
                 mb: "1rem",
-                color: "gray.500",
-                children: [lang === 'uz' ? 'Telefon raqam' : 'Телефонный номер', ": +998 94 110 06 06"]
-              }), windowSize <= 768 ? null : /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+                color: "white",
+                children: [lang === "uz" ? "Telefon raqam" : "Телефонный номер", ": +998 99 999 99 99"]
+              }), windowSize <= 768 ? null : /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
                 className: "flex",
                 mx: "-5px",
                 children: iconList.map(item => /*#__PURE__*/jsx_runtime_.jsx("a", {
                   href: item.url,
                   target: "_blank",
                   rel: "noreferrer noopenner",
-                  children: /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
+                  children: /*#__PURE__*/jsx_runtime_.jsx(components_Box/* default */.Z, {
                     m: "5px",
                     size: "small",
                     p: "10px",
                     bg: "rgba(0,0,0,0.2)",
                     borderRadius: "50%",
-                    children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+                    children: /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
                       size: "12px",
                       defaultcolor: "auto",
                       children: item.iconName
@@ -1032,18 +1013,18 @@ const Footer = () => {
           })
         })
       }), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {}), /*#__PURE__*/jsx_runtime_.jsx(Container/* default */.Z, {
-        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+        children: /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
           alignItems: "center",
           justifyContent: "space-between",
           py: "24px",
-          children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* default */.ZP, {
+          children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Typography/* default */.ZP, {
             fontSize: "18px",
             fontWeight: "600",
             lineHeight: "1",
             textAlign: "center",
             color: "#fff",
-            children: ["Copyright \xA9 Samsung Dehqon bozor , ", new Date().getFullYear()]
-          }), /*#__PURE__*/jsx_runtime_.jsx(components_MyCompany, {})]
+            children: ["Copyright \xA9 Fashionista, ", new Date().getFullYear()]
+          })
         })
       })]
     })
@@ -1141,20 +1122,20 @@ const MiniCart = ({
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(StyledMiniCart, {
     children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
       className: "cart-list",
-      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
         alignItems: "center",
         m: "0px 20px",
         height: "74px",
-        children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+        children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
           size: "1.75rem",
           children: "bag"
-        }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* default */.ZP, {
+        }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Typography/* default */.ZP, {
           fontWeight: 600,
           fontSize: "16px",
           ml: "0.5rem",
           children: [cartList?.length, " ", lang === 'uz' ? 'mahsulot' : 'продукт']
         })]
-      }), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {}), !!!cartList?.length && /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+      }), /*#__PURE__*/jsx_runtime_.jsx(Divider/* default */.Z, {}), !!!cartList?.length && /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
@@ -1163,7 +1144,7 @@ const MiniCart = ({
           src: "/bag_blue.png",
           width: "90px",
           height: "100%"
-        }), /*#__PURE__*/jsx_runtime_.jsx(Typography/* Paragraph */.nv, {
+        }), /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* Paragraph */.nv, {
           mt: "1rem",
           color: "text.muted",
           textAlign: "center",
@@ -1173,7 +1154,7 @@ const MiniCart = ({
       }), cartList?.map(item => /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_.Fragment, {
         children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
           className: "cart-item",
-          children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+          children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
             alignItems: "center",
             flexDirection: "column",
             children: [/*#__PURE__*/jsx_runtime_.jsx(Button/* default */.Z, {
@@ -1186,11 +1167,11 @@ const MiniCart = ({
               onClick: () => {
                 handleAddBtn(item?.product_id);
               },
-              children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+              children: /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
                 variant: "small",
                 children: "plus"
               })
-            }), /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+            }), /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* default */.ZP, {
               fontWeight: 600,
               fontSize: "15px",
               my: "3px",
@@ -1206,7 +1187,7 @@ const MiniCart = ({
               onClick: () => {
                 handleRemoveBtn(item?.product_id);
               },
-              children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+              children: /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
                 variant: "small",
                 children: "minus"
               })
@@ -1227,23 +1208,23 @@ const MiniCart = ({
             children: [/*#__PURE__*/jsx_runtime_.jsx((link_default()), {
               href: `/product/${item.slug}`,
               children: /*#__PURE__*/jsx_runtime_.jsx("a", {
-                children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H5, {
+                children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography.H5, {
                   className: "title",
                   fontSize: "14px",
                   children: lang === 'uz' ? item.name_uz : item.name_ru
                 })
               })
-            }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* Tiny */.YE, {
+            }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Typography/* Tiny */.YE, {
               color: "text.muted",
               children: [Math.ceil(item?.price).toLocaleString(), " UZS x ", item.qty]
-            }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* default */.ZP, {
+            }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Typography/* default */.ZP, {
               fontWeight: 600,
               fontSize: "14px",
               color: "primary.main",
               mt: "4px",
               children: [Math.ceil(item?.qty * item?.price).toLocaleString(), " UZS"]
             })]
-          }), /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+          }), /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
             className: "clear-icon",
             size: "1rem",
             ml: "1.25rem",
@@ -1260,7 +1241,7 @@ const MiniCart = ({
           color: "primary",
           m: "1rem 1rem 0.75rem",
           onClick: toggleSidenav,
-          children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(Typography/* default */.ZP, {
+          children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Typography/* default */.ZP, {
             fontWeight: 600,
             children: [lang === 'uz' ? 'Rasmiylashtirish' : 'Оформить', " (", getTotalPrice().toLocaleString(), " UZS)"]
           })
@@ -1272,7 +1253,7 @@ const MiniCart = ({
           variant: "outlined",
           m: "0px 1rem 0.75rem",
           onClick: toggleSidenav,
-          children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+          children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* default */.ZP, {
             fontWeight: 600,
             children: lang === 'uz' ? "Savatchani ko`rish" : 'Посмотреть корзину'
           })
@@ -1496,13 +1477,13 @@ const SearchBox = () => {
   // 	getSearchedProducts(title)(dispatch)
   // }, [title])
 
-  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Box/* default */.Z, {
+  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_Box/* default */.Z, {
     position: "relative",
     flex: "1 1 0",
     maxWidth: "600px",
     mx: "auto",
     children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(SearchBoxStyle, {
-      children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+      children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
         className: "search-icon",
         size: "18px",
         children: "search"
@@ -1523,7 +1504,7 @@ const SearchBox = () => {
       children: resultList?.map(item => /*#__PURE__*/jsx_runtime_.jsx((link_default()), {
         href: `/product/${item?.slug}`,
         children: /*#__PURE__*/jsx_runtime_.jsx(MenuItem/* default */.Z, {
-          children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Span */.Dr, {
+          children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* Span */.Dr, {
             fontSize: "14px",
             children: item?.name_uz
           })
@@ -1671,17 +1652,17 @@ const Header = ({
     cartList
   } = state.cart;
 
-  const cartHandle = /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+  const cartHandle = /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
     ml: "20px",
     alignItems: "flex-start",
     children: [/*#__PURE__*/jsx_runtime_.jsx(IconButton/* default */.Z, {
       bg: "gray.200",
       p: "12px",
-      children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+      children: /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
         size: "20px",
         children: "bag"
       })
-    }), !!cartList?.length && /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+    }), !!cartList?.length && /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
       borderRadius: "300px",
       bg: "error.main",
       px: "5px",
@@ -1690,7 +1671,7 @@ const Header = ({
       justifyContent: "center",
       ml: "-1rem",
       mt: "-9px",
-      children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Tiny */.YE, {
+      children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* Tiny */.YE, {
         color: "white",
         fontWeight: "600",
         children: cartList?.reduce((acc, item) => acc + item.qty, 0)
@@ -1705,7 +1686,7 @@ const Header = ({
       alignItems: "center",
       justifyContent: "space-between",
       height: "100%",
-      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
         className: "logo",
         width: "200px" // height="200px"
         ,
@@ -1714,7 +1695,7 @@ const Header = ({
           href: "/",
           children: /*#__PURE__*/jsx_runtime_.jsx("a", {
             children: /*#__PURE__*/jsx_runtime_.jsx(Image/* default */.Z, {
-              src: "/SDB_logo_1.png",
+              src: "/logo.png",
               width: "100%",
               height: "100%",
               layout: "intrinsic",
@@ -1725,27 +1706,27 @@ const Header = ({
         }), /*#__PURE__*/jsx_runtime_.jsx("div", {
           className: "category-holder",
           children: /*#__PURE__*/jsx_runtime_.jsx(Categories/* default */.Z, {
-            children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+            children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
               color: "text.hint",
               alignItems: "center",
               ml: "1rem",
-              children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+              children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
                 children: "categories"
-              }), /*#__PURE__*/jsx_runtime_.jsx(Typography.H5, {
+              }), /*#__PURE__*/jsx_runtime_.jsx(components_Typography.H5, {
                 color: "text.muted",
                 ml: "7px",
-                children: lang === 'uz' ? 'Menu' : 'Меню'
-              }), /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+                children: lang === "uz" ? "Menu" : "Меню"
+              }), /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
                 children: "arrow-down-filled"
               })]
             })
           })
         })]
-      }), /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+      }), /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
         justifyContent: "center",
         flex: "1 1 0",
         children: /*#__PURE__*/jsx_runtime_.jsx(search_box_SearchBox, {})
-      }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+      }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
         className: "header-right",
         alignItems: "center",
         children: [/*#__PURE__*/jsx_runtime_.jsx(header_UserLoginDialog, {
@@ -1753,12 +1734,12 @@ const Header = ({
             ml: "1rem",
             bg: "gray.200",
             p: "8px",
-            children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+            children: /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
               size: "28px",
               children: "user"
             })
           }),
-          children: /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
+          children: /*#__PURE__*/jsx_runtime_.jsx(components_Box/* default */.Z, {
             children: /*#__PURE__*/jsx_runtime_.jsx(Login/* default */.Z, {})
           })
         }), /*#__PURE__*/jsx_runtime_.jsx(Sidenav/* default */.Z, {
@@ -1852,7 +1833,7 @@ const MobileNavigationBar = () => {
     children: [list.map(item => item?.href ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(NavLink/* default */.Z, {
       className: "link",
       href: item?.href,
-      children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+      children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
         className: "icon",
         variant: "small",
         children: item.icon
@@ -1869,7 +1850,7 @@ const MobileNavigationBar = () => {
     }, item.title) : /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
       className: "link",
       onClick: item?.click,
-      children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+      children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
         className: "icon",
         variant: "small",
         children: item.icon
@@ -1877,7 +1858,7 @@ const MobileNavigationBar = () => {
     }, item.title)), isAuth ? /*#__PURE__*/(0,jsx_runtime_.jsxs)(NavLink/* default */.Z, {
       className: "link",
       href: "/profile",
-      children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+      children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
         className: "icon",
         variant: "small",
         children: 'user-2'
@@ -1885,7 +1866,7 @@ const MobileNavigationBar = () => {
     }) : /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
       className: "link",
       onClick: handleNavbarClick,
-      children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+      children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
         className: "icon",
         variant: "small",
         children: 'user-2'
@@ -2045,18 +2026,18 @@ const Topbar = () => {
       justifyContent: "space-between",
       alignItems: "center",
       height: "100%",
-      children: [window < 768 ? /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+      children: [window < 768 ? /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
         className: "topbar-left",
-        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
           alignItems: "center",
           children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
             className: "category-holder",
             onClick: () => setModalActive(!modalActive),
-            children: /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+            children: /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
               color: "text.hint",
               alignItems: "center",
               mr: "0.8rem",
-              children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+              children: /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
                 color: "white",
                 children: "menu"
               })
@@ -2073,11 +2054,11 @@ const Topbar = () => {
             })
           })]
         })
-      }) : /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+      }) : /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
         className: "topbar-left",
-        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
           alignItems: "center",
-          children: [/*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+          children: [/*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
             size: "14px",
             children: "phone-call"
           }), /*#__PURE__*/jsx_runtime_.jsx("span", {
@@ -2092,18 +2073,18 @@ const Topbar = () => {
         style: {
           padding: '16px'
         },
-        children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+        children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
           alignItems: "center",
           justifyContent: "space-between",
           my: "20px",
-          children: [/*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
+          children: [/*#__PURE__*/jsx_runtime_.jsx(components_Typography.H3, {
             color: "black",
             fontSize: "28px",
             children: lang === 'uz' ? 'Kategoriyalar' : 'Категории'
           }), /*#__PURE__*/jsx_runtime_.jsx("button", {
             className: "category_modal-btn",
             onClick: () => setModalActive(false),
-            children: /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+            children: /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
               children: "close"
             })
           })]
@@ -2116,9 +2097,9 @@ const Topbar = () => {
                 backgroundColor: '#F6F9FC',
                 borderRadius: '8px'
               },
-              children: /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+              children: /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
                 alignItems: "center",
-                children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* default */.ZP, {
+                children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* default */.ZP, {
                   fontWeight: "600",
                   fontSize: "18px",
                   ml: "10px",
@@ -2126,7 +2107,7 @@ const Topbar = () => {
                   children: lang === 'uz' ? item?.name_uz : item?.name_ru
                 })
               })
-            }), /*#__PURE__*/jsx_runtime_.jsx(Box/* default */.Z, {
+            }), /*#__PURE__*/jsx_runtime_.jsx(components_Box/* default */.Z, {
               pl: "15px",
               mb: "2rem",
               mt: "0.5rem",
@@ -2144,7 +2125,7 @@ const Topbar = () => {
                       style: {
                         marginBottom: '10px'
                       },
-                      children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
+                      children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography.H3, {
                         mb: "5px",
                         fontSize: "15px",
                         children: lang === 'uz' ? el?.name_uz : el?.name_ru
@@ -2155,7 +2136,7 @@ const Topbar = () => {
                       href: "/products/" + link?.slug,
                       children: /*#__PURE__*/jsx_runtime_.jsx("a", {
                         onClick: () => setModalActive(false),
-                        children: /*#__PURE__*/jsx_runtime_.jsx(Typography.H3, {
+                        children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography.H3, {
                           mb: "5px",
                           fontSize: "15px",
                           fontWeight: "300",
@@ -2169,27 +2150,27 @@ const Topbar = () => {
             })]
           }, ind);
         })]
-      }), /*#__PURE__*/jsx_runtime_.jsx(FlexBox/* default */.Z, {
+      }), /*#__PURE__*/jsx_runtime_.jsx(components_FlexBox/* default */.Z, {
         className: "topbar-right",
         alignItems: "center",
         children: /*#__PURE__*/jsx_runtime_.jsx(components_Menu, {
           direction: "right",
-          handler: /*#__PURE__*/(0,jsx_runtime_.jsxs)(FlexBox/* default */.Z, {
+          handler: /*#__PURE__*/(0,jsx_runtime_.jsxs)(components_FlexBox/* default */.Z, {
             className: "dropdown-handler",
             alignItems: "center",
             height: "40px",
             mr: "1.25rem",
-            children: [/*#__PURE__*/jsx_runtime_.jsx(Typography/* Small */.x4, {
+            children: [/*#__PURE__*/jsx_runtime_.jsx(components_Typography/* Small */.x4, {
               fontWeight: "600",
               children: language.title
-            }), /*#__PURE__*/jsx_runtime_.jsx(Icon/* default */.Z, {
+            }), /*#__PURE__*/jsx_runtime_.jsx(icon_Icon/* default */.Z, {
               size: "1rem",
               children: "chevron-down"
             })]
           }),
           children: languageList.map(item => /*#__PURE__*/jsx_runtime_.jsx(MenuItem/* default */.Z, {
             onClick: handleLanguageClick(item),
-            children: /*#__PURE__*/jsx_runtime_.jsx(Typography/* Small */.x4, {
+            children: /*#__PURE__*/jsx_runtime_.jsx(components_Typography/* Small */.x4, {
               fontWeight: "600",
               children: item.title
             })

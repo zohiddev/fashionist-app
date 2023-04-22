@@ -236,18 +236,7 @@ const App = ({
       children: /*#__PURE__*/jsx_runtime_.jsx(Component, _app_objectSpread({}, pageProps))
     })]
   });
-}; // Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimization, causing every page in your app to
-// be server-side rendered.
-//
-// App.getInitialProps = async (appContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-//
-//   return { ...appProps }
-// }
-
+};
 
 /* harmony default export */ const _app = (wrapper.withRedux(App));
 
@@ -289,7 +278,7 @@ const setHeaderContent = content => ({
 /***/ 4298:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__(2189)
+/* unused reexport */ __webpack_require__(2189)
 
 
 /***/ }),
@@ -350,7 +339,7 @@ module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
-/***/ 5429:
+/***/ 4957:
 /***/ ((module) => {
 
 "use strict";
