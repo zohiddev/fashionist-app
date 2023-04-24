@@ -77,7 +77,9 @@ export async function getStaticProps() {
         fetch(
             "https://ecommerce.main-gate.appx.uz/dev/v1/product/list?sort=views,desc&per_page=9"
         ),
-        fetch("https://api.sdb.uz/dev/v1/category/smartfonlar?per_page=12"),
+        fetch(
+            "https://ecommerce.main-gate.appx.uz/dev/v1/category/ayollar-kiyimi?per_page=12"
+        ),
         fetch(
             "https://ecommerce.main-gate.appx.uz/dev/v1/product/list?type=new&per_page=12"
         ),
