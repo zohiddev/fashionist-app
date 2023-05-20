@@ -31,17 +31,21 @@ const App = ({ Component, pageProps }) => {
                     httpEquiv='Content-Type'
                     content='text/html; charset=utf-8'
                 />
-                <meta property='og:url' content='https://sdb.uz' />
+                <meta
+                    property='og:url'
+                    content='https://fashionist-shop.vercel.app'
+                />
                 {/* thumbnail And title for social media */}
                 <meta property='og:type' content='website' />
                 <meta
                     property='og:title'
-                    content="Samsung dexqon bozor - Onlayn do'kon"
+                    content="Fashionista - Kiyimlar do'koni"
                 />
                 <meta
                     property='og:description'
-                    content='Hamyonbop narxlarda minglab tovarlar: elektronika, smartfonlar, smart soatlar, maishiy texnikalar va poyabzal, kompyuterlar ....'
+                    content='Hamyonbop narxlarda minglab kiyim kechaklar...'
                 />
+                `
                 <meta property='og:image' content='banner.jpg' />
             </Head>
             <GlobalStyles />

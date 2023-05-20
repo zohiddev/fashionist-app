@@ -50,7 +50,7 @@ const IndexPage = ({
         <main>
             <SliderHero slides={slides} />
             <MostViewed mostViewedProducts={mostViewedProducts} />
-            <Smartphones smartphones={smartphones} />
+            {/* <Smartphones smartphones={smartphones} /> */}
             <SliderLower slides={slides} />
             <SomeProducts recommendedProducts={newProducts} />
             <Services />
@@ -89,14 +89,14 @@ export async function getStaticProps() {
         featuredBrands,
         slides,
         mostViewedProducts,
-        smartphones,
+        // smartphones,
         newProducts,
     ] = await Promise.all([
         categoriesRes.json(),
         featuredBrandsRes.json(),
         slidesRes.json(),
         mostViewedProductsRes.json(),
-        smartphonesRes.json(),
+        // smartphonesRes.json(),
         newProductsRes.json(),
     ]);
     return {
@@ -105,7 +105,7 @@ export async function getStaticProps() {
             featuredBrands: featuredBrands?.brands,
             slides: slides?.events,
             mostViewedProducts: mostViewedProducts?.products,
-            smartphones: smartphones?.products,
+            // smartphones: smartphones?.products,
             newProducts: newProducts?.products,
         },
         revalidate: 10,

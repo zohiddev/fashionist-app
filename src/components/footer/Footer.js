@@ -209,15 +209,15 @@ const customerCareLinks = [
 const iconList = [
     {
         iconName: "telegram",
-        url: "https://t.me/samsung_dehkonbozor1",
+        url: "https://t.me",
     },
     {
         iconName: "instagram",
-        url: "https://www.instagram.com/samsung_dehkonbozor/",
+        url: "https://www.instagram.com",
     },
     {
         iconName: "youtube",
-        url: "https://www.instagram.com/samsung_dehkonbozor/",
+        url: "https://www.youtube.com",
     },
 ];
 
